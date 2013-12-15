@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="779ef366-707f-4412-8ddc-8e08031d919c" name="UMLUseCaseDiagram1" linkedPackageId="34a2a430-9f31-4516-a72a-7dd6f2c0e2d8" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="4f40f657-9f3c-4e93-bd60-521787ede2ac" name="Joueur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5309e7c2-a033-40db-9e6d-3d649ae0c3ff" />
+        <targetEnds>
+          <association Id="284b56f6-456b-4134-bbd0-40f8bd8c475a" isDerived="false" sourceEndRoleName="Joueur" targetEndRoleName="Lancer une Partie" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9e87ccbd-1883-4e37-ada8-ef3dc89509c6" LastKnownName="Lancer une Partie" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5946c894-ebce-47d6-aba9-4c73d8d29502" name="Joueur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c85eee37-acc8-452c-8fa2-6a084101867d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="efe41ba8-1bcb-4d75-8565-4b168d260bbf" name="Lancer une Partie" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3d735291-31f6-49a4-8973-d1072aa0eb93" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="db9ebcc9-3a68-494d-abec-ee63cce46ec7" />
+          </association>
+          <association Id="4e7b30bb-8512-4059-b203-a4cd5d1ccccb" isDerived="false" sourceEndRoleName="Joueur" targetEndRoleName="Choisir Un peuple" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="79db0ebf-9b56-4323-801a-e2c9724d5b0f" LastKnownName="Choisir Un peuple" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6d18be40-cf2b-4d27-9a63-79b66fc8afae" name="Joueur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="efc52372-42ef-48f9-b52b-7c08c3f8e7b8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="26cc8a48-06c2-48ba-8687-ebd84658eb51" name="Choisir Un peuple" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e3687b13-156d-4c64-9eb3-76ec10fcca5c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b7ca0ff4-d315-41dc-afd2-3822884dd35f" />
+          </association>
+          <association Id="c00d3566-567b-4fee-b202-43f1df1d18b7" isDerived="false" sourceEndRoleName="Joueur" targetEndRoleName="Jouer" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="fe395837-43ab-4396-92b7-bf645ee5b4d4" LastKnownName="Jouer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="039219cf-1ea5-44a3-b314-a5dca84c7c0c" name="Joueur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c6c36f92-e6c2-456d-b9ba-ab927403edc4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d3ac3d24-445c-47c9-9625-8e33bd62d922" name="Jouer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d84cd474-bd09-489a-941a-948fbfa68ad5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="58dd630c-01e9-47a1-9ce5-9ccba00f41b0" />
+          </association>
+          <association Id="4330c8bf-18a1-4f1a-a6c8-846458ab4ac5" isDerived="false" sourceEndRoleName="Joueur" targetEndRoleName="IA ou Joueur 2" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="1146cb28-8fc6-4fda-aef5-da52d9d25d2a" LastKnownName="IA ou Joueur 2" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e8a6c1ac-1496-413b-a443-085a1da9b92a" name="Joueur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a62f91a8-0417-4a96-9a4b-38072592bfad" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="de89045b-f65a-47bf-8feb-2d6095278ff9" name="IA ou Joueur 2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cfff078f-e0d1-4df5-8320-955ab1dcb39a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e72f32f4-3007-464b-9d9c-031cabc2912d" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9e87ccbd-1883-4e37-ada8-ef3dc89509c6" name="Lancer une Partie" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="be7cc264-576d-45cb-b3cd-946b92c30b04" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="79db0ebf-9b56-4323-801a-e2c9724d5b0f" name="Choisir Un peuple" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9fba366f-31e0-4db5-91af-4fd28246a517" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fe395837-43ab-4396-92b7-bf645ee5b4d4" name="Jouer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4da7c452-800e-4ce9-85fc-2993e2d641a5" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="523761ee-c48b-4282-8a95-9d51e7e0cb3f" name="Jouer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="84980a49-15eb-4f27-b88e-0058e4fd14e0" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="e725c72f-85fe-426a-9bb5-e743aaa7a3de" name="Joueur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="46f36d89-a3d1-438d-bc2f-c0d8f7e8ca94" />
+        <targetEnds>
+          <association Id="2eb799de-f6b8-40b8-9681-43c9409a98a4" isDerived="false" sourceEndRoleName="Joueur" targetEndRoleName="Deplacer  les Unités" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ab56f1b4-f2e1-4744-8777-f471d125dfba" LastKnownName="Deplacer  les Unités" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1e40995d-02ab-48de-ace0-0005524a7626" name="Joueur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e2b4e599-f843-4d42-9291-1b365594e7ff" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ab576b8b-8008-41a9-b1b5-97324d0797e3" name="Deplacer  les Unités" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="89ceb731-314f-4fe5-9692-b9596ebb4564" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="91f47f1d-6cae-44bb-bbf0-e4f92635f7ff" />
+          </association>
+          <association Id="f163daad-7420-40de-bef1-b3edeb6fdd16" isDerived="false" sourceEndRoleName="Joueur" targetEndRoleName="Fin des actions du Joueur" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="0aaedacd-baca-4181-a89a-6d1c89bfc6dc" LastKnownName="Fin des actions du Joueur" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e49efc61-fea5-4e39-9c98-a606294b25ef" name="Joueur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="177589f6-38b5-4880-8d91-0334da21e920" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="08d335e2-e377-45e1-ada5-ccfc5b147225" name="Fin des actions du Joueur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="daed43d9-be71-4033-8baa-d264838e3eb7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f3179beb-6b83-4aa8-83e7-6cd605f0a38d" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="ab56f1b4-f2e1-4744-8777-f471d125dfba" name="Deplacer  les Unités" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7887ef1b-1785-4b90-9442-05f94c1f943d" />
+        <suppliersInternal>
+          <dependency Id="7939eda9-a60d-4384-8bef-80ca78af3bac">
+            <useCaseMoniker Id="7e5fc0d7-67c8-4959-8fb6-1b1a01bea426" LastKnownName="Passer son tour" />
+            <elementDefinition Id="b85d1676-1c2f-4566-8b61-093dcf10bdae" />
+          </dependency>
+          <dependency Id="fa285027-7ebe-4e2a-90f9-c8b8769ce229">
+            <useCaseMoniker Id="cdb1cc36-764a-4e4d-aa68-a483444fa1be" LastKnownName="Deplacement unité" />
+            <elementDefinition Id="649f65d1-228d-4cab-b562-30ab7d3fb3f8" />
+          </dependency>
+          <dependency Id="b63c9155-98ff-483a-8c9b-d13cfa53eab3">
+            <useCaseMoniker Id="471825c4-7a1a-4833-953c-525a37a06d60" LastKnownName="Attaquer" />
+            <elementDefinition Id="2aa8f6ba-7829-42be-a615-558dd80eabb8" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="523761ee-c48b-4282-8a95-9d51e7e0cb3f" LastKnownName="Jouer" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="7e5fc0d7-67c8-4959-8fb6-1b1a01bea426" name="Passer son tour" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c75d987c-2abe-465c-ba56-d986d0323e0e" />
+        <subjects>
+          <subsystemMoniker Id="523761ee-c48b-4282-8a95-9d51e7e0cb3f" LastKnownName="Jouer" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="cdb1cc36-764a-4e4d-aa68-a483444fa1be" name="Deplacement unité" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b8bf0d0f-d386-4ce5-9c8b-45cf207008ef" />
+        <subjects>
+          <subsystemMoniker Id="523761ee-c48b-4282-8a95-9d51e7e0cb3f" LastKnownName="Jouer" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="f4284d66-484b-4ada-af14-885d7fd267e4" name="Unité" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="35b69419-f879-419c-9651-f38f9389c1e1" />
+        <targetEnds>
+          <association Id="1e8aed9a-8a99-47bf-aa3b-619bf28394db" isDerived="false" sourceEndRoleName="Unité" targetEndRoleName="Passer son tour" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7e5fc0d7-67c8-4959-8fb6-1b1a01bea426" LastKnownName="Passer son tour" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="049de309-508e-40d2-afb1-355f6cd95507" name="Unité" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a587fdda-0dc3-491a-a5dc-8ffea6cfce07" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b092a943-c840-47e9-bc0e-f167ce362727" name="Passer son tour" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3fbd36ec-d7f4-4729-888b-1c53a2bb83d8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bd5b32a1-ce11-439c-b6df-b03164ab84be" />
+          </association>
+          <association Id="6c783705-731a-453e-8358-9e3a6fce9071" isDerived="false" sourceEndRoleName="Unité" targetEndRoleName="Deplacement unité" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="cdb1cc36-764a-4e4d-aa68-a483444fa1be" LastKnownName="Deplacement unité" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a6b5b323-bae9-4e00-ba62-4ba0a05e66a3" name="Unité" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="285d0835-a319-4d74-8be5-588a204bcd10" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="72b2ba67-6cd7-4267-b7cc-3d1420146376" name="Deplacement unité" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f64a68da-c1af-43f8-aa70-e156faec4012" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="86a265c2-d9d9-43f5-89d2-7a8734d75f15" />
+          </association>
+          <association Id="180147ce-e135-4215-9591-3c17f51646c9" isDerived="false" sourceEndRoleName="Unité" targetEndRoleName="Attaquer" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="471825c4-7a1a-4833-953c-525a37a06d60" LastKnownName="Attaquer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="818cb3b0-b2e0-4119-89d5-f8cc1a1d6a9a" name="Unité" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5ab1a2c9-29e7-44dd-8152-495ede6d822a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="02e93bb2-f598-47ca-97af-c1a9df572dca" name="Attaquer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="32b19f94-1396-4f84-9e55-42f77281cec5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b99b9770-55cb-466b-bd3d-4b953d5b069d" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="471825c4-7a1a-4833-953c-525a37a06d60" name="Attaquer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7719f7f2-0c4d-4365-b65d-642dece45050" />
+        <subjects>
+          <subsystemMoniker Id="523761ee-c48b-4282-8a95-9d51e7e0cb3f" LastKnownName="Jouer" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="0aaedacd-baca-4181-a89a-6d1c89bfc6dc" name="Fin des actions du Joueur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="96e1653b-5418-48bc-9592-ac5bb6bb3c1f" />
+        <subjects>
+          <subsystemMoniker Id="523761ee-c48b-4282-8a95-9d51e7e0cb3f" LastKnownName="Jouer" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9bc60219-7160-4602-81f9-f70dca8685d3" name="Fin de Partie" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2c773bff-a1e6-4aea-9883-568ea96901b1" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="8d7c15b7-4dbc-4e43-a0fd-54a50153da5a" name="Système" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1a608ca2-136a-43f2-96f9-09110ae26e27" />
+        <targetEnds>
+          <association Id="e08f7a37-617c-4e5d-9e38-eadb4835d56b" isDerived="false" sourceEndRoleName="Système" targetEndRoleName="Fin de Partie" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9bc60219-7160-4602-81f9-f70dca8685d3" LastKnownName="Fin de Partie" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ced9d6ed-610e-4eb6-9e98-feb502d9e4ea" name="Système" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="bc492092-4d76-4d29-888f-55e4a760b0f8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bad3879a-9597-4c18-9a2d-5ffa8add782a" name="Fin de Partie" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8b120bc8-65bc-49e1-aeeb-42a09c18ab99" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="caa15e2a-3908-4eb0-915e-42acbd9c185b" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b10e143f-9e58-48ce-a404-a1a29de4b4c9" name="Fin du nombre de tours" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="80197bef-0c8f-4e12-8e6d-48fe2ea0c776" />
+        <suppliersInternal>
+          <dependency Id="448b2f35-d93f-455d-b865-4f6bc3a88c24">
+            <useCaseMoniker Id="9bc60219-7160-4602-81f9-f70dca8685d3" LastKnownName="Fin de Partie" />
+            <elementDefinition Id="49f3cf97-694e-4830-bebd-10879ae999c3" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="142edebe-3d4c-435c-9e00-a0443b41ddc1" name="Plus d'unité pour un Joueur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="afa54166-4717-49cd-904b-540da91ab6b9" />
+        <suppliersInternal>
+          <dependency Id="24c41310-5371-47e0-b1d4-e6461f97d625">
+            <useCaseMoniker Id="9bc60219-7160-4602-81f9-f70dca8685d3" LastKnownName="Fin de Partie" />
+            <elementDefinition Id="5c6ee245-6632-4500-84eb-4ac327ee21a3" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="1146cb28-8fc6-4fda-aef5-da52d9d25d2a" name="IA ou Joueur 2" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="922d9f73-69a1-4cc7-a415-8573ed62c30b" />
+      </actor>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="34a2a430-9f31-4516-a72a-7dd6f2c0e2d8" name="ModelisationSmallWorld">
+    <elementDefinition Id="de01b343-f1ef-44e9-a590-0e37951c2844" />
+    <profileInstances>
+      <packageHasProfileInstances Id="253561db-0987-45f6-949a-0985afd3840f">
+        <profileInstance Id="c3cd1543-a5f2-4374-80c1-880d17b75d67" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="38704dd1-ec91-4664-9711-4d3e71a59e76">
+        <profileInstance Id="c7769749-4d6a-417f-8f4f-cc4cea3bef6b" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>
