@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <ScrollViewer HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="517" Margin="0,12,0,0"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="517" Margin="0,12,0,0">
+            <Button Content="Button" Width="75"/>
+        </ScrollViewer>
 
     </Grid>
 </Window>

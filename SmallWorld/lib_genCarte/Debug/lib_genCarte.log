@@ -1,5 +1,18 @@
-﻿La génération a démarré 21/12/2013 13:41:10.
+﻿La génération a démarré 21/12/2013 14:51:03.
+     1>Projet "C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\lib_genCarte\lib_genCarte.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>c:\users\aurelien\desktop\projets\poo\smallworld\git\poo\smallworld\lib_gencarte\source.cpp(24): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\rc.exe /l"0x0409" /nologo /fo"Debug\lib_genCarte.res" lib_genCarte.rc 
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\Debug\lib_genCarte.lib" /NOLOGO Debug\lib_genCarte.res
+         Debug\Source.obj
+     1>LINK : warning LNK4068: /MACHINE non spÚcifiÚá; X86 pris par dÚfaut
+         lib_genCarte.vcxproj -> C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\Debug\lib_genCarte.lib
+     1>Génération du projet "C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\lib_genCarte\lib_genCarte.vcxproj" terminée (Build cible(s)).
 
 La génération a réussi.
 
-Temps écoulé 00:00:00.01
+Temps écoulé 00:00:00.75

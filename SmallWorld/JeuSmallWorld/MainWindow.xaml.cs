@@ -49,34 +49,30 @@ namespace JeuSmallWorld
                 int** cases;
                 cases = wa.remplirCarte();
             
-                wa.positionJoueur(xJ1,yJ1,xJ2,yJ2);
+                 wa.positionJoueur(xJ1,yJ1,xJ2,yJ2);
 
-                for (i = 0; i < n; i++)
-                {
-                    for (j = 0; j < n; j++)
-                    {
-                        switch (cases[i][j])
-                        {
-                            case (int)TypeCase.MONTAGNE:
-                            //    System.Drawing.Point un = new System.Drawing.Point(i, j);
-                            //    montagne = JeuSmallWorld.Properties.Resources.montagne;
-                            //    BitmapSource objet = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(montagne.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-                            //    Graphics.DrawImage(objet, new System.Drawing.Point[10]); // new Rect(0, 0, montagne.Width, montagne.Height)
-                                break;
-                            case (int)TypeCase.PLAINE:
-                                break;
-                            case (int)TypeCase.DESERT:
-                                break;
-                            case (int)TypeCase.EAU:
-                                break;
-                            case (int)TypeCase.FORET:
-                                break;
-                            default:
-                                break;
+                 for (i = 0; i < n; i++)
+                 {
+                     for (j = 0; j < n; j++)
+                     {
+                         switch (cases[i][j])
+                         {
+                             case (int)TypeCase.MONTAGNE:
+                                 break;
+                             case (int)TypeCase.PLAINE:
+                                 break;
+                             case (int)TypeCase.DESERT:
+                                 break;
+                             case (int)TypeCase.EAU:
+                                 break;
+                             case (int)TypeCase.FORET:
+                                 break;
+                             default:
+                                 break;
 
-                        }
-                    }
-                }
+                         }
+                     }
+                 }
             }
         }
         protected override void OnRender(DrawingContext dc)
