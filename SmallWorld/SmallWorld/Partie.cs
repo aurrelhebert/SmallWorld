@@ -7,7 +7,7 @@ namespace SmallWorld
 {
     public interface Partie
     {
-        void gestionUnites(List unite);
+        void gestionUnites(List<Unite> unite);
 
         void executionTour();
 

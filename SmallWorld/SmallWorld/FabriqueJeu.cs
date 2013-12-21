@@ -9,7 +9,7 @@ namespace SmallWorld
     {
         Joueur creerJoueur(String nom, Peuple peuple);
 
-        Partie creerPartie(int nombreTour, Joueur j1, Joueur j2, Carte carte, List listeUniteJoueur1, List listeUniteJoueur2);
+        Partie creerPartie(int nombreTour, Joueur j1, Joueur j2, Carte carte, List<Unite> listeUniteJoueur1, List<Unite> listeUniteJoueur2);
 
         Carte creerCarte(int strategy);
     }

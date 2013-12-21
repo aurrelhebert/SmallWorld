@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B1A4F923-990E-4845-8832-7139ACD82A8F}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmallWorld</RootNamespace>
     <AssemblyName>SmallWorld</AssemblyName>
@@ -28,6 +28,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,6 +66,7 @@
     <Compile Include="Interface1.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="Montagne.cs" />
+    <Compile Include="SmallWorld.cs" />
     <Compile Include="Nains.cs" />
     <Compile Include="Partie.cs" />
     <Compile Include="Peuple.cs" />

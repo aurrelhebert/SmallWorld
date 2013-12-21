@@ -7,5 +7,8 @@ namespace SmallWorld
 {
     public abstract class UniteDeBase : Unite
     {
+        public void seDeplacer() {}
+
+        public void attaquer() { }
     }
 }
