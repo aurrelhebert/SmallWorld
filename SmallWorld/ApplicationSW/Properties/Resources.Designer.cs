@@ -73,6 +73,16 @@ namespace ApplicationSW.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap foret {
+            get {
+                object obj = ResourceManager.GetObject("foret", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap montagne {
             get {
                 object obj = ResourceManager.GetObject("montagne", resourceCulture);

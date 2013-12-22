@@ -62,10 +62,10 @@ namespace ApplicationSW
             WrapperAlgo wa = new WrapperAlgo(taille);
             int** tabCarte = wa.remplirCarte();
             for (int c = 0; c < taille; c++) {
-                mapGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(20, GridUnitType.Pixel) });
+                mapGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(60, GridUnitType.Pixel) });
             }
             for (int l = 0; l < taille; l++) {
-                mapGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(20, GridUnitType.Pixel) });
+                mapGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(40, GridUnitType.Pixel) });
                 for (int c = 0; c < taille; c++)  {
                     // dans chaque case de la grille on ajoute une tuile (logique) matérialisée par un rectangle (physique)
                     // le rectangle possède une référence sur sa tuile
@@ -102,20 +102,30 @@ namespace ApplicationSW
             var rectangle = new Rectangle();
             switch(num)
             {
-                case 0:
-                    rectangle.Fill = Brushes.Brown;
+                case (int)TypeCase.MONTAGNE:
+                    BitmapSource montagne = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.montagne.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    rectangle.Fill = new ImageBrush(montagne);
+                    //rectangle.Fill = Brushes.Brown;
                     break;
-                case 1:
-                    rectangle.Fill = Brushes.Silver;
+                case (int)TypeCase.PLAINE:
+                    BitmapSource plaine = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.plaine.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    rectangle.Fill = new ImageBrush(plaine);
+                    //rectangle.Fill = Brushes.Silver;
                     break;
-                case 2:
-                    rectangle.Fill = Brushes.Yellow;
+                case (int)TypeCase.DESERT:
+                    BitmapSource desert = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.desert.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    rectangle.Fill = new ImageBrush(desert);
+                    //rectangle.Fill = Brushes.Yellow;
                     break;
-                case 3:
-                    rectangle.Fill = Brushes.SlateBlue;
+                case (int)TypeCase.EAU:
+                    BitmapSource neige = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.neige.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    rectangle.Fill = new ImageBrush(neige);
+                    //rectangle.Fill = Brushes.SlateBlue;
                     break;
-                case 4:
-                    rectangle.Fill = Brushes.DarkGreen;
+                case (int)TypeCase.FORET:
+                    BitmapSource foret = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.foret.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    rectangle.Fill = new ImageBrush(foret);
+                    //rectangle.Fill = Brushes.DarkGreen;
                     break;
                 default:
                     rectangle.Fill = Brushes.White;
