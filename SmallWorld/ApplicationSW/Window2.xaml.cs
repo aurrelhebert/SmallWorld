@@ -28,7 +28,7 @@ namespace ApplicationSW
         //Rectangle selectedVisual;
         int taille = 0;
         WrapperAlgo wa;
-
+        enum TypeCase { MONTAGNE = 0, PLAINE, DESERT, EAU, FORET};
         
         /// <summary>
         /// Construction de la fenetre (référencé dans le App.xaml)
@@ -39,13 +39,14 @@ namespace ApplicationSW
             engine = new Cours.Engine.Engine();
             taille = 10;
             WrapperAlgo wa = new WrapperAlgo(taille);
-
-            int** tabCarte = wa.remplirCarte();
+            
             int xJ1 = 0;
             int yJ1 = 0;
             int xJ2 = 0;
             int yJ2 = 0;
             wa.positionJoueur(xJ1, yJ1, xJ2, yJ2);
+
+            
         }
 
         
@@ -54,20 +55,22 @@ namespace ApplicationSW
         /// </summary>
         /// <param name="sender">la fenetre </param>
         /// <param name="e"> l'evt : la fentere est construite</param>
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        unsafe private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // on initialise la Grid (mapGrid défini dans le xaml) à partir de la map du modèle (engine)
-            map = engine.GetMap();
-            for (int c = 0; c < map.Width; c++) {
+            taille = 10;
+            WrapperAlgo wa = new WrapperAlgo(taille);
+            int** tabCarte = wa.remplirCarte();
+            for (int c = 0; c < taille; c++) {
                 mapGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(20, GridUnitType.Pixel) });
             }
-            for (int l = 0; l < map.Height; l++) {
+            for (int l = 0; l < taille; l++) {
                 mapGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(20, GridUnitType.Pixel) });
-                for (int c = 0; c < map.Width; c++)  {
+                for (int c = 0; c < taille; c++)  {
                     // dans chaque case de la grille on ajoute une tuile (logique) matérialisée par un rectangle (physique)
                     // le rectangle possède une référence sur sa tuile
-                    var tile = map.Tiles[c, l];
-                    var element = createRectangle(c, l, tile);
+                    var num = tabCarte[c][l];
+                    var element = createRectangle(c, l, num);
                     mapGrid.Children.Add(element);
                 }
             }
@@ -94,19 +97,35 @@ namespace ApplicationSW
         /// <param name="l"> Row </param>
         /// <param name="tile"> Tuile logique</param>
         /// <returns> Rectangle créé</returns>
-        private Rectangle createRectangle(int c, int l, ITile tile)
+        private Rectangle createRectangle(int c, int l, int num)
         {
             var rectangle = new Rectangle();
-            if (tile is ILand)
-                rectangle.Fill = Brushes.Brown;
-            if (tile is IForest)
-                rectangle.Fill = Brushes.DarkGreen;
-            if (tile is ISea)
-                rectangle.Fill = Brushes.SlateBlue;
+            switch(num)
+            {
+                case 0:
+                    rectangle.Fill = Brushes.Brown;
+                    break;
+                case 1:
+                    rectangle.Fill = Brushes.Silver;
+                    break;
+                case 2:
+                    rectangle.Fill = Brushes.Yellow;
+                    break;
+                case 3:
+                    rectangle.Fill = Brushes.SlateBlue;
+                    break;
+                case 4:
+                    rectangle.Fill = Brushes.DarkGreen;
+                    break;
+                default:
+                    rectangle.Fill = Brushes.White;
+                    break;
+
+            }
             // mise à jour des attributs (column et Row) référencant la position dans la grille à rectangle
             Grid.SetColumn(rectangle, c);
             Grid.SetRow(rectangle, l);
-            rectangle.Tag = tile; // Tag : ref par defaut sur la tuile logique
+            rectangle.Tag = num; // Tag : ref par defaut sur la tuile logique
 
             rectangle.Stroke = Brushes.Red;
             rectangle.StrokeThickness = 1;
