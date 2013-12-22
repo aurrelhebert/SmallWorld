@@ -23,5 +23,12 @@ namespace ApplicationSW
         {
             InitializeComponent();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Window2 win = new Window2();
+            win.Show();
+            this.Close();
+        }
     }
 }

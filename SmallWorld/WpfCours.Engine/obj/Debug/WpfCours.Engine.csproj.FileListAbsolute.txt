@@ -1,0 +1,7 @@
+C:\DATA_ANQUETIL\COURS\4info_CPOOJavaC++\2012-2013\WpfCoursIHM\WpfCours.Engine\obj\Debug\ResolveAssemblyReference.cache
+C:\DATA_ANQUETIL\COURS\4info_CPOOJavaC++\2012-2013\WpfCoursIHM\WpfCours.Engine\bin\Debug\WpfCours.Engine.dll
+C:\DATA_ANQUETIL\COURS\4info_CPOOJavaC++\2012-2013\WpfCoursIHM\WpfCours.Engine\bin\Debug\WpfCours.Engine.pdb
+C:\DATA_ANQUETIL\COURS\4info_CPOOJavaC++\2012-2013\WpfCoursIHM\WpfCours.Engine\bin\Debug\CoursIHM.Shared.dll
+C:\DATA_ANQUETIL\COURS\4info_CPOOJavaC++\2012-2013\WpfCoursIHM\WpfCours.Engine\bin\Debug\CoursIHM.Shared.pdb
+C:\DATA_ANQUETIL\COURS\4info_CPOOJavaC++\2012-2013\WpfCoursIHM\WpfCours.Engine\obj\Debug\WpfCours.Engine.dll
+C:\DATA_ANQUETIL\COURS\4info_CPOOJavaC++\2012-2013\WpfCoursIHM\WpfCours.Engine\obj\Debug\WpfCours.Engine.pdb

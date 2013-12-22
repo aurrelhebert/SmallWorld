@@ -12,3 +12,12 @@ C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationS
 C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\obj\Debug\ApplicationSW.pdb
 C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\obj\Debug\Window1.baml
 C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\obj\Debug\Window1.g.cs
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\obj\Debug\ApplicationSW.csprojResolveAssemblyReference.cache
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\obj\Debug\Window2.baml
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\obj\Debug\Window2.g.cs
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\obj\Debug\Window3.baml
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\obj\Debug\Window3.g.cs
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\Cours.Engine.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\Cours.Shared.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\Cours.Shared.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\Cours.Engine.pdb
