@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Cours.Shared;
+using Wrapper;
 
 namespace ApplicationSW
 {
@@ -25,15 +26,26 @@ namespace ApplicationSW
         IMap map;
         //  V1 : gestion avec evts classiques
         //Rectangle selectedVisual;
+        int taille = 0;
+        WrapperAlgo wa;
 
         
         /// <summary>
         /// Construction de la fenetre (référencé dans le App.xaml)
         /// </summary>
-        public Window2()
+        unsafe public Window2()
         {
             InitializeComponent();
             engine = new Cours.Engine.Engine();
+            taille = 10;
+            WrapperAlgo wa = new WrapperAlgo(taille);
+
+            int** tabCarte = wa.remplirCarte();
+            int xJ1 = 0;
+            int yJ1 = 0;
+            int xJ2 = 0;
+            int yJ2 = 0;
+            wa.positionJoueur(xJ1, yJ1, xJ2, yJ2);
         }
 
         

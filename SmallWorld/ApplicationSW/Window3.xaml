@@ -2,5 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Window3" Height="300" Width="300">
-    <Grid/>
+    <Grid Name="Carte" Background="Azure" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <!-- Définition du rectangle matérialisant la selection -->
+        <!-- Chaque case de la grille contient potentiellement un rectangle de selection + une unité (qui ne sera pas sensible aux evts)-->
+        <Ellipse Fill="White" Width="10" Height="10" Name="unitEllipse" Panel.ZIndex="444" IsHitTestVisible="False" />
+
+    </Grid>
 </Window>

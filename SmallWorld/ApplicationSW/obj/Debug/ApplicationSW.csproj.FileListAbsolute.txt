@@ -21,3 +21,7 @@ C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationS
 C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\Cours.Shared.dll
 C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\Cours.Shared.pdb
 C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\Cours.Engine.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\SmallWorld.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\wrapper.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\SmallWorld.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\git\poo\SmallWorld\ApplicationSW\bin\Debug\wrapper.pdb

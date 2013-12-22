@@ -50,6 +50,7 @@ namespace JeuSmallWorld
                 cases = wa.remplirCarte();
             
                  wa.positionJoueur(xJ1,yJ1,xJ2,yJ2);
+                 System.Windows.Rect dc = new Rect();
 
                  for (i = 0; i < n; i++)
                  {
@@ -58,6 +59,7 @@ namespace JeuSmallWorld
                          switch (cases[i][j])
                          {
                              case (int)TypeCase.MONTAGNE:
+                                 OnRender(dc);
                                  break;
                              case (int)TypeCase.PLAINE:
                                  break;

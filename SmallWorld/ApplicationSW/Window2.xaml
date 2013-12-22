@@ -1,8 +1,8 @@
 ﻿<Window x:Class="ApplicationSW.Window2"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Cours IHM - events" Height="421" Width="735" >
-    <!-- Loaded="Window_Loaded" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Title="SmallWorld" Height="421" Width="735" Loaded="Window_Loaded" >
+    <!--  MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Loaded Window_Loaded : Méthode appelée (abonnement) une fois la fenetre construite l'evt est lancé-->
     <!-- MouseLeftButtonDown : Enregistrement d'un délégué Window_MouseLeftButtonDown si on clic sur la fenetre-->
 

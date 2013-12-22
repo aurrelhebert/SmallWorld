@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -110,6 +112,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources\textures.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -119,10 +122,33 @@
       <Project>{04cd60e8-3222-45d5-ba15-b5bf41028e2b}</Project>
       <Name>Cours.Shared</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SmallWorld\SmallWorld.csproj">
+      <Project>{b1a4f923-990e-4845-8832-7139acd82a8f}</Project>
+      <Name>SmallWorld</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WpfCours.Engine\Cours.Engine.csproj">
       <Project>{e093aa8d-bb14-496e-a2f3-7c621279968a}</Project>
       <Name>Cours.Engine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\wrapper\wrapper.vcxproj">
+      <Project>{c8392d20-d81c-4d98-8245-ee6d3aa7fe50}</Project>
+      <Name>wrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\desert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\montagne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\neige.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\plaine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ville.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
