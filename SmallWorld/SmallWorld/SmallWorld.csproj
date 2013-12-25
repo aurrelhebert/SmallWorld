@@ -63,7 +63,7 @@
     <Compile Include="GuerrierGaulois.cs" />
     <Compile Include="guerrierNain.cs" />
     <Compile Include="GuerrierVikings.cs" />
-    <Compile Include="Interface1.cs" />
+    <Compile Include="CarteNormale.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="Montagne.cs" />
     <Compile Include="SmallWorld.cs" />

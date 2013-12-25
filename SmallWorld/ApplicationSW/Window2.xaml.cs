@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Cours.Shared;
 using Wrapper;
+using SmallWorld;
 
 namespace ApplicationSW
 {
@@ -27,24 +28,28 @@ namespace ApplicationSW
         //  V1 : gestion avec evts classiques
         //Rectangle selectedVisual;
         int taille = 0;
-        WrapperAlgo wa;
+        WrapperAlgo _wa;
         enum TypeCase { MONTAGNE = 0, PLAINE, DESERT, EAU, FORET};
-        
+        StrategieCarte strategie;
+
         /// <summary>
         /// Construction de la fenetre (référencé dans le App.xaml)
         /// </summary>
-        unsafe public Window2()
+        unsafe public Window2(StrategieCarte st)
         {
             InitializeComponent();
             engine = new Cours.Engine.Engine();
+            strategie = st;
             taille = 10;
-            WrapperAlgo wa = new WrapperAlgo(taille);
+            strategie.tailleCarte();
+            taille = strategie.tailleCarte();
+            _wa = new WrapperAlgo(taille);
             
             int xJ1 = 0;
             int yJ1 = 0;
             int xJ2 = 0;
             int yJ2 = 0;
-            wa.positionJoueur(xJ1, yJ1, xJ2, yJ2);
+            _wa.positionJoueur(xJ1, yJ1, xJ2, yJ2);
 
             
         }
@@ -58,9 +63,7 @@ namespace ApplicationSW
         unsafe private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // on initialise la Grid (mapGrid défini dans le xaml) à partir de la map du modèle (engine)
-            taille = 10;
-            WrapperAlgo wa = new WrapperAlgo(taille);
-            int** tabCarte = wa.remplirCarte();
+            int** tabCarte = _wa.remplirCarte();
             for (int c = 0; c < taille; c++) {
                 mapGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(60, GridUnitType.Pixel) });
             }

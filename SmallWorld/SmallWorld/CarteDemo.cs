@@ -5,7 +5,22 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public interface CarteDemo : StrategieCarte
+    public class CarteDemo : StrategieCarte
     {
+
+        public int nombreUniteParPeuple()
+        {
+            return 4;
+        }
+
+        public int tailleCarte()
+        {
+            return 5;
+        }
+
+        public int nombreDeTour()
+        {
+            return 5;
+        }
     }
 }
