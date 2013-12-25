@@ -97,9 +97,15 @@ namespace ApplicationSW
         private void creationGraphiqueUnite(List<Unite> li, int x, int y, int numJoueur)
         {
             int i;
+            foreach (Unite u in li)
+            {
+                u.setRaw(x);
+                u.setColumn(y);
+            }
             for (i = 0; i < strategie.nombreUniteParPeuple(); i++)
             {
                 int j = i;
+                
                 //li[i].setRaw(x);
                 //li[i].setColumn(y);
                 // ajout des attributs (column et Row) référencant la position dans la grille à unitEllipse
