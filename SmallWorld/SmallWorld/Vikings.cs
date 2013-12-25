@@ -5,7 +5,18 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public interface Vikings : Peuple
+    public class Vikings : Peuple
     {
+        List<Unite> _unites;
+
+        public void creerUnites(int nbr)
+        {
+            int i;
+            for (i = 0; i < nbr; i++)
+            {
+                _unites[i] = new GuerrierVikings();
+            }
+
+        }
     }
 }

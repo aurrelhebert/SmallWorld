@@ -5,17 +5,34 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public interface Peuple
+    public abstract class Peuple
     {
+        List<Unite> _unites;
 
-        void creerUnites(int nbr);
+        public Peuple()
+        {
+            _unites = new List<Unite>();
+        }
 
-        void ajouteUnite(string Unite);
+        public void creerUnites(int nbr)
+        {
+        }
 
-        void supprimerUnite(string Unite);
+        public void ajouteUnite(string Unite)
+        {
+        }
 
-        void creerUnite();
+        public void supprimerUnite(string Unite)
+        {
+        }
 
-        void getUnites();
+        public void creerUnite()
+        {
+        }
+
+        public List<Unite> getUnites()
+        {
+            return this._unites;
+        }
     }
 }

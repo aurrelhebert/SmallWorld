@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Cours.Shared;
 using Wrapper;
 using SmallWorld;
+using System.Windows.Controls.Primitives;
 
 namespace ApplicationSW
 {
@@ -22,39 +23,32 @@ namespace ApplicationSW
     /// </summary>
     public partial class Window2 : Window
     {
-        
-        IEngine engine;
-        IMap map;
+
         //  V1 : gestion avec evts classiques
         //Rectangle selectedVisual;
         int taille = 0;
-        WrapperAlgo _wa;
-        enum TypeCase { MONTAGNE = 0, PLAINE, DESERT, EAU, FORET};
+        WrapperAlgo wa;
+        enum TypeCase { MONTAGNE = 0, PLAINE, DESERT, EAU, FORET };
         StrategieCarte strategie;
+        Joueur _j1, _j2;
 
         /// <summary>
         /// Construction de la fenetre (référencé dans le App.xaml)
         /// </summary>
-        unsafe public Window2(StrategieCarte st)
+        unsafe public Window2(StrategieCarte st, Joueur j1, Joueur j2)
         {
             InitializeComponent();
-            engine = new Cours.Engine.Engine();
+            //engine = new Cours.Engine.Engine();
             strategie = st;
-            taille = 10;
             strategie.tailleCarte();
             taille = strategie.tailleCarte();
-            _wa = new WrapperAlgo(taille);
-            
-            int xJ1 = 0;
-            int yJ1 = 0;
-            int xJ2 = 0;
-            int yJ2 = 0;
-            _wa.positionJoueur(xJ1, yJ1, xJ2, yJ2);
+            wa = new WrapperAlgo(taille);
+            _j1 = j1;
+            _j2 = j2;
 
-            
         }
 
-        
+
         /// <summary>
         /// Réaction à l'evt "la fenetre est construite" (référencé dans le MainWithEvents.xaml)
         /// </summary>
@@ -63,13 +57,16 @@ namespace ApplicationSW
         unsafe private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // on initialise la Grid (mapGrid défini dans le xaml) à partir de la map du modèle (engine)
-            int** tabCarte = _wa.remplirCarte();
-            for (int c = 0; c < taille; c++) {
+            int** tabCarte = wa.remplirCarte();
+            for (int c = 0; c < taille; c++)
+            {
                 mapGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(60, GridUnitType.Pixel) });
             }
-            for (int l = 0; l < taille; l++) {
+            for (int l = 0; l < taille; l++)
+            {
                 mapGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(40, GridUnitType.Pixel) });
-                for (int c = 0; c < taille; c++)  {
+                for (int c = 0; c < taille; c++)
+                {
                     // dans chaque case de la grille on ajoute une tuile (logique) matérialisée par un rectangle (physique)
                     // le rectangle possède une référence sur sa tuile
                     var num = tabCarte[c][l];
@@ -77,22 +74,74 @@ namespace ApplicationSW
                     mapGrid.Children.Add(element);
                 }
             }
-            updateUnitUI();
+            int xJ1 = 0;
+            int yJ1 = 0;
+            int xJ2 = 0;
+            int yJ2 = 0;
+            wa.positionJoueur(xJ1, yJ1, xJ2, yJ2);
+            xJ2 = strategie.tailleCarte() - 1;
+            yJ2 = strategie.tailleCarte() - 1;
+            //MessageBox.Show(xJ2.ToString() + yJ2.ToString() + xJ1.ToString() + yJ1.ToString());
+            List<Unite> uniteJ1 = _j1.getUnite();
+            List<Unite> uniteJ2 = _j2.getUnite();
+
+            //creationGraphiqueUnite(uniteJ1, xJ1, yJ1);
+            // 1 corresponds au numéro du joueur.
+            // CreateEllipse = OK. 
+            //var _element = createEllipse(xJ2, yJ2, 1);
+            //mapGrid.Children.Add(_element);
+            creationGraphiqueUnite(uniteJ1, xJ1, yJ1, 0);
+            creationGraphiqueUnite(uniteJ2, xJ2, yJ2, 1);
         }
 
+        private void creationGraphiqueUnite(List<Unite> li, int x, int y, int numJoueur)
+        {
+            int i;
+            for (i = 0; i < strategie.nombreUniteParPeuple(); i++)
+            {
+                int j = i;
+                //li[i].setRaw(x);
+                //li[i].setColumn(y);
+                // ajout des attributs (column et Row) référencant la position dans la grille à unitEllipse
+                if (1 == numJoueur)
+                    j += strategie.nombreUniteParPeuple();
+                var element = createEllipse(x, y, j);
+                mapGrid.Children.Add(element);
+
+            }
+
+        }
+        private Ellipse createEllipse(int c, int l, int i)
+        {
+            var ellipse = new Ellipse();
+            Grid.SetColumn(ellipse, c);
+            Grid.SetRow(ellipse, l);
+            ellipse.Tag = i;
+            if (i > strategie.nombreUniteParPeuple())
+            {
+                ellipse.Fill = Brushes.Red;
+            }
+            else
+            {
+                ellipse.Fill = Brushes.White;
+            }
+            ellipse.Height = 10;
+            ellipse.Width = 10;
+            return ellipse;
+        }
         /// <summary>
         /// Récupération de la position de l'unité (logique), mise à jour de l'ellipse (physique) matérialisant l'unité
         /// </summary>
         private void updateUnitUI()
         {
-            var unit = engine.GetUnit();
+            //var unit = engine.GetUnit();
             // ajout des attributs (column et Row) référencant la position dans la grille à unitEllipse
-            
-            Grid.SetColumn(unitEllipse, unit.Column);
-            Grid.SetRow(unitEllipse, unit.Row);
+
+            //Grid.SetColumn(unitEllipse, unit.Column);
+            //Grid.SetRow(unitEllipse, unit.Row);
         }
-                
-        
+
+
         /// <summary>
         /// Création du rectangle matérialisant une tuile
         /// </summary>
@@ -103,7 +152,7 @@ namespace ApplicationSW
         private Rectangle createRectangle(int c, int l, int num)
         {
             var rectangle = new Rectangle();
-            switch(num)
+            switch (num)
             {
                 case (int)TypeCase.MONTAGNE:
                     BitmapSource montagne = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.montagne.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
@@ -142,7 +191,7 @@ namespace ApplicationSW
 
             rectangle.Stroke = Brushes.Red;
             rectangle.StrokeThickness = 1;
-            // enregistrement d'un écouteur d'evt sur le rectangle : 
+            // enregistrement d'un écouteur d'evt sur le rectangle :
             // source = rectangle / evt = MouseLeftButtonDown / délégué = rectangle_MouseLeftButtonDown
             rectangle.MouseLeftButtonDown += new MouseButtonEventHandler(rectangle_MouseLeftButtonDown);
             return rectangle;
@@ -179,7 +228,7 @@ namespace ApplicationSW
             // on arrête la propagation d'evt : sinon l'evt va jusqu'à la fenetre => affichage via "Window_MouseLeftButtonDown"
             e.Handled = true;
         }
-      
+
         /// <summary>
         /// Délégué : réaction général à un clic sur la fenetre 
         /// </summary>
@@ -209,30 +258,31 @@ namespace ApplicationSW
         {
             // création d'un thread pour lancer le calcul du tour suivant sans que cela soit bloquant pour l'IHM
             Task.Factory.StartNew(() =>
+            {
+
+
+                // engine.NextTurn(); // calcul du prochain tour
+                // appel de méthodes dand un autre thread : le thread principal (de l'IHM) : 
+                this.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                 
+                    updateUnitUI();
 
-                    engine.NextTurn(); // calcul du prochain tour
-                    // appel de méthodes dand un autre thread : le thread principal (de l'IHM) : 
-                    this.Dispatcher.BeginInvoke(new Action(() =>
-                        {
-                            updateUnitUI();
+                    // V1 : gestion avec evts classiques
+                    //int column = Grid.GetColumn(selectedVisual);
+                    //int row = Grid.GetRow(selectedVisual);
+                    //var tile = selectedVisual.Tag as ITile;
+                    //int iron = tile.Iron;
+                    //infoLabel.Content = String.Format("[{0:00} - {1:00}] {2} Fer : {3}", column, row, tile, iron);            
 
-                            // V1 : gestion avec evts classiques
-                            //int column = Grid.GetColumn(selectedVisual);
-                            //int row = Grid.GetRow(selectedVisual);
-                            //var tile = selectedVisual.Tag as ITile;
-                            //int iron = tile.Iron;
-                            //infoLabel.Content = String.Format("[{0:00} - {1:00}] {2} Fer : {3}", column, row, tile, iron);            
-
-                            // V2 : gestion avec Binding
-                            // On "touche" au rectangle de selection pour provoquer un rafraichissemnt via le Binding
-                            var selected = selectionRectangle.Tag;
-                            selectionRectangle.Tag = null;
-                            selectionRectangle.Tag = selected;
-                        }));
-                });
+                    // V2 : gestion avec Binding
+                    // On "touche" au rectangle de selection pour provoquer un rafraichissemnt via le Binding
+                    var selected = selectionRectangle.Tag;
+                    selectionRectangle.Tag = null;
+                    selectionRectangle.Tag = selected;
+                }));
+            });
 
         }
+
     }
 }

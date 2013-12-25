@@ -10,5 +10,13 @@ namespace SmallWorld
         void seDeplacer();
 
         void attaquer();
+
+        void setRaw(int x);
+
+        int getRaw();
+
+        void setColumn(int x);
+
+        int getColumn();
     }
 }

@@ -21,7 +21,7 @@
     </Window.Resources>
 
     <DockPanel>
-        <Grid  DockPanel.Dock="Bottom" >
+        <Grid  DockPanel.Dock="Bottom">
             <StackPanel Orientation="Horizontal">
                 <!--V1 : gestion avec evts classiques -->
                 <!--<Label  Name="infoLabel"/>-->
@@ -41,18 +41,22 @@
                 </StackPanel>
             </StackPanel>
             <!-- Définition du bouton "fin de tour" et association à l'évt Click : => appel à la méthode "Button_Click" -->
-            <Button HorizontalAlignment="Right" Content="Fin du tour" /> <!--Click="Button_Click"-->
+            <Button HorizontalAlignment="Right" Content="Fin du tour" />
+            <!--Click="Button_Click"-->
         </Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-        <Grid Name="mapGrid" Background="Azure">
-            <!--V2 : gestion avec Binding-->
-            <!-- Définition du rectangle matérialisant la selection -->
-            <!--   Permet d'avoir un objet graphique sur lequel on va pouvoir appliquer du Binding pour mettre à jour les labels d'informations-->
-            <!--<rectangle width="20" height="20" name="selectionrectangle" stroke="blue" strokethickness="1" panel.zindex="333" visibility="collapsed"/>-->
-            <Rectangle Style="{StaticResource selectionStyle}" Name="selectionRectangle" />
-            <!-- Chaque case de la grille contient potentiellement un rectangle de selection + une unité (qui ne sera pas sensible aux evts)-->
-            <Ellipse Fill="White" Width="10" Height="10" Name="unitEllipse" Panel.ZIndex="444" IsHitTestVisible="False" />
-         </Grid>
+            <Grid Name="mapGrid" Background="Azure" >
+                <!--V2 : gestion avec Binding-->
+                <!-- Définition du rectangle matérialisant la selection -->
+                <!--   Permet d'avoir un objet graphique sur lequel on va pouvoir appliquer du Binding pour mettre à jour les labels d'informations-->
+                <!--<rectangle width="20" height="20" name="selectionrectangle" stroke="blue" strokethickness="1" panel.zindex="333" visibility="collapsed"/>-->
+
+
+                <!--<rectangle width="20" height="20" name="selectionrectangle" stroke="blue" strokethickness="1" panel.zindex="333" visibility="collapsed"/>-->
+                <Rectangle Style="{StaticResource selectionStyle}" x:Name="selectionRectangle" />
+                <!-- Chaque case de la grille contient potentiellement un rectangle de selection + une unité (qui ne sera pas sensible aux evts)
+            <Ellipse Fill="White" Width="10" Height="10" x:Name="unitEllipse" Panel.ZIndex="444" IsHitTestVisible="False" />-->
+            </Grid>
         </ScrollViewer>
     </DockPanel>
 </Window>
