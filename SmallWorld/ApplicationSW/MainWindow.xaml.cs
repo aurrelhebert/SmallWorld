@@ -20,11 +20,17 @@ namespace ApplicationSW
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Construction de la fenetre de lancement
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Action reagissant au click sur le bouton : demarrage de la partie, acces a l'ecran choix des joueurs
+        /// </summary>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Window1 win2 = new Window1();

@@ -7,7 +7,7 @@ namespace SmallWorld
 {
     public abstract class UniteDeBase : Unite
     {
-        int att, def, ptDeDepl, pv, raw, column;
+        int att, def, ptDeDepl, pv, raw, column, indexEllipse;
 
         public UniteDeBase()
         {
@@ -39,6 +39,15 @@ namespace SmallWorld
             return column;
         }
 
+        public void setIndexEllipse(int i)
+        {
+            indexEllipse = i;
+        }
+
+        public int getIndexEllipse()
+        {
+            return indexEllipse;
+        }
 
         public void seDeplacer() { }
 

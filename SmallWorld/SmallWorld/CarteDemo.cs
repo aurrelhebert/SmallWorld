@@ -7,7 +7,7 @@ namespace SmallWorld
 {
     public class CarteDemo : StrategieCarte
     {
-
+        
         public int nombreUniteParPeuple()
         {
             return 4;

@@ -3,7 +3,7 @@
   <Class Name="SmallWorld.UniteDeBase">
     <Position X="7.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAgMAMAAAAAAAAAAgAAAQAAAAIAAgAAAAEAQAAA=</HashCode>
       <FileName>UniteAbstract.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.408" />
@@ -29,25 +29,11 @@
       <FileName>GuerrierVikings.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="SmallWorld.Peuple">
-    <Position X="2" Y="2" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAABAAAAEAAAAAAAAAQAAAAkAAAAAAAAAAA=</HashCode>
-      <FileName>Peuple.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="SmallWorld.Unite">
     <Position X="6.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAAAMAMAAAAAAAAAAAAAAAAAAAIAAAAAAAEAAAAA=</HashCode>
       <FileName>Unite.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SmallWorld.Carte">
-    <Position X="17.75" Y="1" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interface1.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.StrategieCarte">
@@ -55,27 +41,6 @@
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>CreerCarte.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SmallWorld.CarteDemo">
-    <Position X="13.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CarteDemo.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SmallWorld.CartePetite">
-    <Position X="15" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CartePetite.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SmallWorld.CarteNormale">
-    <Position X="16.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interface1.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Case">
@@ -160,13 +125,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Vikings.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SmallWorld.Joueur">
-    <Position X="10.25" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
-      <FileName>Joueur.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.FabriqueJeu">

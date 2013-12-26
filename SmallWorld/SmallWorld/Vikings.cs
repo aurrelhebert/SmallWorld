@@ -7,14 +7,13 @@ namespace SmallWorld
 {
     public class Vikings : Peuple
     {
-        List<Unite> _unites;
 
-        public void creerUnites(int nbr)
+        public override void creerUnites(int nbr)
         {
             int i;
             for (i = 0; i < nbr; i++)
             {
-                _unites[i] = new GuerrierVikings();
+                this.getUnites().Add(new GuerrierVikings());
             }
 
         }

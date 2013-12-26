@@ -28,12 +28,15 @@ namespace ApplicationSW
         //Rectangle selectedVisual;
         int taille = 0;
         WrapperAlgo wa;
+        /// <summary>
+        /// Enum permettant d'identifier les cases
+        /// </summary>
         enum TypeCase { MONTAGNE = 0, PLAINE, DESERT, EAU, FORET };
         StrategieCarte strategie;
         Joueur _j1, _j2;
 
         /// <summary>
-        /// Construction de la fenetre (référencé dans le App.xaml)
+        /// Construction de la fenetre de jeu
         /// </summary>
         unsafe public Window2(StrategieCarte st, Joueur j1, Joueur j2)
         {
@@ -53,7 +56,7 @@ namespace ApplicationSW
         /// Réaction à l'evt "la fenetre est construite" (référencé dans le MainWithEvents.xaml)
         /// </summary>
         /// <param name="sender">la fenetre </param>
-        /// <param name="e"> l'evt : la fentere est construite</param>
+        /// <param name="e"> l'evt : la fenetre est construite</param>
         unsafe private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // on initialise la Grid (mapGrid défini dans le xaml) à partir de la map du modèle (engine)
@@ -84,7 +87,7 @@ namespace ApplicationSW
             //MessageBox.Show(xJ2.ToString() + yJ2.ToString() + xJ1.ToString() + yJ1.ToString());
             List<Unite> uniteJ1 = _j1.getUnite();
             List<Unite> uniteJ2 = _j2.getUnite();
-
+           
             //creationGraphiqueUnite(uniteJ1, xJ1, yJ1);
             // 1 corresponds au numéro du joueur.
             // CreateEllipse = OK. 
@@ -94,29 +97,43 @@ namespace ApplicationSW
             creationGraphiqueUnite(uniteJ2, xJ2, yJ2, 1);
         }
 
+        /// <summary>
+        /// Création graphique de l'unite
+        /// </summary>
+        /// <param name="li"> Liste des unites </param>
+        /// <param name="x"> Column </param>
+        /// <param name="y"> Row </param>
+        /// <param name="numJoueur"> Permet d'identifier le joueur (0 pour J1 et 1 pour J2)</param>
+        /// <returns> Rectangle créé</returns>
         private void creationGraphiqueUnite(List<Unite> li, int x, int y, int numJoueur)
         {
-            int i;
+            int i = 0;
+            int j = 0;
+            if (1 == numJoueur)
+                j += strategie.nombreUniteParPeuple();
+
             foreach (Unite u in li)
             {
+               
+                int k = i + j;
+                // ajout des attributs (column et Row) référencant la position dans la grille à unitEllipse et le tag i+j permettant d'identifier l'ellipse à une unite.
+                var element = createEllipse(x, y, k);
+                mapGrid.Children.Add(element);
                 u.setRaw(x);
                 u.setColumn(y);
+                u.setIndexEllipse(k);
+                i++;
             }
-            for (i = 0; i < strategie.nombreUniteParPeuple(); i++)
-            {
-                int j = i;
-                
-                //li[i].setRaw(x);
-                //li[i].setColumn(y);
-                // ajout des attributs (column et Row) référencant la position dans la grille à unitEllipse
-                if (1 == numJoueur)
-                    j += strategie.nombreUniteParPeuple();
-                var element = createEllipse(x, y, j);
-                mapGrid.Children.Add(element);
-
-            }
-
+            //for (i = 0; i < strategie.nombreUniteParPeuple(); i++)
         }
+
+        /// <summary>
+        /// Création de l'ellipse matérialisant une unité
+        /// </summary>
+        /// <param name="c"> Column </param>
+        /// <param name="l"> Row </param>
+        /// <param name="num"> Index de l'ellipse</param>
+        /// <returns> Ellipse créée</returns>
         private Ellipse createEllipse(int c, int l, int i)
         {
             var ellipse = new Ellipse();
@@ -149,11 +166,11 @@ namespace ApplicationSW
 
 
         /// <summary>
-        /// Création du rectangle matérialisant une tuile
+        /// Création du rectangle matérialisant une case
         /// </summary>
         /// <param name="c"> Column </param>
         /// <param name="l"> Row </param>
-        /// <param name="tile"> Tuile logique</param>
+        /// <param name="num"> Nom de la case</param>
         /// <returns> Rectangle créé</returns>
         private Rectangle createRectangle(int c, int l, int num)
         {
