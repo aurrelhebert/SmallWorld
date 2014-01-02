@@ -5,7 +5,10 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public interface Foret : Case
+    public class Foret : Case
     {
+        public Foret() : base(TypeCase.FORET){
+            
+        }
     }
 }

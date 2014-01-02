@@ -5,7 +5,10 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public interface Eau : Case
+    public class Eau : Case
     {
+        public Eau() : base(TypeCase.EAU){
+            
+        }
     }
 }

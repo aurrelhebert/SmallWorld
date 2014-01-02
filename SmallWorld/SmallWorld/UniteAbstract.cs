@@ -7,21 +7,22 @@ namespace SmallWorld
 {
     public abstract class UniteDeBase : Unite
     {
-        int att, def, ptDeDepl, pv, raw, column, indexEllipse;
+        public int att, def, pv, row, column, indexEllipse;
+        public float ptDeDepl;
 
         public UniteDeBase()
         {
             att = 2;
             def = 1;
-            ptDeDepl = 0;
+            ptDeDepl = 1;
             pv = 2;
-            raw = 0;
+            row = 0;
             column = 0;
         }
 
-        public void setRaw(int x)
+        public void setRow(int x)
         {
-            raw = x;
+            row = x;
         }
 
         public void setColumn(int x)
@@ -29,9 +30,9 @@ namespace SmallWorld
             column = x;
         }
 
-        public int getRaw()
+        public int getRow()
         {
-            return raw;
+            return row;
         }
 
         public int getColumn()
@@ -49,7 +50,7 @@ namespace SmallWorld
             return indexEllipse;
         }
 
-        public void seDeplacer() { }
+        public Boolean seDeplacer(int departureRow, int departureColumn, int arrivalRow, int arrivalColumn) { return true; }
 
         public void attaquer() { }
     }

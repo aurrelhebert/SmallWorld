@@ -15,4 +15,8 @@ namespace Cours.Shared
 
     public interface IForest : ITile  {   }
 
+    public interface IDesert : ITile { }
+
+    public interface IMountain : ITile { }
+
 }

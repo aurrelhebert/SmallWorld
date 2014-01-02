@@ -32,4 +32,18 @@ namespace Cours.Engine
             Iron = 5;
         }
     }
+
+    public class Desert : Tile, IDesert {
+        public Desert()
+        {
+            Iron = 3;
+        }
+    }
+
+    public class Mountain : Tile, IMountain {
+        public Mountain()
+        {
+            Iron = 15;
+        }
+    }
 }

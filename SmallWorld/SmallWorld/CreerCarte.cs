@@ -10,7 +10,7 @@ namespace SmallWorld
         /// <summary>
         /// Methode permettant de connaitre le nombre d'unite par peuple
         /// </summary>
-        /// <returns> le nombre maximum que chaque joueur peut controler</returns>
+        /// <returns> le nombre maximum d'unites que chaque joueur peut controler</returns>
         int nombreUniteParPeuple();
 
         /// <summary>

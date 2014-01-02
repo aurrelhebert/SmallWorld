@@ -7,14 +7,20 @@ namespace SmallWorld
 {
     public class Joueur
     {
-        int _nbUnite;
-        Peuple _peuple;
+        private int _nbUnite;
+        private Peuple _peuple;
+        private int x0;
+        private int y0;
 
         /// <summary>
         /// Constructeur
         /// </summary>
         public Joueur()
         {
+            x0 = 0;
+            y0 = 0;
+            _nbUnite = 0;
+            _peuple = new Peuple(Peuple.NomPeuple.GAULOIS);
         }
 
         /// <summary>
@@ -22,10 +28,12 @@ namespace SmallWorld
         /// </summary>
         /// <param name="nbUnite"> Le nombre max d'unite d'un peuple </param>
         /// <param name="peuple"> Le peuple du joueur </param>
-        public Joueur(int nbUnite, Peuple peuple)
+        public Joueur(int nbUnite, Peuple peuple, int raw0=0,int column0=0)
         {
             _nbUnite = nbUnite;
             _peuple = peuple;
+            x0 = raw0;
+            y0 = column0;
         }
 
         /// <summary>
@@ -35,6 +43,11 @@ namespace SmallWorld
         public void setPeuple(Peuple p)
         {
             _peuple = p;
+        }
+
+        public Peuple getPeuple()
+        {
+            return _peuple;
         }
 
         /// <summary>
@@ -50,7 +63,7 @@ namespace SmallWorld
         /// Obtention de la liste d'unité d'un joueur
         /// </summary>
         /// <returns> sa liste d'unité</returns>
-        public List<Unite> getUnite()
+        public List<UniteDeBase> getUnite()
         {
             return this._peuple.getUnites();
         }
@@ -72,6 +85,26 @@ namespace SmallWorld
         /// <returns></returns>
         public void combat()
         {
+        }
+
+        public int getx0()
+        {
+            return x0;
+        }
+
+        public int gety0()
+        {
+            return y0;
+        }
+
+        public void setx0(int x)
+        {
+            x0=x;
+        }
+
+        public void sety0(int y)
+        {
+            y0 = y;
         }
     }
 }

@@ -38,7 +38,7 @@ namespace ApplicationSW
             int yJ1 = 0;
             int xJ2 = 0;
             int yJ2 = 0;
-            wa.positionJoueur(xJ1, yJ1, xJ2, yJ2);
+            wa.positionJoueur(&xJ1, &yJ1, &xJ2, &yJ2);
         }
 
         unsafe private void Window_Loaded(object sender, RoutedEventArgs e)

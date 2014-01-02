@@ -20,14 +20,14 @@ namespace ApplicationSW
     /// </summary>
     public partial class Window1 : Window
     {
-        int j1;
-        int j2;
-        Joueur _j1;
-        Joueur _j2;
+        NomPeuple nomPeupleJ1;
+        NomPeuple nomPeupleJ2;
+        Joueur joueur1;
+        Joueur joueur2;
         /// <summary>
         /// Enum permettant d'identifier les peuples
         /// </summary>
-        enum NomPeuple { GAULOIS = 0, NAIN, VIKINGS };
+        enum NomPeuple { GAULOIS = 0, NAINS, VIKINGS };
 
         /// <summary>
         /// Construction de la fenetre du choix des joueurs
@@ -42,11 +42,11 @@ namespace ApplicationSW
         /// </summary>
         /// <param name="sender">la fenetre </param>
         /// <param name="e"> </param>
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Small_Button_Click(object sender, RoutedEventArgs e)
         { // Gestionnaire pour lancer une partie en choisissant une carte petite.
             StrategieCarte st = new CartePetite();
             creationJoueur(st.nombreUniteParPeuple());
-            Window2 win = new Window2(st, _j1, _j2);
+            Window2 win = new Window2(st, joueur1, joueur2);
             win.Show();
             this.Close();
         }
@@ -56,11 +56,11 @@ namespace ApplicationSW
         /// </summary>
         /// <param name="sender">la fenetre </param>
         /// <param name="e"> </param>
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Demo_Button_Click(object sender, RoutedEventArgs e)
         { // Gestionnaire pour lancer une partie en choisissant une carte démo.
             StrategieCarte st = new CarteDemo();
             creationJoueur(st.nombreUniteParPeuple());
-            Window2 win = new Window2(st, _j1, _j2);
+            Window2 win = new Window2(st, joueur1, joueur2);
             win.Show();
             this.Close();
         }
@@ -70,11 +70,11 @@ namespace ApplicationSW
         /// </summary>
         /// <param name="sender">la fenetre </param>
         /// <param name="e"> </param>
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Normal_Button_Click(object sender, RoutedEventArgs e)
         { // Gestionnaire pour lancer une partie en choisissant une carte normal.
             StrategieCarte st = new CarteNormale();
             creationJoueur(st.nombreUniteParPeuple());
-            Window2 win = new Window2(st, _j1, _j2);
+            Window2 win = new Window2(st, joueur1, joueur2);
             win.Show();
             this.Close();
         }
@@ -86,8 +86,8 @@ namespace ApplicationSW
         /// <param name="e"> </param>
         private void ComboBox_Loaded(object sender, EventArgs e)
         {
-            comboBoxJ2.SelectedIndex = (int)NomPeuple.NAIN;
-            j2 = 1;
+            comboBoxJ2.SelectedIndex = (int)NomPeuple.NAINS;
+            nomPeupleJ2 = NomPeuple.NAINS;
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace ApplicationSW
         private void ComboBox_Loaded_2(object sender, EventArgs e)
         {
             comboBoxJ1.SelectedIndex = (int)NomPeuple.GAULOIS;
-            j1 = 0;
+            nomPeupleJ1 = NomPeuple.GAULOIS;
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace ApplicationSW
             // ... Set SelectedItem as Window Title.
             int value = comboBoxJ1.SelectedIndex;
 
-            j1 = value;
+            nomPeupleJ1 = (NomPeuple)value;
             //Test de la valeur : 
             //MessageBox.Show(j1.ToString());
         }
@@ -131,7 +131,7 @@ namespace ApplicationSW
 
             // ... Set SelectedItem as Window Title.
             int value = comboBoxJ1.SelectedIndex;
-            j2 = value;
+            nomPeupleJ2 = (NomPeuple)value;
             //Test de la valeur :
             //MessageBox.Show(j2.ToString());
         }
@@ -143,10 +143,10 @@ namespace ApplicationSW
         private void creationJoueur(int nbUnite)
         {
             Peuple peupleJ1, peupleJ2;
-            peupleJ1 = creerPeuple(nbUnite, j1);
-            peupleJ2 = creerPeuple(nbUnite, j2);
-            _j1 = new Joueur(nbUnite, peupleJ1);
-            _j2 = new Joueur(nbUnite, peupleJ2);
+            peupleJ1 = creerPeuple(nbUnite, nomPeupleJ1);
+            peupleJ2 = creerPeuple(nbUnite, nomPeupleJ2);
+            joueur1 = new Joueur(nbUnite, peupleJ1);
+            joueur2 = new Joueur(nbUnite, peupleJ2);
 
         }
 
@@ -155,23 +155,23 @@ namespace ApplicationSW
         /// </summary>
         /// <param name="nbUnite">le nombre d'unite maximum </param>
         /// <param name="joueur">le peuple controle par le joueur (d'apres l'enum NomPeuple)</param>
-        private Peuple creerPeuple(int nbUnite, int joueur)
+        private Peuple creerPeuple(int nbUnite, NomPeuple numPeuple)
         {
             Peuple peuple;
-            switch (joueur)
+            switch (numPeuple)
             {
-                case (int)NomPeuple.GAULOIS:
-                    peuple = new Gaulois();
+                case NomPeuple.GAULOIS:
+                    peuple = new Peuple(Peuple.NomPeuple.GAULOIS);
                     peuple.creerUnites(nbUnite);
                     break;
 
-                case (int)NomPeuple.NAIN:
-                    peuple = new Nains();
+                case NomPeuple.NAINS:
+                    peuple = new Peuple(Peuple.NomPeuple.NAINS);
                     peuple.creerUnites(nbUnite);
                     break;
 
-                case (int)NomPeuple.VIKINGS:
-                    peuple = new Vikings();
+                case NomPeuple.VIKINGS:
+                    peuple=new Peuple(Peuple.NomPeuple.VIKINGS);
                     peuple.creerUnites(nbUnite);
                     break;
 

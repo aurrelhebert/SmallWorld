@@ -5,9 +5,8 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public class Gaulois : Peuple
+    /*public class Gaulois : Peuple
     {
-       // List<Unite> _unites;
 
         public override void creerUnites(int nbr)
         {
@@ -18,5 +17,5 @@ namespace SmallWorld
             }
 
         }
-    }
+    }*/
 }
