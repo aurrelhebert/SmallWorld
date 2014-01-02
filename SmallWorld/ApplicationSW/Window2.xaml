@@ -19,8 +19,8 @@
             <!-- visibilité par défaut = cachée -->
         </Style>
     </Window.Resources>
-
-    <DockPanel>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <DockPanel>
         <Grid  DockPanel.Dock="Bottom">
             <StackPanel Orientation="Horizontal">
                 <!--V1 : gestion avec evts classiques -->
@@ -44,7 +44,6 @@
             <Button HorizontalAlignment="Right" Content="Fin du tour" Height="26" Margin="0,0,-0.2,-0.4" VerticalAlignment="Top" />
             <!--Click="Button_Click"-->
         </Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid Name="mapGrid" Background="Azure" >
                 <!--V2 : gestion avec Binding-->
                 <!-- Définition du rectangle matérialisant la selection -->
@@ -57,6 +56,25 @@
                 <!-- Chaque case de la grille contient potentiellement un rectangle de selection + une unité (qui ne sera pas sensible aux evts)
             <Ellipse Fill="White" Width="10" Height="10" x:Name="unitEllipse" Panel.ZIndex="444" IsHitTestVisible="False" />-->
             </Grid>
-        </ScrollViewer>
+            <Canvas Name="Panel_Info" Height="200" Width="240" Margin="0,0,0,0" Background="Aquamarine" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <!-- Définition du panneau affichant les informations sur la partie en cours -->
+                <TextBlock TextWrapping="Wrap" Text="Partie en Cours" Canvas.Left="0" Canvas.Right="0" Canvas.Top="0" TextAlignment="Center" Width="240"/>
+                <!-- Création du premier tableau recensant les informations tel que le nombre de tour restant et le nombre d'unité restante pour chaque joueur -->
+                <DockPanel Canvas.Left="10" Canvas.Top="20" >
+                    <!-- Liste de strings -->
+                    <ListView Name="infoGen1"  />
+                    <!-- Liste des données -->
+                    <ListView Name="infoData"  />
+                </DockPanel>
+                <TextBlock Canvas.Left="0" TextWrapping="Wrap" Text="Unité sélectionnée" Canvas.Top="80" TextAlignment="Center" Width="240"/>
+                <!-- Création du deuxième panneau présentant les caractéristiques des unités-->
+                <DockPanel Canvas.Left="10" Canvas.Top="100" HorizontalAlignment="Center">
+                    <!-- Liste de strings -->
+                    <ListView Name="infoGen2"  />
+                    <!-- Liste des données -->
+                    <ListView Name="infoUnite"  />
+                </DockPanel>
+            </Canvas>
     </DockPanel>
+    </ScrollViewer>
 </Window>

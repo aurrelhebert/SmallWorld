@@ -60,6 +60,15 @@ namespace SmallWorld
         }
 
         /// <summary>
+        /// Getter du nombre d'unité d'un joueur
+        /// </summary>
+        /// <returns> le nombre d'unité possédé par un jouueur</returns>
+        public int getNbUnite()
+        {
+            return _nbUnite;
+        }
+
+        /// <summary>
         /// Obtention de la liste d'unité d'un joueur
         /// </summary>
         /// <returns> sa liste d'unité</returns>

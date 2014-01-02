@@ -46,6 +46,25 @@ namespace SmallWorld
         int getColumn();
 
         /// <summary>
+        /// Methode permettant de connaitre les PV restant d'une unité
+        /// </summary>
+        /// <returns> l'indice de la colonne d'une unité</returns>
+        int getPV();
+
+        /// <summary>
+        /// Methode permettant de connaitre l'attaque d'une unité
+        /// </summary>
+        /// <returns> l'indice de la colonne d'une unité</returns>
+        int getAtt();
+
+        /// <summary>
+        /// Methode permettant de connaitre la défense d'une unité
+        /// </summary>
+        /// <returns> l'indice de la colonne d'une unité</returns>
+        int getDef();
+
+
+        /// <summary>
         /// Methode permettant de changer l'indice de l'ellipse symbolisant une unité
         /// </summary>
         void setIndexEllipse(int i);

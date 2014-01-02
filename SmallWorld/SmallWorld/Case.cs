@@ -19,6 +19,10 @@ namespace SmallWorld
             UnitsOnCase = new List<UniteDeBase>();
         }
 
+        public List<UniteDeBase> getUnitsOnCase()
+        {
+            return UnitsOnCase;
+        }
 
         //void ajoutPtDepl(UniteDeBase u, float deplacement) {//ça devrait être dans unité cette méthode plutôt
         //   u.ptDeDepl+=deplacement;
@@ -55,7 +59,7 @@ namespace SmallWorld
             return type;
         }
 
-        public int getNbUnitsOnCase() { // à Aurelien : cette fonction permet de connaître le nombre d'unité sur une case donnée de la carte. (car on les superpose.)
+        public int getNbUnitsOnCase() { // Cette fonction permet de connaître le nombre d'unité sur une case donnée de la carte. (car on les superpose.)
             return UnitsOnCase.Count();        
         }
 

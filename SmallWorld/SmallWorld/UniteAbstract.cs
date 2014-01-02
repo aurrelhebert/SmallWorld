@@ -40,6 +40,21 @@ namespace SmallWorld
             return column;
         }
 
+        public int getPV()
+        {
+            return pv;
+        }
+
+        public int getAtt()
+        {
+            return att;
+        }
+
+        public int getDef()
+        {
+            return def;
+        }
+
         public void setIndexEllipse(int i)
         {
             indexEllipse = i;

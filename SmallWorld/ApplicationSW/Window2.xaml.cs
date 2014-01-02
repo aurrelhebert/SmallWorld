@@ -81,6 +81,17 @@ namespace ApplicationSW
             //mapGrid.Children.Add(_element);
             creationGraphiqueUnite(uniteJ1, MaPartie.joueur1.getx0(), MaPartie.joueur1.gety0(), 0);
             creationGraphiqueUnite(uniteJ2, MaPartie.joueur2.getx0(), MaPartie.joueur2.gety0(), 1);
+
+            //Initialisation du panel affichant les informations sur la partie en cours.
+            infoGen1.Items.Add("Nombre de tour restant");
+            infoGen1.Items.Add("Nombre d'unité restante du Joueur 1");
+            infoGen1.Items.Add("Nombre d'unité restante du Joueur 2");
+
+            // Initialise la liste des données de la Partie (à utiliser lors de l'appui du bouton Fin de tour).
+            changeDataPartie();
+
+            // Initialisation des informations sur les unités
+            infoGen2.Items.Add("Aucune");
         }
 
         /// <summary>
@@ -220,6 +231,17 @@ namespace ApplicationSW
             int column = Grid.GetColumn(rectangle);
             int row = Grid.GetRow(rectangle);
            Case.etatCase etat = MaPartie.getCarte().getCase(column, row).getEtatOccupation(); 
+            // affichage des caractéristique de l'unité au top de la pile.
+           if (!(etat == 0))
+           {
+               setGen();
+               List<UniteDeBase> listUnite = MaPartie.getCarte().getCase(column, row).getUnitsOnCase();
+               changeListeViewUnite(listUnite[0]);
+           }
+           else
+           {
+               initListUnite();
+           }
             // la var etat est soit libre soit joueur1 soit joueur2
            SelectionOperateur.etatSelection etatSelection = MaPartie.getSelectionOperateur().getEtatSelection(); 
             // la var etatSelection est soit RienEstSelectionne soit UniteDeDepartDelectionnee soit UniteDarriveeSelectionnee 
@@ -359,6 +381,60 @@ namespace ApplicationSW
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Initialisation de l'affichage des chaines de caractères lors de la première selection d'une unité
+        /// </summary>
+        public void setGen()
+        {
+            if (infoGen2.Items.GetItemAt(0).Equals("Aucune"))
+            {
+                infoGen2.Items.Clear();
+                infoGen2.Items.Add("Ordonnée");
+                infoGen2.Items.Add("Abscisse");
+                infoGen2.Items.Add("Point de vie");
+                infoGen2.Items.Add("Attaque");
+                infoGen2.Items.Add("Défense");
+                infoGen2.Items.Refresh();
+            }
+        }
+
+
+
+        /// <summary>
+        /// Rafraichissement de l'affichage des données pour une unité des ses caractéristiques
+        /// </summary>
+        ///  <param name="u"> L'unité choisit par l'utilisateur </param>
+        public void changeListeViewUnite(Unite u)
+        {
+            infoUnite.Items.Clear();
+            infoUnite.Items.Add(u.getRow());
+            infoUnite.Items.Add(u.getColumn());
+            infoUnite.Items.Add(u.getPV());
+            infoUnite.Items.Add(u.getAtt());
+            infoUnite.Items.Add(u.getDef());
+            infoUnite.Items.Refresh();
+        }
+
+        /// <summary>
+        /// Rafraichissement de l'affichage des données de la partie en cours
+        /// </summary>
+        public void changeDataPartie()
+        {
+            infoData.Items.Clear();
+            infoData.Items.Add(strategie.nombreDeTour());
+            infoData.Items.Add(MaPartie.joueur1.getNbUnite());
+            infoData.Items.Add(MaPartie.joueur2.getNbUnite());
+            infoData.Items.Refresh();
+        }
+
+        public void initListUnite()
+        {
+            infoUnite.Items.Clear();
+            infoUnite.Items.Refresh();
+            infoGen2.Items.Clear();
+            infoGen2.Items.Add("Aucune");
+            infoGen2.Items.Refresh();
+        }
         /// <summary>
         /// Délégué : réaction général à un clic sur la fenetre 
         /// </summary>
