@@ -9,6 +9,8 @@ namespace SmallWorld
     {
         public int att, def, pv, row, column, indexEllipse;
         public float ptDeDepl;
+        Boolean estMort = false, seDeplaceApresCombat = false;
+
 
         public UniteDeBase()
         {
@@ -18,6 +20,11 @@ namespace SmallWorld
             pv = 2;
             row = 0;
             column = 0;
+        }
+
+        public Boolean estMorte()
+        {
+            return estMort;
         }
 
         public void setRow(int x)
@@ -55,6 +62,11 @@ namespace SmallWorld
             return def;
         }
 
+        public void setPV(int a)
+        {
+            pv = a;
+        }
+
         public void setIndexEllipse(int i)
         {
             indexEllipse = i;
@@ -67,6 +79,23 @@ namespace SmallWorld
 
         public Boolean seDeplacer(int departureRow, int departureColumn, int arrivalRow, int arrivalColumn) { return true; }
 
-        public void attaquer() { }
+        public void meurt()
+        {
+            estMort = true;
+        }
+
+        public void majPosition(int _row, int _column)
+        {
+            seDeplaceApresCombat = true;
+            row = _row;
+            column = _column;
+        }
+
+        public Boolean seDeplaceSuiteAuCombat()
+        {
+            return seDeplaceApresCombat;
+        }
+
+
     }
 }

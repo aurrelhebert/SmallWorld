@@ -58,5 +58,46 @@ namespace SmallWorld
         void deroulementDeLaPartie() { ;}
 
         void miseAJourDesPoints() { ;}
+
+        public void combat(Joueur j, Unite unitAtt, Unite target)
+        {
+            int pvUatt = unitAtt.getPV();
+            int pvTarget = target.getPV();
+            int att = unitAtt.getAtt()*(pvUatt)/2;
+            int def = target.getDef()*(pvTarget)/2;
+            int maximum = Math.Max(pvTarget, pvUatt);
+            Random r = new Random();
+            int nBCombat = r.Next(3,maximum+2);
+            for (int i=0; i < nBCombat; i++)
+            {
+                if (j.haveAttaquePerduUneVie(att, def))
+                {
+                    pvUatt--;
+                    if (0 == pvUatt)
+                    {
+                        unitAtt.meurt();
+                        break;
+                    }
+                    else
+                    {
+                        unitAtt.setPV(pvUatt);
+                    }
+                }
+                else
+                {
+                    pvTarget--;
+                    if(0==pvTarget)
+                    {
+                        target.meurt();
+                        unitAtt.majPosition(target.getRow(),target.getColumn());
+                        break;
+                    }
+                    else 
+                    {
+                        target.setPV(pvTarget);
+                    }
+                }
+            }
+        }
     }
 }

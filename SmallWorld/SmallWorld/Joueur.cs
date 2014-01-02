@@ -115,5 +115,35 @@ namespace SmallWorld
         {
             y0 = y;
         }
+
+        public Boolean haveAttaquePerduUneVie(int att, int def)
+        {
+            Boolean resultat = false;
+            int i;
+            Boolean attPlusFort = false;
+            if (att > def)
+            {
+                i = att - def;
+                attPlusFort = true;
+            }
+            else 
+            {
+                i = def - att;
+            }
+            double chance = (i * 25)*0.5 + 50;
+            Random rand = new Random();
+            int res = rand.Next(1,100);
+            if (attPlusFort)
+            {
+                if (res > chance)
+                    resultat = true;
+            }
+            else
+            {
+                if (res < chance)
+                    resultat = true;
+            }
+            return resultat;
+        }
     }
 }

@@ -17,12 +17,6 @@ namespace SmallWorld
 
 
         /// <summary>
-        /// Methode permettantà une unité d'attaquer
-        /// </summary>
-        void attaquer();
-
-
-        /// <summary>
         /// Methode permettant de changer l'indice de la ligne d'une unité
         /// </summary>
         void setRow(int x);
@@ -33,6 +27,18 @@ namespace SmallWorld
         /// </summary>
         /// <returns> l'indice de la ligne d'une unité</returns>
         int getRow();
+
+        /// <summary>
+        /// Permet de savoir que l'unité s'est déplacé suite à un combat victorieux
+        /// </summary>
+        /// <returns> Boolean</returns>
+        Boolean seDeplaceSuiteAuCombat();
+
+        /// <summary>
+        /// Permet de savoir que l'unité a été detruite
+        /// </summary>
+        /// <returns> Boolean</returns>
+        Boolean estMorte();
 
         /// <summary>
         /// Methode permettant de changer l'indice de la colonne d'une unité
@@ -50,6 +56,12 @@ namespace SmallWorld
         /// </summary>
         /// <returns> l'indice de la colonne d'une unité</returns>
         int getPV();
+
+        /// <summary>
+        /// Methode permettant de changer les PV restant d'une unité
+        /// </summary>
+        /// <returns> l'indice de la colonne d'une unité</returns>
+        void setPV(int a);
 
         /// <summary>
         /// Methode permettant de connaitre l'attaque d'une unité
@@ -74,5 +86,15 @@ namespace SmallWorld
         /// </summary>
         /// <returns> l'indice de l'ellipse symbolisant une unité</returns>
         int getIndexEllipse();
+
+        /// <summary>
+        /// Détruit une unité suite à un combat
+        /// </summary>
+        void meurt();
+
+        /// <summary>
+        /// Met à jour la position d'une unité suite à un combat
+        /// </summary>
+        void majPosition(int row, int column);
     }
 }

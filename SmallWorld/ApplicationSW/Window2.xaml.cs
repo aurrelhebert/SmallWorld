@@ -237,6 +237,15 @@ namespace ApplicationSW
                setGen();
                List<UniteDeBase> listUnite = MaPartie.getCarte().getCase(column, row).getUnitsOnCase();
                changeListeViewUnite(listUnite[0]);
+               /*
+               System.Threading.Thread.Sleep(5000);
+               while (!listUnite[0].estMorte())
+               {
+                   if (listUnite[1].estMorte())
+                       break;
+                   MaPartie.combat(MaPartie.joueur1, listUnite[0], listUnite[1]);
+                   changeListeViewUnite(listUnite[0]);
+               }*/
            }
            else
            {
