@@ -1,0 +1,62 @@
+﻿<Window x:Class="ApplicationSW.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SmallWorld" Height="421" Width="735" Loaded="Window_Loaded" >
+    <!--  MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Loaded Window_Loaded : Méthode appelée (abonnement) une fois la fenetre construite l'evt est lancé-->
+    <!-- MouseLeftButtonDown : Enregistrement d'un délégué Window_MouseLeftButtonDown si on clic sur la fenetre-->
+
+    <!-- illustration de la création d'un style pour les rectangles qui seront affichés-->
+    <Window.Resources>
+        <Style TargetType="Rectangle" x:Key="selectionStyle" >
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Stroke" Value="Blue"/>
+            <Setter Property="StrokeThickness" Value="1"/>
+            <Setter Property="Panel.ZIndex" Value="333"/>
+            <!-- pour avoir un affichage au premier plan -->
+            <Setter Property="Visibility" Value= "Collapsed"/>
+            <!-- visibilité par défaut = cachée -->
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <Grid  DockPanel.Dock="Bottom">
+            <StackPanel Orientation="Horizontal">
+                <!--V1 : gestion avec evts classiques -->
+                <!--<Label  Name="infoLabel"/>-->
+
+                <!--V2 : gestion avec Binding -->
+                <!-- on associe le contenu du label (Content) par binding : au numero de colonne (Grid.Column) de la source : le rectangle de selection (selectionRectangle) -->
+                <Label Foreground="Blue" Content="{Binding (Grid.Column), ElementName=selectionRectangle}"/>
+                <Label Foreground="Blue" Content="{Binding (Grid.Row), ElementName=selectionRectangle}"/>
+                <!-- Tag est un attribut (par défaut) qui référence la tuile sélectionnée-->
+                <Label Foreground="Red" Content="{Binding Tag, ElementName=selectionRectangle}"/>
+                <Label Foreground="Green" Content="{Binding Tag.Iron, ElementName=selectionRectangle}"/>
+                <!-- on associe le contenu du label (Content) par binding : à la tuile selectionnée (Tag) de la source : le rectangle de selection (selectionRectangle) -->
+                <!-- une variante = Factorisation du Binding par le DataContext-->
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" DataContext="{Binding Tag, ElementName=selectionRectangle}">
+                    <Label Foreground="Purple" Content="{Binding}"/>
+                    <Label Foreground="OrangeRed" Content="{Binding Iron}"/>
+                </StackPanel>
+            </StackPanel>
+            <!-- Définition du bouton "fin de tour" et association à l'évt Click : => appel à la méthode "Button_Click" -->
+            <Button HorizontalAlignment="Right" Content="Fin du tour" />
+            <!--Click="Button_Click"-->
+        </Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid Name="mapGrid" Background="Azure" >
+                <!--V2 : gestion avec Binding-->
+                <!-- Définition du rectangle matérialisant la selection -->
+                <!--   Permet d'avoir un objet graphique sur lequel on va pouvoir appliquer du Binding pour mettre à jour les labels d'informations-->
+                <!--<rectangle width="20" height="20" name="selectionrectangle" stroke="blue" strokethickness="1" panel.zindex="333" visibility="collapsed"/>-->
+
+
+                <!--<rectangle width="20" height="20" name="selectionrectangle" stroke="blue" strokethickness="1" panel.zindex="333" visibility="collapsed"/>-->
+                <Rectangle Style="{StaticResource selectionStyle}" x:Name="selectionRectangle" />
+                <!-- Chaque case de la grille contient potentiellement un rectangle de selection + une unité (qui ne sera pas sensible aux evts)
+            <Ellipse Fill="White" Width="10" Height="10" x:Name="unitEllipse" Panel.ZIndex="444" IsHitTestVisible="False" />-->
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+</Window>
