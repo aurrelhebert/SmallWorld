@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public class Nains : Peuple
+   /* public class Nains : Peuple
     {
 
         public override void creerUnites(int nbr)
@@ -18,5 +18,5 @@ namespace SmallWorld
 
         }
 
-    }
+    }*/
 }

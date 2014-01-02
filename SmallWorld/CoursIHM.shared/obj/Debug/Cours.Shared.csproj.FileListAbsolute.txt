@@ -8,3 +8,8 @@ C:\Users\aurelien\Downloads\WpfCoursIHM\CoursIHM.shared\bin\Debug\Cours.Shared.p
 C:\Users\aurelien\Downloads\WpfCoursIHM\CoursIHM.shared\obj\Debug\Cours.Shared.csprojResolveAssemblyReference.cache
 C:\Users\aurelien\Downloads\WpfCoursIHM\CoursIHM.shared\obj\Debug\Cours.Shared.dll
 C:\Users\aurelien\Downloads\WpfCoursIHM\CoursIHM.shared\obj\Debug\Cours.Shared.pdb
+C:\Users\Noël\GitSW\poo\SmallWorld\CoursIHM.shared\bin\Debug\Cours.Shared.dll
+C:\Users\Noël\GitSW\poo\SmallWorld\CoursIHM.shared\bin\Debug\Cours.Shared.pdb
+C:\Users\Noël\GitSW\poo\SmallWorld\CoursIHM.shared\obj\Debug\Cours.Shared.csprojResolveAssemblyReference.cache
+C:\Users\Noël\GitSW\poo\SmallWorld\CoursIHM.shared\obj\Debug\Cours.Shared.dll
+C:\Users\Noël\GitSW\poo\SmallWorld\CoursIHM.shared\obj\Debug\Cours.Shared.pdb

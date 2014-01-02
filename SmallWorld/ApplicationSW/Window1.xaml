@@ -8,7 +8,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="36,149,0,0" TextWrapping="Wrap" Text="Nom du joueur 2 : " VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="148,80,0,0" TextWrapping="Wrap" Text="Player1" VerticalAlignment="Top" Width="120" />
         <TextBox HorizontalAlignment="Left" Height="23" Margin="146,144,0,0" TextWrapping="Wrap" Text="Player2" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="comboBoxJ1" HorizontalAlignment="Left" Margin="54,113,0,0" VerticalAlignment="Top" Width="120" Text="Choisir le peuple" Initialized="ComboBox_Loaded_2" SelectionChanged="comboBoxJ1_SelectionChanged_1">
+        <ComboBox Name="comboBoxJ1" HorizontalAlignment="Left" Margin="54,113,0,0" VerticalAlignment="Top" Width="120" Text="Choisir le peuple" Initialized="ComboBox_Loaded_2" SelectionChanged="comboBoxJ1_SelectionChanged_1" IsReadOnly="True">
             <ComboBoxItem Name="J1Gaul">Gaulois</ComboBoxItem>
             <ComboBoxItem Name="J1Nain">Nains</ComboBoxItem>
             <ComboBoxItem Name="J1Vik">Viking</ComboBoxItem>
@@ -18,8 +18,8 @@
             <ComboBoxItem Name="J2Nain">Nains</ComboBoxItem>
             <ComboBoxItem Name="J2Vik">Viking</ComboBoxItem>
         </ComboBox>
-        <Button Content="Petite" HorizontalAlignment="Center" Margin="20,20,20,20" VerticalAlignment="Bottom" Width="75" Click="Button_Click_1"/>
-        <Button Content="Démo" HorizontalAlignment="Left" Margin="20,20,20,20" VerticalAlignment="Bottom" Width="75" Click="Button_Click_2"/>
-        <Button Content="Normal" HorizontalAlignment="Right" Margin="20,20,20,20" VerticalAlignment="Bottom" Width="75" Click="Button_Click_3"/>
+        <Button Content="Petite" HorizontalAlignment="Center" Margin="20,20,20,20" VerticalAlignment="Bottom" Width="75" Click="Small_Button_Click"/>
+        <Button Content="Démo" HorizontalAlignment="Left" Margin="20,20,20,20" VerticalAlignment="Bottom" Width="75" Click="Demo_Button_Click"/>
+        <Button Content="Normal" HorizontalAlignment="Right" Margin="20,20,20,20" VerticalAlignment="Bottom" Width="75" Click="Normal_Button_Click"/>
     </Grid>
 </Window>

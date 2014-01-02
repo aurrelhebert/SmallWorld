@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Wrapper;
 
 namespace SmallWorld
 {
     public interface Unite
     {
+        //WrapperAlgo wa;
 
         /// <summary>
         /// Methode permettant le deplacement d'une unité
         /// </summary>
-        void seDeplacer();
+        Boolean seDeplacer(int departureRow, int departureColumn, int arrivalRow, int arrivalColumn);
 
 
         /// <summary>
@@ -23,14 +25,14 @@ namespace SmallWorld
         /// <summary>
         /// Methode permettant de changer l'indice de la ligne d'une unité
         /// </summary>
-        void setRaw(int x);
+        void setRow(int x);
 
 
         /// <summary>
         /// Methode permettant de connaitre l'indice de la ligne d'une unité
         /// </summary>
         /// <returns> l'indice de la ligne d'une unité</returns>
-        int getRaw();
+        int getRow();
 
         /// <summary>
         /// Methode permettant de changer l'indice de la colonne d'une unité

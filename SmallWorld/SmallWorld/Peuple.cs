@@ -5,24 +5,37 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public abstract class Peuple
+    public class Peuple
     {
-        List<Unite> _unites;
+        List<UniteDeBase> _unites;
+        public enum NomPeuple { GAULOIS = 0, NAINS, VIKINGS };
+        public NomPeuple nomPeuple;
 
         /// <summary>
         /// Constructeur
         /// </summary>
-        public Peuple()
+        public Peuple(NomPeuple name)
         {
-            _unites = new List<Unite>();
+            nomPeuple = name;
+            _unites = new List<UniteDeBase>();
         }
 
         /// <summary>
         /// Methode permettant de remplir la liste d'unité d'un peuple
         /// </summary>
         /// <param name="nbr"> le nombre d'unites à ajouter </param>
-        public virtual void creerUnites(int nbr)
-        {
+        public virtual void creerUnites(int nbr) {
+            int i;
+            UniteDeBase unit;
+            switch(nomPeuple){
+                case (NomPeuple.GAULOIS): unit = new GuerrierGaulois(); break;
+                case (NomPeuple.NAINS): unit = new GuerrierNains(); break;
+                default: unit = new GuerrierVikings(); break;                
+            }
+            for (i = 0; i < nbr; i++)
+            {
+                this.getUnites().Add(unit);
+            }
         }
 
        
@@ -46,7 +59,7 @@ namespace SmallWorld
         /// Methode permettant de récuperer la liste d'unité du peuple
         /// </summary>
         /// <returns> la liste des unités</returns>
-        public List<Unite> getUnites()
+        public List<UniteDeBase> getUnites()
         {
             return this._unites;
         }

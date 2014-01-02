@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -45,6 +46,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carte.cs" />
     <Compile Include="CarteDemo.cs" />
     <Compile Include="CartePetite.cs" />
     <Compile Include="Case.cs" />
@@ -62,11 +64,12 @@
     <Compile Include="Foret.cs" />
     <Compile Include="Gaulois.cs" />
     <Compile Include="GuerrierGaulois.cs" />
-    <Compile Include="guerrierNain.cs" />
+    <Compile Include="GuerrierNains.cs" />
     <Compile Include="GuerrierVikings.cs" />
     <Compile Include="CarteNormale.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="Montagne.cs" />
+    <Compile Include="SelectionOperateur.cs" />
     <Compile Include="SmallWorld.cs" />
     <Compile Include="Nains.cs" />
     <Compile Include="Partie.cs" />
@@ -79,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GestionDesPeuples.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wrapper\wrapper.vcxproj">
+      <Project>{c8392d20-d81c-4d98-8245-ee6d3aa7fe50}</Project>
+      <Name>wrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

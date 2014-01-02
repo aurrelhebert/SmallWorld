@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Wrapper;
 
 namespace SmallWorld
 {
@@ -11,6 +12,6 @@ namespace SmallWorld
 
         Partie creerPartie(int nombreTour, Joueur j1, Joueur j2, StrategieCarte carte, List<Unite> listeUniteJoueur1, List<Unite> listeUniteJoueur2);
 
-        StrategieCarte creerCarte(int strategy);
+        Carte creerCarte(int strategy);
     }
 }

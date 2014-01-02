@@ -5,7 +5,10 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public interface Montagne : Case
+    public class Montagne : Case
     {
+        public Montagne() : base(TypeCase.MONTAGNE){
+            
+        }
     }
 }

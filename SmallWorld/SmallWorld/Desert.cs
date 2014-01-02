@@ -5,7 +5,10 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public interface Desert : Case
+    public class Desert : Case
     {
+        public Desert() : base(TypeCase.DESERT) {
+            
+        }
     }
 }

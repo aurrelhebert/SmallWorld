@@ -7,5 +7,6 @@ namespace SmallWorld
 {
     public class GuerrierGaulois : UniteDeBase
     {
+        public void seDeplacer(int departureRaw, int departureColumn, int arrivalRaw, int arrivalColumn) { }
     }
 }

@@ -5,12 +5,64 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public interface Case
+    public abstract class Case
     {
-        void creerCase();
+        public List<UniteDeBase> UnitsOnCase;
+        public enum etatCase { libre, joueur1, joueur2 };
+        private etatCase etatOccupation;
+        public enum TypeCase { MONTAGNE = 0, PLAINE, DESERT, EAU, FORET };
+        public TypeCase type;
 
-        void placementUnite();
+        public Case(TypeCase t) {
+            type = t;
+            etatOccupation = etatCase.libre;
+            UnitsOnCase = new List<UniteDeBase>();
+        }
 
-        void positionUnite();
+
+        //void ajoutPtDepl(UniteDeBase u, float deplacement) {//ça devrait être dans unité cette méthode plutôt
+        //   u.ptDeDepl+=deplacement;
+        //}
+
+        public etatCase getEtatOccupation()
+        {
+            return etatOccupation;
+        }
+
+        public void setEtatOccupation(int numjoueur) {
+            switch (numjoueur) {
+                case 1: etatOccupation = etatCase.joueur1; break;
+                case 2: etatOccupation = etatCase.joueur2; break;
+                default: etatOccupation = etatCase.libre; break;
+            }
+
+        }
+
+        public void setUnitsOnCase(UniteDeBase u)
+        {
+            UnitsOnCase.Add(u);
+        }
+
+        public void initUnitsOnCase(List<UniteDeBase> l)
+        {
+            UnitsOnCase = l;
+        }
+
+
+        public void positionUnite() { ;}
+
+        public TypeCase getType() {
+            return type;
+        }
+
+        public int getNbUnitsOnCase() { // à Aurelien : cette fonction permet de connaître le nombre d'unité sur une case donnée de la carte. (car on les superpose.)
+            return UnitsOnCase.Count();        
+        }
+
+       // public List<UniteDeBase> getUnitsOnCase()
+        //{
+       //     return UnitsOnCase;
+       // }
+
     }
 }

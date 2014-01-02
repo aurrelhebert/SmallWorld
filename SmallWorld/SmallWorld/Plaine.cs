@@ -5,7 +5,11 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public interface Plaine : Case
+    public class Plaine : Case
     {
+        public Plaine() : base(TypeCase.PLAINE){
+            
+        }
+
     }
 }
