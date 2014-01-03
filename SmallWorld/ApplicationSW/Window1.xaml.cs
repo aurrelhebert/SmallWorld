@@ -161,17 +161,17 @@ namespace ApplicationSW
             switch (numPeuple)
             {
                 case NomPeuple.GAULOIS:
-                    peuple = new Peuple(Peuple.NomPeuple.GAULOIS);
+                    peuple = new Gaulois();
                     peuple.creerUnites(nbUnite);
                     break;
 
                 case NomPeuple.NAINS:
-                    peuple = new Peuple(Peuple.NomPeuple.NAINS);
+                    peuple = new Nains();
                     peuple.creerUnites(nbUnite);
                     break;
 
                 case NomPeuple.VIKINGS:
-                    peuple=new Peuple(Peuple.NomPeuple.VIKINGS);
+                    peuple=new Vikings();
                     peuple.creerUnites(nbUnite);
                     break;
 

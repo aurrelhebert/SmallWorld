@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public class Peuple
+    public abstract class Peuple
     {
         List<UniteDeBase> _unites;
         public enum NomPeuple { GAULOIS = 0, NAINS, VIKINGS };
@@ -14,9 +14,8 @@ namespace SmallWorld
         /// <summary>
         /// Constructeur
         /// </summary>
-        public Peuple(NomPeuple name)
+        public Peuple()
         {
-            nomPeuple = name;
             _unites = new List<UniteDeBase>();
         }
 
@@ -24,8 +23,9 @@ namespace SmallWorld
         /// Methode permettant de remplir la liste d'unité d'un peuple
         /// </summary>
         /// <param name="nbr"> le nombre d'unites à ajouter </param>
-        public virtual void creerUnites(int nbr) {
-            int i;
+        public abstract void creerUnites(int nbr);
+            /* A Noel : supprimer parcequ'instanciation de 4 fois la même unité pour un peuple.
+             * int i;
             UniteDeBase unit;
             switch(nomPeuple){
                 case (NomPeuple.GAULOIS): unit = new GuerrierGaulois(); break;
@@ -35,9 +35,13 @@ namespace SmallWorld
             for (i = 0; i < nbr; i++)
             {
                 this.getUnites().Add(unit);
-            }
-        }
+            }*/
 
+        public abstract Boolean isNain();
+
+        public abstract Boolean isGaulois();
+
+        public abstract Boolean isVikings();
        
         public void ajouteUnite(string Unite)
         {

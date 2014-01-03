@@ -81,7 +81,7 @@ namespace SmallWorld
 
         public void meurt()
         {
-            estMort = true;
+            this.estMort = true;
         }
 
         public void majPosition(int _row, int _column)

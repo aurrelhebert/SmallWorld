@@ -59,7 +59,7 @@ namespace SmallWorld
 
         void miseAJourDesPoints() { ;}
 
-        public void combat(Joueur j, Unite unitAtt, Unite target)
+        public int combat(Unite unitAtt, Unite target)
         {
             int pvUatt = unitAtt.getPV();
             int pvTarget = target.getPV();
@@ -68,36 +68,65 @@ namespace SmallWorld
             int maximum = Math.Max(pvTarget, pvUatt);
             Random r = new Random();
             int nBCombat = r.Next(3,maximum+2);
-            for (int i=0; i < nBCombat; i++)
+            Boolean finCombat = false;
+            int arret =0;
+
+            for (int i=0;i<nBCombat || !finCombat; i++)
             {
-                if (j.haveAttaquePerduUneVie(att, def))
+                if ((pvTarget == 0) || (pvUatt == 0))
+                    finCombat = true;
+
+                if (haveAttaquePerduUneVie(att, def))
                 {
                     pvUatt--;
                     if (0 == pvUatt)
                     {
                         unitAtt.meurt();
-                        break;
+                        finCombat = true;
+                        arret++;
                     }
-                    else
-                    {
-                        unitAtt.setPV(pvUatt);
-                    }
+                    unitAtt.setPV(pvUatt);
                 }
                 else
                 {
+
                     pvTarget--;
+
                     if(0==pvTarget)
                     {
                         target.meurt();
-                        unitAtt.majPosition(target.getRow(),target.getColumn());
-                        break;
+                        unitAtt.majPosition(target.getRow(), target.getColumn());
+                        finCombat = true;
+                        arret++;
                     }
-                    else 
-                    {
-                        target.setPV(pvTarget);
-                    }
+                    target.setPV(pvTarget);
                 }
             }
+            return arret;
+        }
+
+        public Boolean haveAttaquePerduUneVie(int att, int def)
+        {
+            Boolean resultat = false;
+            double i;
+            Boolean attPlusFort = false;
+            if (att > def)
+                attPlusFort = true;
+            i = (1 - att / def) * 100;
+            double chance = (i * 25) * 0.5 + 50;
+            Random rand = new Random();
+            int res = rand.Next(1, 100);
+            if (attPlusFort)
+            {
+                if (res < chance)
+                    resultat = true;
+            }
+            else
+            {
+                if (res > chance)
+                    resultat = true;
+            }
+            return resultat;
         }
     }
 }

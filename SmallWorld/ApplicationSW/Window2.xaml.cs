@@ -234,18 +234,28 @@ namespace ApplicationSW
             // affichage des caractéristique de l'unité au top de la pile.
            if (!(etat == 0))
            {
+
                setGen();
                List<UniteDeBase> listUnite = MaPartie.getCarte().getCase(column, row).getUnitsOnCase();
                changeListeViewUnite(listUnite[0]);
                /*
-               System.Threading.Thread.Sleep(5000);
-               while (!listUnite[0].estMorte())
+               MessageBox.Show(listUnite[1].getPV().ToString());
+               if (listUnite[1].estMorte())
                {
-                   if (listUnite[1].estMorte())
-                       break;
-                   MaPartie.combat(MaPartie.joueur1, listUnite[0], listUnite[1]);
-                   changeListeViewUnite(listUnite[0]);
-               }*/
+                   MessageBox.Show("1 est morte");
+               }
+                  int a = MaPartie.combat(listUnite[0], listUnite[1]);
+                //changeListeViewUnite(listUnite[0]);
+                if (listUnite[1].estMorte())
+                {
+                    MessageBox.Show("1 est morte");
+                }
+               if (listUnite[0].estMorte())
+               {
+                   MessageBox.Show("0 est morte");
+               }
+               MessageBox.Show(a.ToString());
+               MessageBox.Show(listUnite[1].getPV().ToString());*/
            }
            else
            {

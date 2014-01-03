@@ -5,8 +5,11 @@ using System.Text;
 
 namespace SmallWorld
 {
-   /* public class Vikings : Peuple
+    public class Vikings : Peuple
     {
+        public Vikings()
+        {
+        }
 
         public override void creerUnites(int nbr)
         {
@@ -17,5 +20,20 @@ namespace SmallWorld
             }
 
         }
-    }*/
+
+        public override Boolean isNain()
+        {
+            return false;
+        }
+
+        public override Boolean isGaulois()
+        {
+            return false;
+        }
+
+        public override Boolean isVikings()
+        {
+            return true;
+        }
+    }
 }
