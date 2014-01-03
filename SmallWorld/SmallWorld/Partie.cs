@@ -8,7 +8,7 @@ namespace SmallWorld
 {
     public class Partie
     {
-
+        int pvMaxUnite;
         public StrategieCarte strat;
         private Carte LaCarte;
         public Joueur joueur1;
@@ -19,6 +19,7 @@ namespace SmallWorld
 
         unsafe public Partie(Joueur j1, Joueur j2, StrategieCarte st)
         {
+            pvMaxUnite = 2;
             joueur1 = j1;
             joueur2 = j2;
             LaCarte = new Carte(st.tailleCarte());
@@ -63,8 +64,8 @@ namespace SmallWorld
         {
             int pvUatt = unitAtt.getPV();
             int pvTarget = target.getPV();
-            int att = unitAtt.getAtt()*(pvUatt)/2;
-            int def = target.getDef()*(pvTarget)/2;
+            int att = unitAtt.getAtt()*(pvUatt)/pvMaxUnite;
+            int def = target.getDef()*(pvTarget)/pvMaxUnite;
             int maximum = Math.Max(pvTarget, pvUatt);
             Random r = new Random();
             int nBCombat = r.Next(3,maximum+2);
@@ -73,9 +74,11 @@ namespace SmallWorld
 
             for (int i=0;i<nBCombat || !finCombat; i++)
             {
-                if ((pvTarget == 0) || (pvUatt == 0))
-                    finCombat = true;
 
+                double tmp = Math.Round((double)unitAtt.getAtt() * (double)(pvUatt) / pvMaxUnite + 0.001, 0);
+                att = (int)tmp;
+                tmp = Math.Round((double)target.getDef() * (double)(pvTarget) / pvMaxUnite + 0.001, 0);
+                def = (int)tmp;
                 if (haveAttaquePerduUneVie(att, def))
                 {
                     pvUatt--;
@@ -109,23 +112,25 @@ namespace SmallWorld
         {
             Boolean resultat = false;
             double i;
-            Boolean attPlusFort = false;
-            if (att > def)
-                attPlusFort = true;
-            i = (1 - att / def) * 100;
-            double chance = (i * 25) * 0.5 + 50;
+            double chance;
+
+            if (att > def) {
+                double tmp = (double) def / att;
+                i = 0.5 * (1 - tmp) * 100;
+                chance = 50 - i;
+            }
+            else {
+                double tmp = (double)att / def;
+                i = 0.5 * (1 - tmp) * 100;
+                chance = i + 50;
+            }
+
             Random rand = new Random();
-            int res = rand.Next(1, 100);
-            if (attPlusFort)
-            {
-                if (res < chance)
+            int res = rand.Next(0, 100);
+
+            if (res < chance)
                     resultat = true;
-            }
-            else
-            {
-                if (res > chance)
-                    resultat = true;
-            }
+
             return resultat;
         }
     }

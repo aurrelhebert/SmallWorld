@@ -238,7 +238,7 @@ namespace ApplicationSW
                setGen();
                List<UniteDeBase> listUnite = MaPartie.getCarte().getCase(column, row).getUnitsOnCase();
                changeListeViewUnite(listUnite[0]);
-               /*
+               /* A noël : Tests d'éxécution d'un combat :
                MessageBox.Show(listUnite[1].getPV().ToString());
                if (listUnite[1].estMorte())
                {
