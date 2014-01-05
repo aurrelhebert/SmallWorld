@@ -7,9 +7,9 @@ namespace SmallWorld
 {
     public abstract class UniteDeBase : Unite
     {
-        public int att, def, pv, row, column, indexEllipse;
+        public int att, def, pv, row, column, indexEllipse, pourcentagePV;
         public float ptDeDepl;
-        Boolean estMort = false, seDeplaceApresCombat = false;
+        Boolean estMort = false; //seDeplaceApresCombat = false;  y en a pas besoin ici +  estMort aussi il sert pas vraiment
 
 
         public UniteDeBase()
@@ -20,6 +20,7 @@ namespace SmallWorld
             pv = 2;
             row = 0;
             column = 0;
+            pourcentagePV = 100;
         }
 
         public Boolean estMorte()
@@ -27,14 +28,14 @@ namespace SmallWorld
             return estMort;
         }
 
-        public void setRow(int x)
+        public void setRow(int r)
         {
-            row = x;
+            row = r;
         }
 
-        public void setColumn(int x)
+        public void setColumn(int c)
         {
-            column = x;
+            column = c;
         }
 
         public int getRow()
@@ -86,16 +87,39 @@ namespace SmallWorld
 
         public void majPosition(int _row, int _column)
         {
-            seDeplaceApresCombat = true;
+            //seDeplaceApresCombat = true;
             row = _row;
             column = _column;
         }
 
-        public Boolean seDeplaceSuiteAuCombat()
+        /*public Boolean seDeplaceSuiteAuCombat()
         {
             return seDeplaceApresCombat;
+        }*/
+
+        /*public Boolean Egal(UniteDeBase u)
+        {
+            return (att==u.att && def==u.def && pv==u.pv && row==u.row && column==u.column && this.indexEllipse==u.indexEllipse && ptDeDepl==u.ptDeDepl && estMort==u.estMort && seDeplaceApresCombat==u.seDeplaceApresCombat);
+        }*/
+
+        public void setPourcentagePV(int i)
+        {
+            pourcentagePV = i;
         }
 
+        public int getPourcentagePV()
+        {
+            return pourcentagePV;
+        }
+
+        public Boolean getEstMort()
+        {
+            return estMort;
+        }
+
+        public void setPtDeDepl(int i){
+            ptDeDepl = i;
+        }
 
     }
 }

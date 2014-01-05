@@ -19,7 +19,7 @@ namespace SmallWorld
         /// <summary>
         /// Methode permettant de changer l'indice de la ligne d'une unité
         /// </summary>
-        void setRow(int x);
+        void setRow(int r);
 
 
         /// <summary>
@@ -28,11 +28,11 @@ namespace SmallWorld
         /// <returns> l'indice de la ligne d'une unité</returns>
         int getRow();
 
-        /// <summary>
+        /*/// <summary>
         /// Permet de savoir que l'unité s'est déplacé suite à un combat victorieux
         /// </summary>
         /// <returns> Boolean</returns>
-        Boolean seDeplaceSuiteAuCombat();
+        Boolean seDeplaceSuiteAuCombat();*/
 
         /// <summary>
         /// Permet de savoir que l'unité a été detruite
@@ -43,7 +43,7 @@ namespace SmallWorld
         /// <summary>
         /// Methode permettant de changer l'indice de la colonne d'une unité
         /// </summary>
-        void setColumn(int x);
+        void setColumn(int c);
 
         /// <summary>
         /// Methode permettant de connaitre l'indice de la colonne d'une unité

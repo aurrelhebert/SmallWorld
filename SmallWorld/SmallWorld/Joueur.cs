@@ -7,7 +7,6 @@ namespace SmallWorld
 {
     public class Joueur
     {
-        private int _nbUnite;
         private Peuple _peuple;
         private int x0;
         private int y0;
@@ -19,7 +18,6 @@ namespace SmallWorld
         {
             x0 = 0;
             y0 = 0;
-            _nbUnite = 0;
         }
 
         /// <summary>
@@ -27,9 +25,8 @@ namespace SmallWorld
         /// </summary>
         /// <param name="nbUnite"> Le nombre max d'unite d'un peuple </param>
         /// <param name="peuple"> Le peuple du joueur </param>
-        public Joueur(int nbUnite, Peuple peuple, int raw0=0,int column0=0)
+        public Joueur(Peuple peuple, int raw0=0,int column0=0)
         {
-            _nbUnite = nbUnite;
             _peuple = peuple;
             x0 = raw0;
             y0 = column0;
@@ -49,14 +46,7 @@ namespace SmallWorld
             return _peuple;
         }
 
-        /// <summary>
-        /// Setter des unites
-        /// </summary>
-        /// <param name="nb"> Nombre d'unite max </param>
-        public void setNbUnite(int nb)
-        {
-            _nbUnite = nb;
-        }
+
 
         /// <summary>
         /// Getter du nombre d'unité d'un joueur
@@ -64,7 +54,7 @@ namespace SmallWorld
         /// <returns> le nombre d'unité possédé par un jouueur</returns>
         public int getNbUnite()
         {
-            return _nbUnite;
+            return _peuple.getUnites().Count;
         }
 
         /// <summary>
@@ -115,6 +105,19 @@ namespace SmallWorld
             y0 = y;
         }
 
+        public void changeLeBonElement(UniteDeBase u, UniteDeBase umodifie) {
+            List<UniteDeBase> l = _peuple.getUnites();
+            int i;
+            for (i = 0; i<l.Count; i++)
+            {
+                if (l[i] == u)
+                {
+                    l.RemoveAt(i);
+                    l.Insert(i, umodifie);
+                }
+            }
+
+        }
         
     }
 }

@@ -49,7 +49,10 @@ namespace SmallWorld
 
         public void initUnitsOnCase(List<UniteDeBase> l)
         {
-            UnitsOnCase = l;
+            UnitsOnCase.Clear();
+            foreach(UniteDeBase u in l) {
+                UnitsOnCase.Add(u);
+            }
         }
 
 
@@ -63,10 +66,19 @@ namespace SmallWorld
             return UnitsOnCase.Count();        
         }
 
-       // public List<UniteDeBase> getUnitsOnCase()
-        //{
-       //     return UnitsOnCase;
-       // }
+        public UniteDeBase getLUniteDePlusGrandeDefense(){
+            int plusGrandeDef = 0;
+            UniteDeBase uniteDePlusGrandeDef = UnitsOnCase[0];
+            foreach(UniteDeBase u in UnitsOnCase){
+                if (u.getDef() > plusGrandeDef){
+                    plusGrandeDef = u.getDef();
+                    uniteDePlusGrandeDef=u;
+                }
+            }
+            return uniteDePlusGrandeDef;
+        }
+
+
 
     }
 }
