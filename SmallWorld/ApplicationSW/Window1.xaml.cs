@@ -145,8 +145,8 @@ namespace ApplicationSW
             Peuple peupleJ1, peupleJ2;
             peupleJ1 = creerPeuple(nbUnite, nomPeupleJ1);
             peupleJ2 = creerPeuple(nbUnite, nomPeupleJ2);
-            joueur1 = new Joueur(nbUnite, peupleJ1);
-            joueur2 = new Joueur(nbUnite, peupleJ2);
+            joueur1 = new Joueur(peupleJ1);
+            joueur2 = new Joueur(peupleJ2);
 
         }
 

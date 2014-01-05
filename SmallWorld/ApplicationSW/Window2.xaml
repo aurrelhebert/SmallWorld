@@ -22,7 +22,7 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <DockPanel>
         <Grid  DockPanel.Dock="Bottom">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="0,-10,66.8,9.8">
                 <!--V1 : gestion avec evts classiques -->
                 <!--<Label  Name="infoLabel"/>-->
 
@@ -41,7 +41,7 @@
                 </StackPanel>
             </StackPanel>
             <!-- Définition du bouton "fin de tour" et association à l'évt Click : => appel à la méthode "Button_Click" -->
-            <Button HorizontalAlignment="Right" Content="Fin du tour" Height="26" Margin="0,0,-0.2,-0.4" VerticalAlignment="Top" />
+            <Button HorizontalAlignment="Right" Content="Fin du tour" Height="26" Margin="0,-44,169.8,0" VerticalAlignment="Top" />
             <!--Click="Button_Click"-->
         </Grid>
             <Grid Name="mapGrid" Background="Azure" >
@@ -75,6 +75,7 @@
                     <ListView Name="infoUnite"  />
                 </DockPanel>
             </Canvas>
-    </DockPanel>
+            <Button Content="Fin de Tour" Width="75" Height="30" Click="Button_Fin_de_Tour"/>
+        </DockPanel>
     </ScrollViewer>
 </Window>

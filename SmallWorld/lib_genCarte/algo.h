@@ -36,3 +36,5 @@ EXTERNC DLL void Algo_positionJoueur(Carte* algo,int* xJ1,int* yJ1,int* xJ2,int*
 EXTERNC DLL void Algo_positionJoueurParTaille(int taille,int* xJ1,int* yJ1,int* xJ2,int* yJ2);
 EXTERNC DLL int Algo_getTypeCase(Carte* algo, int x, int y);
 EXTERNC DLL bool Algo_isAdjacentCase(int x1, int y1, int x2, int y2);
+EXTERNC DLL int Algo_ChoixNbDeCombat(int pv1, int pv2);
+EXTERNC DLL bool Algo_CalculAttaque(int attaque, int defense, int pourcentageAttaque, int pourcentageDefense);

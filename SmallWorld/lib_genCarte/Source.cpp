@@ -50,6 +50,8 @@ int** Algo_remplirCarte(Carte* algo) {
 	return algo->tabCases;
 }
 
+// normalement on ne l'utilise plus
+
  void Algo_positionJoueur(Carte* algo,int* xJ1,int* yJ1,int* xJ2,int* yJ2){
 	 int alea = rand()%2;
 	 if (alea ==0) {
@@ -65,6 +67,7 @@ int** Algo_remplirCarte(Carte* algo) {
 		*yJ2 = algo->taille-1;
 	 }
  }
+
 
  void Algo_positionJoueurParTaille(int taille,int* xJ1,int* yJ1,int* xJ2,int* yJ2){
 	 int alea = rand()%2;
@@ -99,4 +102,34 @@ int** Algo_remplirCarte(Carte* algo) {
 		 if(x1==(x2-1) || x1==(x2+1)) return true;
 	 }
 	 return false;
+ }
+
+ int Algo_ChoixNbDeCombat(int pv1, int pv2){
+	 int pvmax;
+	 if(pv1<pv2){
+		 pvmax=pv2;
+	 }else{
+		 pvmax=pv1;
+	 }
+	 if(pvmax<=1) {return 3;
+	 }else{
+		 return 3+(rand()%pvmax);
+	 }
+ }
+
+ bool Algo_CalculAttaque(int attaque, int defense, int pourcentageAttaque, int pourcentageDefense){
+	 float attaqueFinale=(attaque*pourcentageAttaque)/100.0f;
+	 float defenseFinale=(defense*pourcentageDefense)/100.0f;
+	 float pourcentageDeChanceAttaquantPerdUneVie;
+	 if(attaqueFinale <= defenseFinale){
+		if(defenseFinale==0.0f) return false;
+		float rapport=attaqueFinale/defenseFinale;
+		pourcentageDeChanceAttaquantPerdUneVie=100-(rapport*50);//pourcentageDeChanceAttaquantPerdUneVie > 50%
+	 }else{
+		 if(attaqueFinale==0.0f) return true;
+		float rapport=defenseFinale/attaqueFinale;
+		pourcentageDeChanceAttaquantPerdUneVie=(rapport*50);//pourcentageDeChanceAttaquantPerdUneVie < 50%
+	 }
+	 int tirageAleatoire=rand()%101;
+	 return (tirageAleatoire <= pourcentageDeChanceAttaquantPerdUneVie);
  }

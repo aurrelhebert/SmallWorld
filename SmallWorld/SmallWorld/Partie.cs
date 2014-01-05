@@ -15,6 +15,7 @@ namespace SmallWorld
         public Joueur joueur2;
         private SelectionOperateur selectOp;
         private Boolean Joueur1ALaMain;
+        private int nbToursRestants;
 
 
         unsafe public Partie(Joueur j1, Joueur j2, StrategieCarte st)
@@ -24,6 +25,7 @@ namespace SmallWorld
             joueur2 = j2;
             LaCarte = new Carte(st.tailleCarte());
             strat = st;
+            nbToursRestants = strat.nombreDeTour();
             int j1x, j1y, j2x, j2y;
             WrapperAlgo.positionJoueurParTaille(getCarte().getLongueurCote(), &j1x, &j1y, &j2x, &j2y);
             joueur1.setx0(j1x);
@@ -50,6 +52,17 @@ namespace SmallWorld
         public void changementDeMain()
         {
             Joueur1ALaMain = !Joueur1ALaMain;
+            if (Joueur1ALaMain) {
+                foreach (UniteDeBase u in joueur1.getUnite()) {
+                    u.setPtDeDepl(1);
+                }
+            }
+            else {
+                foreach (UniteDeBase u in joueur2.getUnite()) {
+                    u.setPtDeDepl(1);
+                }
+            }
+
         }
 
         void gestionUnites(List<Unite> unite) { ;}
@@ -60,7 +73,7 @@ namespace SmallWorld
 
         void miseAJourDesPoints() { ;}
 
-        public int combat(Unite unitAtt, Unite target)
+        /*public int combat(Unite unitAtt, Unite target)
         {
             int pvUatt = unitAtt.getPV();
             int pvTarget = target.getPV();
@@ -106,9 +119,11 @@ namespace SmallWorld
                 }
             }
             return arret;
-        }
+        }*/
 
-        public Boolean haveAttaquePerduUneVie(int att, int def)
+
+        //oups, dsl j'avais pas vu ta fonction, mais de toute façon dans le poly ils disent que ces calculs doivent être fait en c++
+        /*public Boolean haveAttaquePerduUneVie(int att, int def)
         {
             Boolean resultat = false;
             double i;
@@ -132,6 +147,64 @@ namespace SmallWorld
                     resultat = true;
 
             return resultat;
+        }*/
+
+        public Boolean nextRound() {
+            if (joueur1.getUnite().Count == 0 || joueur2.getUnite().Count == 0) return true;
+            changementDeMain();
+            if (Joueur1ALaMain){
+                nbToursRestants--;                
+            }
+            return (nbToursRestants == 0);
         }
+
+        public int getNbToursRestants()
+        {
+            return nbToursRestants;
+        }
+
+
+        public String evaluerFinDePartie() {
+            String resultat;
+            if (joueur1.getUnite().Count == 0 && joueur2.getUnite().Count != 0) {
+                resultat = "La partie est finie car le joueur1 n'a plus d'unités";
+                return resultat;
+            }
+            if (joueur2.getUnite().Count == 0 && joueur1.getUnite().Count != 0) {
+                resultat = "La partie est finie car le joueur2 n'a plus d'unités";
+                return resultat;
+            }
+            resultat="La partie est finie car tous les tours de jeu ont été joués !\n";
+            int totaljoueur1=0;
+            int totaljoueur2=0;
+            foreach (Case c in LaCarte.getListeDesCases())
+            {
+                switch(c.getEtatOccupation()){
+                    case Case.etatCase.joueur1:
+                        totaljoueur1+= LaCarte.getPointOccupation(c, joueur1.getPeuple().nomPeuple);
+                        break;
+
+                    case Case.etatCase.joueur2:
+                        totaljoueur2 += LaCarte.getPointOccupation(c, joueur2.getPeuple().nomPeuple);
+                        break;
+                }
+            }
+            if (totaljoueur1 == totaljoueur2)
+            {
+                resultat += "Le resultat est ex-aequo d'un score de " + totaljoueur2.ToString() + " pour chaque joueur !";
+            }
+            if (totaljoueur1 > totaljoueur2)
+            {
+                resultat += "Le joueur1 a gagné au score de " + totaljoueur1.ToString() + " à " + totaljoueur2.ToString();
+            }
+            if (totaljoueur2 > totaljoueur1)
+            {
+                resultat += "Le joueur2 a gagné au score de " + totaljoueur2.ToString() + " à " + totaljoueur1.ToString();
+            }
+
+            return resultat;
+        }
+
+
     }
 }
