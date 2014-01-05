@@ -243,37 +243,19 @@ namespace ApplicationSW
 
             int column = Grid.GetColumn(rectangle);
             int row = Grid.GetRow(rectangle);
-           Case.etatCase etat = MaPartie.getCarte().getCase(column, row).getEtatOccupation(); 
-            // affichage des caractéristique de l'unité au top de la pile.
-           /*if (etat != Case.etatCase.libre)
+           Case.etatCase etat = MaPartie.getCarte().getCase(column, row).getEtatOccupation();
+
+           if (!(etat == 0))
            {
 
-               setGen(); // affichage des info de l'unité sélectionnée
+               setGen();
                List<UniteDeBase> listUnite = MaPartie.getCarte().getCase(column, row).getUnitsOnCase();
                changeListeViewUnite(listUnite[0]);
-               /* A noël : Tests d'éxécution d'un combat :
-               MessageBox.Show(listUnite[1].getPV().ToString());
-               if (listUnite[1].estMorte())
-               {
-                   MessageBox.Show("1 est morte");
-               }
-                  int a = MaPartie.combat(listUnite[0], listUnite[1]);
-                //changeListeViewUnite(listUnite[0]);
-                if (listUnite[1].estMorte())
-                {
-                    MessageBox.Show("1 est morte");
-                }
-               if (listUnite[0].estMorte())
-               {
-                   MessageBox.Show("0 est morte");
-               }
-               MessageBox.Show(a.ToString());
-               MessageBox.Show(listUnite[1].getPV().ToString()); * /
            }
            else
            {
                initListUnite();
-           }*/
+           }
             // la var etat est soit libre soit joueur1 soit joueur2
            SelectionOperateur.etatSelection etatSelection = MaPartie.getSelectionOperateur().getEtatSelection(); 
             // la var etatSelection est soit RienEstSelectionne soit UniteDeDepartDelectionnee soit UniteDarriveeSelectionnee 
