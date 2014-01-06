@@ -557,13 +557,21 @@ namespace ApplicationSW
 
         private void Button_Fin_de_Tour(object sender, RoutedEventArgs e)
         {
-        Boolean finDeLaPartie = MaPartie.nextRound();
-        changeDataPartie();
-        if (finDeLaPartie)
-        {
-            MessageBox.Show("La Partie est finie !");
-            MessageBox.Show(MaPartie.evaluerFinDePartie());
-        }
+            Boolean finDeLaPartie = MaPartie.nextRound();
+            changeDataPartie();
+            if (finDeLaPartie)
+            {
+                MessageBox.Show("La Partie est finie !");
+                MessageBox.Show(MaPartie.evaluerFinDePartie());
+            }
+            if (MaPartie.getJoueur1ALaMain())
+            {
+                MessageBox.Show(" A toi de jouer J1");
+            }
+            else
+            {
+                MessageBox.Show(" A toi de jouer J2");
+            }
         }
 
     }
