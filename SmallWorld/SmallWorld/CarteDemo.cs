@@ -7,18 +7,21 @@ namespace SmallWorld
 {
     public class CarteDemo : StrategieCarte
     {
-        
-        public int nombreUniteParPeuple()
+        public CarteDemo()
+        {
+        }
+
+        public override int nombreUniteParPeuple()
         {
             return 4;
         }
 
-        public int tailleCarte()
+        public override int tailleCarte()
         {
             return 5;
         }
 
-        public int nombreDeTour()
+        public override int nombreDeTour()
         {
             return 5;
         }

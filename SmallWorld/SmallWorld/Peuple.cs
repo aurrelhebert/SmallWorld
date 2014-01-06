@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace SmallWorld
 {
+    [XmlInclude(typeof(Nains))]
+    [XmlInclude(typeof(Gaulois))]
+    [XmlInclude(typeof(Vikings))]
     public abstract class Peuple
     {
         List<UniteDeBase> _unites;

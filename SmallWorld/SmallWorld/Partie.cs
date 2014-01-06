@@ -6,17 +6,29 @@ using Wrapper;
 
 namespace SmallWorld
 {
+    [Serializable]
     public class Partie
     {
-        int pvMaxUnite;
+       /* public int pvMaxUnite;
         public StrategieCarte strat;
         private Carte LaCarte;
         public Joueur joueur1;
         public Joueur joueur2;
         private SelectionOperateur selectOp;
         private Boolean Joueur1ALaMain;
-        private int nbToursRestants;
+        private int nbToursRestants;*/
+        public int pvMaxUnite;
+        public StrategieCarte strat;
+        public Carte LaCarte;
+        public Joueur joueur1;
+        public Joueur joueur2;
+        public Boolean Joueur1ALaMain;
+        public SelectionOperateur selectOp;
+        public int nbToursRestants;
 
+        public Partie()
+        {
+        }
 
         unsafe public Partie(Joueur j1, Joueur j2, StrategieCarte st)
         {

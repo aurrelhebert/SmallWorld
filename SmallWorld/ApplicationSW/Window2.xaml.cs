@@ -574,5 +574,14 @@ namespace ApplicationSW
             }
         }
 
+        private void Button_sauvegarde(object sender, RoutedEventArgs e)
+        {
+            XMLWrite.WriteXML(MaPartie);
+            /*
+             * A noel : chargement d'une partie
+            Partie a = XMLWrite.ReadXML();
+            MessageBox.Show(a.pvMaxUnite.ToString());*/
+        }
+
     }
 }

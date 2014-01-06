@@ -12,6 +12,10 @@ namespace SmallWorld
         private List<Case> ListeDesCases;
         private int longueurCote;
 
+        public Carte()
+        {
+        }
+
         unsafe public Carte(int taille) {
             ListeDesCases = new List<Case>();
             WrapperAlgo wa=new WrapperAlgo(taille);

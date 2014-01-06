@@ -50,8 +50,6 @@
     <Compile Include="CarteDemo.cs" />
     <Compile Include="CartePetite.cs" />
     <Compile Include="Case.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
     <Compile Include="CreateurPartie.cs" />
     <Compile Include="CreerCarte.cs" />
     <Compile Include="Desert.cs" />
@@ -69,6 +67,7 @@
     <Compile Include="CarteNormale.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="Montagne.cs" />
+    <Compile Include="SaveGameData.cs" />
     <Compile Include="SelectionOperateur.cs" />
     <Compile Include="SmallWorld.cs" />
     <Compile Include="Nains.cs" />
