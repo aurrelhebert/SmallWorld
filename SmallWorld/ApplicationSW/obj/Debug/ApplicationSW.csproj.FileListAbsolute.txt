@@ -52,4 +52,3 @@ C:\Users\Noël\GitSW\SmallWorld\ApplicationSW\obj\Debug\ApplicationSW_MarkupComp
 C:\Users\Noël\GitSW\SmallWorld\ApplicationSW\obj\Debug\ApplicationSW.g.resources
 C:\Users\Noël\GitSW\SmallWorld\ApplicationSW\obj\Debug\ApplicationSW.Properties.Resources.resources
 C:\Users\Noël\GitSW\SmallWorld\ApplicationSW\obj\Debug\ApplicationSW.csproj.GenerateResource.Cache
-C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\ApplicationSW\bin\Debug\ApplicationSW.exe.config

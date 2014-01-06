@@ -245,7 +245,7 @@ namespace ApplicationSW
             int row = Grid.GetRow(rectangle);
            Case.etatCase etat = MaPartie.getCarte().getCase(column, row).getEtatOccupation();
 
-           if (!(etat == 0))
+           if (!(etat == Case.etatCase.libre))
            {
 
                setGen();
