@@ -73,8 +73,9 @@
                     <!-- Liste des données -->
                     <ListView Name="infoUnite"  />
                 </DockPanel>
-                <Button Content="Fin de Tour" Width="75" Height="30" Click="Button_Fin_de_Tour" Canvas.Left="32" Canvas.Top="210"/>
-                <Button Content="Sauvegarde" Width="75" Height="30" Click="Button_sauvegarde" Canvas.Left="138" Canvas.Top="210"/>
+                <Button Content="Fin du tour" Width="75" Height="30" Click="Button_Fin_de_Tour" Canvas.Top="210"/>
+                <Button Content="Sauvegarde" Width="75" Height="30" Click="Button_sauvegarde" Canvas.Left="76" Canvas.Top="210"/>
+                <Button Content="Nouvelle Partie" Width="88" Height="30" Click="Button_New_Game" Canvas.Left="152" Canvas.Top="210"/>
             </Canvas> 
         </DockPanel>
     </ScrollViewer>

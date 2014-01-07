@@ -55,8 +55,30 @@ namespace ApplicationSW
             nbRectangles = data.rectangle;
             strategie = MaPartie.strat;
             MaPartie.restoreSauvegarde = true;
+            fonctionIniUnite(MaPartie.joueur1);
+            fonctionIniUnite(MaPartie.joueur2);
+
         }
 
+        private void fonctionIniUnite(Joueur j)
+        {
+            List<UniteDeBase> listunite = j.getUnite();
+            foreach (UniteDeBase u in listunite)
+            {
+                int x, y;
+                x = u.getColumn();
+                y = u.getRow();
+                List<UniteDeBase> listcase = MaPartie.LaCarte.getCase(x, y).getUnitsOnCase();
+                int i;
+                for(i=0;i<listcase.Count();i++)
+                {
+                    if ((listcase[i].getTag() == u.getTag()) && (listcase[i].getIndexEllipse() == u.getIndexEllipse()))
+                    {
+                        listcase[i] = u;
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Réaction à l'evt "la fenetre est construite" (référencé dans le MainWithEvents.xaml)
@@ -106,8 +128,8 @@ namespace ApplicationSW
 
                 //Initialisation du panel affichant les informations sur la partie en cours.
                 infoGen1.Items.Add("Nombre de tour restant");
-                infoGen1.Items.Add("Nombre d'unité restante du Joueur 1");
-                infoGen1.Items.Add("Nombre d'unité restante du Joueur 2");
+                infoGen1.Items.Add("Nombre d'unité restante du Joueur 1 ");
+                infoGen1.Items.Add("Nombre d'unité restante du Joueur 2 ");
 
                 // Initialise la liste des données de la Partie (à utiliser lors de l'appui du bouton Fin de tour).
                 changeDataPartie();
@@ -145,6 +167,8 @@ namespace ApplicationSW
             {
                 int y = u.getRow();
                 int x = u.getColumn();
+                if (x == 1 && y == 2)
+                    MessageBox.Show("Haha it'a trap");
                 // j'ai tester en rajoutant cette ligne mais echec : u.setIndexEllipse(numJoueur);
                 // ajout des attributs (column et Row) référencant la position dans la grille à unitEllipse et le tag i+j permettant d'identifier l'ellipse à une unite.
                 var element = createEllipse(x, y, numJoueur);
@@ -474,11 +498,10 @@ namespace ApplicationSW
             if (infoGen2.Items.GetItemAt(0).Equals("Aucune"))
             {
                 infoGen2.Items.Clear();
-                infoGen2.Items.Add("Ordonnée");
-                infoGen2.Items.Add("Abscisse");
                 infoGen2.Items.Add("Point de vie");
                 infoGen2.Items.Add("Attaque");
                 infoGen2.Items.Add("Défense");
+                infoGen2.Items.Add("Nombre d'unité sur cette case ");
                 infoGen2.Items.Refresh();
             }
         }
@@ -492,11 +515,11 @@ namespace ApplicationSW
         public void changeListeViewUnite(Unite u)
         {
             infoUnite.Items.Clear();
-            infoUnite.Items.Add(u.getRow());
-            infoUnite.Items.Add(u.getColumn());
             infoUnite.Items.Add(u.getPV());
             infoUnite.Items.Add(u.getAtt());
             infoUnite.Items.Add(u.getDef());
+            List<UniteDeBase> listcase = MaPartie.LaCarte.getCase(u.getColumn(), u.getRow()).getUnitsOnCase();
+            infoUnite.Items.Add(listcase.Count());
             infoUnite.Items.Refresh();
         }
 
@@ -604,6 +627,13 @@ namespace ApplicationSW
              /* A noel : chargement d'une partie : 
             Partie a = XMLWrite.ReadXML();
             MessageBox.Show(a.pvMaxUnite.ToString());*/
+        }
+
+        private void Button_New_Game(object sender, RoutedEventArgs e)
+        {
+            Window1 win1 = new Window1();
+            win1.Show();
+            this.Close();
         }
 
     }

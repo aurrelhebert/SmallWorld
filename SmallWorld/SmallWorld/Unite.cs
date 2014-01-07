@@ -75,7 +75,7 @@ namespace SmallWorld
         /// <returns> l'indice de la colonne d'une unité</returns>
         int getDef();
 
-
+        int getTag();
         /// <summary>
         /// Methode permettant de changer l'indice de l'ellipse symbolisant une unité
         /// </summary>

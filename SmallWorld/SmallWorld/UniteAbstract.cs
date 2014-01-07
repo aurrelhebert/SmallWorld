@@ -9,12 +9,13 @@ namespace SmallWorld
     [XmlInclude(typeof(GuerrierNains))]
     [XmlInclude(typeof(GuerrierGaulois))]
     [XmlInclude(typeof(GuerrierVikings))]
+
     public abstract class UniteDeBase : Unite
     {
-        public int att, def, pv, row, column, indexEllipse, pourcentagePV;
+        public int att, def, pv, row, column, indexEllipse, pourcentagePV, tag;
         public float ptDeDepl;
         public Boolean estMort = false; //seDeplaceApresCombat = false;  y en a pas besoin ici +  estMort aussi il sert pas vraiment
-
+        public static int nbUnit = 0;
 
         public UniteDeBase()
         {
@@ -25,6 +26,8 @@ namespace SmallWorld
             row = 0;
             column = 0;
             pourcentagePV = 100;
+            tag = nbUnit;
+            nbUnit++;
         }
 
         public Boolean estMorte()
@@ -45,6 +48,11 @@ namespace SmallWorld
         public int getRow()
         {
             return row;
+        }
+
+        public int getTag()
+        {
+            return tag;
         }
 
         public int getColumn()

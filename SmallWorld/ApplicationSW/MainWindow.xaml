@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SmallWorld" Height="350" Width="525">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="20,20,20,0" TextWrapping="Wrap" Text="Bienvenue dans notre application SmallWorld" VerticalAlignment="Top" Height="35" Width="260"/>
-        <Button Content="New game" Margin="208,121,209,163" Click="New_Button_Click"/>
-        <Button Content="Load a game" Margin="208,185,209,99" Click="Load_Button_Click"/>
+        <TextBlock HorizontalAlignment="Center" Margin="70,48,71,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="376" FontSize="18"><Run Language="fr-fr" Text=" "/><Run Text="Bienvenue dans notre application SmallWorld"/></TextBlock>
+        <Button Content="Nouvelle partie" Margin="198,121,199,163" Click="New_Button_Click"/>
+        <Button Content="Charger une partie" Margin="198,185,199,99" Click="Load_Button_Click"/>
 
     </Grid>
 </Window>
