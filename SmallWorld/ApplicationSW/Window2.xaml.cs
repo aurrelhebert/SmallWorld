@@ -49,9 +49,6 @@ namespace ApplicationSW
 
         unsafe public Window2()
         {
-
-//XMLWrite.WriteXML(MaPartie, MaPartie.joueur1.getUnite(), MaPartie.joueur2.getUnite(), MaPartie.joueur1.getPeuple(),
-            //MaPartie.joueur2.getPeuple(), MaPartie.LaCarte.getListeDesCases(), MaPartie.LaCarte.getLongueurCote());
             InitializeComponent();
             SaveGameData.Data data = SaveGameData.ReadXML();
             MaPartie = data.partie;
