@@ -10,7 +10,7 @@ namespace SmallWorld
     {
         public int xdepart, ydepart, xdarrivee, ydarrivee;
         public enum etatSelection { RienEstSelectionne, UniteDeDepartDelectionnee, UniteDarriveeSelectionnee };
-        private etatSelection etat;
+        public etatSelection etat;
 
 
         public SelectionOperateur() {

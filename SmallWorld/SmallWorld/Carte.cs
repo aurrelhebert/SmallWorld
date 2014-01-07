@@ -9,8 +9,8 @@ namespace SmallWorld
 {
     public class Carte
     {
-        private List<Case> ListeDesCases;
-        private int longueurCote;
+        public List<Case> ListeDesCases;
+        public int longueurCote;
 
         public Carte()
         {

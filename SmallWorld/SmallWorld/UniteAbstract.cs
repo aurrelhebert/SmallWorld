@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace SmallWorld
 {
+    [XmlInclude(typeof(GuerrierNains))]
+    [XmlInclude(typeof(GuerrierGaulois))]
+    [XmlInclude(typeof(GuerrierVikings))]
     public abstract class UniteDeBase : Unite
     {
         public int att, def, pv, row, column, indexEllipse, pourcentagePV;
         public float ptDeDepl;
-        Boolean estMort = false; //seDeplaceApresCombat = false;  y en a pas besoin ici +  estMort aussi il sert pas vraiment
+        public Boolean estMort = false; //seDeplaceApresCombat = false;  y en a pas besoin ici +  estMort aussi il sert pas vraiment
 
 
         public UniteDeBase()

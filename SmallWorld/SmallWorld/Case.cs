@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace SmallWorld
 {
+    [XmlInclude(typeof(Desert))]
+    [XmlInclude(typeof(Eau))]
+    [XmlInclude(typeof(Foret))]
+    [XmlInclude(typeof(Plaine))]
+    [XmlInclude(typeof(Montagne))]
     public abstract class Case
     {
         public List<UniteDeBase> UnitsOnCase;
         public enum etatCase { libre, joueur1, joueur2 };
-        private etatCase etatOccupation;
+        public etatCase etatOccupation;
         public enum TypeCase { MONTAGNE = 0, PLAINE, DESERT, EAU, FORET };
         public TypeCase type;
 

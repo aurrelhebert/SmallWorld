@@ -36,7 +36,7 @@ namespace ApplicationSW
         /// <summary>
         /// Construction de la fenetre de jeu
         /// </summary>
-        unsafe public Window2(StrategieCarte st, Joueur j1, Joueur j2)
+        unsafe public Window2(StrategieCarte st, Joueur j1, Joueur j2, bool sauvegarde)
         {
             InitializeComponent();
             //engine = new Cours.Engine.Engine();
@@ -44,6 +44,20 @@ namespace ApplicationSW
             //int taille = strategie.tailleCarte();
             //int nbTours = strategie.nombreDeTour();
             MaPartie = new Partie(j1, j2, st);
+            MaPartie.restoreSauvegarde = false;
+        }
+
+        unsafe public Window2()
+        {
+
+//XMLWrite.WriteXML(MaPartie, MaPartie.joueur1.getUnite(), MaPartie.joueur2.getUnite(), MaPartie.joueur1.getPeuple(),
+            //MaPartie.joueur2.getPeuple(), MaPartie.LaCarte.getListeDesCases(), MaPartie.LaCarte.getLongueurCote());
+            InitializeComponent();
+            SaveGameData.Data data = SaveGameData.ReadXML();
+            MaPartie = data.partie;
+            nbRectangles = data.rectangle;
+            strategie = MaPartie.strat;
+            MaPartie.restoreSauvegarde = true;
         }
 
 
@@ -54,46 +68,55 @@ namespace ApplicationSW
         /// <param name="e"> l'evt : la fenetre est construite</param>
         unsafe private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // on initialise la Grid (mapGrid défini dans le xaml) à partir de la map du modèle (engine)
-            for (int c = 0; c < MaPartie.getCarte().getLongueurCote(); c++)
-            {
-                mapGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(60, GridUnitType.Pixel) });
-            }
-            for (int l = 0; l < MaPartie.getCarte().getLongueurCote(); l++)
-            {
-                mapGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(40, GridUnitType.Pixel) });
+
+                // on initialise la Grid (mapGrid défini dans le xaml) à partir de la map du modèle (engine)
                 for (int c = 0; c < MaPartie.getCarte().getLongueurCote(); c++)
                 {
-                    // dans chaque case de la grille on ajoute une tuile (logique) matérialisée par un rectangle (physique)
-                    // le rectangle possède une référence sur sa tuile
-                    Case.TypeCase num = MaPartie.getCarte().getTypeCase(c, l);
-                    var element = createRectangle(c, l, (int)num); 
-                    mapGrid.Children.Add(element);
+                    mapGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(60, GridUnitType.Pixel) });
                 }
-            }
-            nbRectangles = mapGrid.Children.Count;
-            //MessageBox.Show(xJ2.ToString() + yJ2.ToString() + xJ1.ToString() + yJ1.ToString());
-            List<UniteDeBase> uniteJ1 = MaPartie.joueur1.getUnite();
-            List<UniteDeBase> uniteJ2 = MaPartie.joueur2.getUnite();
-           
-            //creationGraphiqueUnite(uniteJ1, xJ1, yJ1);
-            // 1 corresponds au numéro du joueur.
-            // CreateEllipse = OK. 
-            //var _element = createEllipse(xJ2, yJ2, 1);
-            //mapGrid.Children.Add(_element);
-            creationGraphiqueUnite(uniteJ1, MaPartie.joueur1.getx0(), MaPartie.joueur1.gety0(), 1);
-            creationGraphiqueUnite(uniteJ2, MaPartie.joueur2.getx0(), MaPartie.joueur2.gety0(), 2);
+                for (int l = 0; l < MaPartie.getCarte().getLongueurCote(); l++)
+                {
+                    mapGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(40, GridUnitType.Pixel) });
+                    for (int c = 0; c < MaPartie.getCarte().getLongueurCote(); c++)
+                    {
+                        // dans chaque case de la grille on ajoute une tuile (logique) matérialisée par un rectangle (physique)
+                        // le rectangle possède une référence sur sa tuile
+                        Case.TypeCase num = MaPartie.getCarte().getTypeCase(c, l);
+                        var element = createRectangle(c, l, (int)num);
+                        mapGrid.Children.Add(element);
+                    }
+                }
+                nbRectangles = mapGrid.Children.Count;
+                //MessageBox.Show(xJ2.ToString() + yJ2.ToString() + xJ1.ToString() + yJ1.ToString());
+                List<UniteDeBase> uniteJ1 = MaPartie.joueur1.getUnite();
+                List<UniteDeBase> uniteJ2 = MaPartie.joueur2.getUnite();
 
-            //Initialisation du panel affichant les informations sur la partie en cours.
-            infoGen1.Items.Add("Nombre de tour restant");
-            infoGen1.Items.Add("Nombre d'unité restante du Joueur 1");
-            infoGen1.Items.Add("Nombre d'unité restante du Joueur 2");
+                //creationGraphiqueUnite(uniteJ1, xJ1, yJ1);
+                // 1 corresponds au numéro du joueur.
+                // CreateEllipse = OK. 
+                //var _element = createEllipse(xJ2, yJ2, 1);
+                //mapGrid.Children.Add(_element);
+                if (!MaPartie.restoreSauvegarde)
+                {
+                    creationGraphiqueUnite(uniteJ1, MaPartie.joueur1.getx0(), MaPartie.joueur1.gety0(), 1);
+                    creationGraphiqueUnite(uniteJ2, MaPartie.joueur2.getx0(), MaPartie.joueur2.gety0(), 2);
+                }
+                else
+                {
+                    updateGraphiqueUnite(MaPartie.joueur1, 1);
+                    updateGraphiqueUnite(MaPartie.joueur2, 2);
+                }
 
-            // Initialise la liste des données de la Partie (à utiliser lors de l'appui du bouton Fin de tour).
-            changeDataPartie();
+                //Initialisation du panel affichant les informations sur la partie en cours.
+                infoGen1.Items.Add("Nombre de tour restant");
+                infoGen1.Items.Add("Nombre d'unité restante du Joueur 1");
+                infoGen1.Items.Add("Nombre d'unité restante du Joueur 2");
 
-            // Initialisation des informations sur les unités
-            infoGen2.Items.Add("Aucune");
+                // Initialise la liste des données de la Partie (à utiliser lors de l'appui du bouton Fin de tour).
+                changeDataPartie();
+
+                // Initialisation des informations sur les unités
+                infoGen2.Items.Add("Aucune");
         }
 
         /// <summary>
@@ -125,10 +148,10 @@ namespace ApplicationSW
             {
                 int y = u.getRow();
                 int x = u.getColumn();
+                // j'ai tester en rajoutant cette ligne mais echec : u.setIndexEllipse(numJoueur);
                 // ajout des attributs (column et Row) référencant la position dans la grille à unitEllipse et le tag i+j permettant d'identifier l'ellipse à une unite.
                 var element = createEllipse(x, y, numJoueur);
                 mapGrid.Children.Add(element);// c'est cette fonction qui permet l'affichage de l'ellipse
-                
             }
         }
 
@@ -525,7 +548,7 @@ namespace ApplicationSW
         /// </summary>
         /// <param name="sender"> le bouton "tour suivant" </param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) //à Noel : Celle la non plus  :P
         {
             // création d'un thread pour lancer le calcul du tour suivant sans que cela soit bloquant pour l'IHM
             Task.Factory.StartNew(() =>
@@ -564,21 +587,24 @@ namespace ApplicationSW
                 MessageBox.Show("La Partie est finie !");
                 MessageBox.Show(MaPartie.evaluerFinDePartie());
             }
-            if (MaPartie.getJoueur1ALaMain())
-            {
-                MessageBox.Show(" A toi de jouer J1");
-            }
             else
             {
-                MessageBox.Show(" A toi de jouer J2");
+                if (MaPartie.getJoueur1ALaMain())
+                {
+                    MessageBox.Show(" A toi de jouer J1");
+                }
+                else
+                {
+                    MessageBox.Show(" A toi de jouer J2");
+                }
             }
         }
 
         private void Button_sauvegarde(object sender, RoutedEventArgs e)
         {
-            XMLWrite.WriteXML(MaPartie);
-            /*
-             * A noel : chargement d'une partie
+            SaveGameData.WriteXML(MaPartie,nbRectangles);
+            //SaveGameData.WriteXML(nbRectangles);
+             /* A noel : chargement d'une partie : 
             Partie a = XMLWrite.ReadXML();
             MessageBox.Show(a.pvMaxUnite.ToString());*/
         }

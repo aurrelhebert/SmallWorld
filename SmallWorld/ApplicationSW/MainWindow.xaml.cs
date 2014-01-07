@@ -31,9 +31,16 @@ namespace ApplicationSW
         /// <summary>
         /// Action reagissant au click sur le bouton : demarrage de la partie, acces a l'ecran choix des joueurs
         /// </summary>
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void New_Button_Click(object sender, RoutedEventArgs e)
         {
-            Window1 win2 = new Window1();
+            Window1 win1 = new Window1();
+            win1.Show();
+            this.Close();
+        }
+
+        private void Load_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window2 win2 = new Window2();
             win2.Show();
             this.Close();
         }

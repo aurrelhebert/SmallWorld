@@ -25,9 +25,11 @@ namespace SmallWorld
         public Boolean Joueur1ALaMain;
         public SelectionOperateur selectOp;
         public int nbToursRestants;
+        public Boolean restoreSauvegarde;
 
         public Partie()
         {
+            selectOp = new SelectionOperateur();
         }
 
         unsafe public Partie(Joueur j1, Joueur j2, StrategieCarte st)

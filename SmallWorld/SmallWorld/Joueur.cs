@@ -7,17 +7,17 @@ namespace SmallWorld
 {
     public class Joueur
     {
-        private Peuple _peuple;
-        private int x0;
-        private int y0;
+        public Peuple _peuple;
+        public int x0;
+        public int y0;
 
         /// <summary>
         /// Constructeur
         /// </summary>
         public Joueur()
-        {
+        {/*
             x0 = 0;
-            y0 = 0;
+            y0 = 0;*/
         }
 
         /// <summary>

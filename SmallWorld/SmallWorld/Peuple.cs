@@ -11,7 +11,7 @@ namespace SmallWorld
     [XmlInclude(typeof(Vikings))]
     public abstract class Peuple
     {
-        List<UniteDeBase> _unites;
+        public List<UniteDeBase> _unites;
         public enum NomPeuple { GAULOIS = 0, NAINS, VIKINGS };
         public NomPeuple nomPeuple;
 
