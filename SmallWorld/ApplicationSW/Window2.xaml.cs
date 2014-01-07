@@ -418,7 +418,7 @@ namespace ApplicationSW
                                 MaPartie.getSelectionOperateur().getSelectedCases(&x1, &y1, &x2, &y2);
                                 Case casedep = MaPartie.getCarte().getCase(x1, y1);
                                 Case casearr = MaPartie.getCarte().getCase(x2, y2);
-                                Peuple p = MaPartie.joueur1.getPeuple();
+                                Peuple p = MaPartie.joueur2.getPeuple();
                                 MaPartie.getCarte().moveProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, MaPartie.joueur2,2);
                                 clearEllipses();
                                 updateGraphiqueUnite(MaPartie.joueur1, 1);

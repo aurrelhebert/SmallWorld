@@ -9,6 +9,7 @@ namespace SmallWorld
     {
         public Vikings()
         {
+            this.nomPeuple = NomPeuple.VIKINGS;
         }
 
         public override void creerUnites(int nbr)

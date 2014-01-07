@@ -7,7 +7,10 @@ namespace SmallWorld
 {
     public class Gaulois : Peuple
     {
-        public Gaulois() { }
+        public Gaulois() 
+        {
+            this.nomPeuple = NomPeuple.GAULOIS;
+        }
 
         public override void creerUnites(int nbr)
         {

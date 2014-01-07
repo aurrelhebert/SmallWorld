@@ -8,7 +8,9 @@ namespace SmallWorld
     public class Nains : Peuple
     {
         public Nains()
-        { }
+        {
+            this.nomPeuple = NomPeuple.NAINS;
+        }
 
 
         public override void creerUnites(int nbr)
