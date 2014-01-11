@@ -24,7 +24,7 @@ namespace SmallWorld
                 new System.Xml.Serialization.XmlSerializer(typeof(Data));
 
             System.IO.StreamWriter file = new System.IO.StreamWriter(
-                @"c:\temp\SerializationOverview.xml");
+                @"../../Resources/SerializationOverview.xml");
             writer.Serialize(file, overview);
             file.Close();
         }
@@ -34,7 +34,7 @@ namespace SmallWorld
             System.Xml.Serialization.XmlSerializer reader =
                 new System.Xml.Serialization.XmlSerializer(typeof(Data));
             System.IO.StreamReader file = new System.IO.StreamReader(
-                @"c:\temp\SerializationOverview.xml");
+                @"../../Resources/SerializationOverview.xml");
             Data overview = new Data();
             overview = (Data)reader.Deserialize(file);
             return overview;

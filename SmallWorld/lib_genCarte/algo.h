@@ -25,6 +25,7 @@ public:
 Carte() {}
 ~Carte() {}
 int computeFoo();
+bool verifChemin(int i, int j, Carte* algo,int mode);
 };
 
 // A ne pas implémenter dans le .h !

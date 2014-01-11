@@ -2,10 +2,16 @@
 #include <time.h> 
 #include <stdlib.h>
 using namespace std;
+
+ //int depart_J1 =0;
+
 int Carte::computeFoo() {
 return 1;
 }
 
+ bool verifChemin(int i, int j, Carte* algo,int mode) ;
+ int depart_J1;
+	
 Carte* Carte_new(const int n) { 
 	int i;
 	Carte* c = new Carte();
@@ -22,6 +28,7 @@ Carte* Carte_new(const int n) {
 	c->nbressource=n/2;
 	c->taille=n;
 	srand (time(NULL));
+	depart_J1 = rand()%2;
 	return c;
 	//Calcul en random de la pos de 
 }
@@ -40,13 +47,16 @@ int** Algo_remplirCarte(Carte* algo) {
 	int i;
 	int j;
 	//algo->computeFoo();
-	for(i=0;i<algo->taille;i++) {
-		for(j=0;j<algo->taille;j++) {
-			// gen ale case;
-			int alea = rand()%NB_MAX_LANDSCAPE;
-			algo->tabCases[i][j] = alea;
+	do {
+		for(i=0;i<algo->taille;i++) {
+			for(j=0;j<algo->taille;j++) {
+				// gen ale case;
+				int alea = rand()%NB_MAX_LANDSCAPE;
+				algo->tabCases[i][j] = alea;
+			}
 		}
-	}
+	}while(!verifChemin(4*depart_J1,0,algo,depart_J1));
+	
 	return algo->tabCases;
 }
 
@@ -70,8 +80,7 @@ int** Algo_remplirCarte(Carte* algo) {
 
 
  void Algo_positionJoueurParTaille(int taille,int* xJ1,int* yJ1,int* xJ2,int* yJ2){
-	 int alea = rand()%2;
-	 if (alea ==0) {
+	 if (depart_J1 ==0 ) {
 		*xJ1 = 0;
 		*yJ1 = 0;
 		*xJ2 =taille-1;
@@ -133,3 +142,88 @@ int** Algo_remplirCarte(Carte* algo) {
 	 int tirageAleatoire=rand()%101;
 	 return (tirageAleatoire <= pourcentageDeChanceAttaquantPerdUneVie);
  }
+
+ bool estEau(int i, int j, Carte* algo) 
+{
+	return (algo->tabCases[i][j] == 3);
+}
+
+  bool verifChemin(int i, int j, Carte* algo,int mode) {
+	 bool test_i;
+	 int k;
+
+	 if (mode==0)
+	 {
+		 k=i+1;
+		 test_i= i<(algo->taille-1);
+
+		 if((i==j) && (j==algo->taille-1))
+			 return true;
+	 }
+	 else
+	 {
+		 k=i-1;
+		 test_i= i>0;
+
+		 if((i==0) && (j==0))
+			return true;
+	 }
+
+	 if (test_i && (j<algo->taille-1))
+		{
+
+		if (estEau(k,j,algo) && estEau(i, j+1, algo))
+		{
+			return false;
+		}
+		if (!estEau(k,j,algo) && !estEau(i, j+1, algo))
+			{
+				bool depDroit = verifChemin(k, j, algo, mode);
+				bool depGauche = verifChemin(i, j+1, algo, mode);
+				return (depDroit || depGauche);
+			}
+		else if (!estEau(k,j,algo))
+			{
+				bool depDroit = verifChemin(k, j, algo, mode);
+				return (depDroit);
+			}
+		else if (!estEau(i, j+1, algo))
+			{
+				bool depGauche = verifChemin(i, j+1, algo, mode);
+				return (depGauche);
+			}
+		else 
+			{
+				return false;
+			}
+		}
+
+	 if (test_i)
+		{
+
+		if (!estEau(k,j,algo))
+			{
+				bool depDroit = verifChemin(k, j, algo, mode);
+				return (depDroit);
+			}
+		else 
+			{
+				return false;
+			}
+		}
+
+	  if (j<(algo->taille-1))
+		{
+		if (!estEau(i, j+1, algo))
+			{
+				bool depGauche = verifChemin(i, j+1, algo, mode);
+				return (depGauche);
+			}
+		else 
+			{
+				return false;
+			}
+		}
+ }
+
+
