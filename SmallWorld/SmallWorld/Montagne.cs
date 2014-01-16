@@ -7,8 +7,10 @@ namespace SmallWorld
 {
     public class Montagne : Case
     {
-        public Montagne() : base(TypeCase.MONTAGNE){
-            
+        public Montagne()
+            : base(TypeCase.MONTAGNE)
+        {
+
         }
     }
 }

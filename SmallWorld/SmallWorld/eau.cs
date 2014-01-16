@@ -7,8 +7,10 @@ namespace SmallWorld
 {
     public class Eau : Case
     {
-        public Eau() : base(TypeCase.EAU){
-            
+        public Eau()
+            : base(TypeCase.EAU)
+        {
+
         }
     }
 }

@@ -7,8 +7,10 @@ namespace SmallWorld
 {
     public class Desert : Case
     {
-        public Desert() : base(TypeCase.DESERT) {
-            
+        public Desert()
+            : base(TypeCase.DESERT)
+        {
+
         }
     }
 }

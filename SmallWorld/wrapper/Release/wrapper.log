@@ -1,0 +1,15 @@
+﻿La génération a démarré 15/01/2014 23:07:15.
+     1>Projet "C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\wrapper\wrapper.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Source.cpp
+         Source.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\Release\wrapper.dll" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\Release\wrapper.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /SAFESEH /DLL Release\Source.obj
+         "Release\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+     1>lib_genCarte.lib(Source.obj) : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:LBR'
+         wrapper.vcxproj -> C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\Release\wrapper.dll
+     1>Génération du projet "C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\wrapper\wrapper.vcxproj" terminée (Build cible(s)).
+
+La génération a réussi.
+
+Temps écoulé 00:00:00.52

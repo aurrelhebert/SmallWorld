@@ -18,3 +18,8 @@ C:\Users\Noël\GitSW\SmallWorld\CoursIHM.shared\bin\Debug\Cours.Shared.pdb
 C:\Users\Noël\GitSW\SmallWorld\CoursIHM.shared\obj\Debug\Cours.Shared.csprojResolveAssemblyReference.cache
 C:\Users\Noël\GitSW\SmallWorld\CoursIHM.shared\obj\Debug\Cours.Shared.dll
 C:\Users\Noël\GitSW\SmallWorld\CoursIHM.shared\obj\Debug\Cours.Shared.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\CoursIHM.shared\bin\Debug\Cours.Shared.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\CoursIHM.shared\bin\Debug\Cours.Shared.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\CoursIHM.shared\obj\Debug\Cours.Shared.csprojResolveAssemblyReference.cache
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\CoursIHM.shared\obj\Debug\Cours.Shared.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\CoursIHM.shared\obj\Debug\Cours.Shared.pdb

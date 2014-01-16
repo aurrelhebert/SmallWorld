@@ -28,25 +28,25 @@ namespace SmallWorld
         /// </summary>
         /// <param name="nbr"> le nombre d'unites à ajouter </param>
         public abstract void creerUnites(int nbr);
-            /* A Noel : supprimer parcequ'instanciation de 4 fois la même unité pour un peuple.
-             * int i;
-            UniteDeBase unit;
-            switch(nomPeuple){
-                case (NomPeuple.GAULOIS): unit = new GuerrierGaulois(); break;
-                case (NomPeuple.NAINS): unit = new GuerrierNains(); break;
-                default: unit = new GuerrierVikings(); break;                
-            }
-            for (i = 0; i < nbr; i++)
-            {
-                this.getUnites().Add(unit);
-            }*/
+        /* A Noel : supprimer parcequ'instanciation de 4 fois la même unité pour un peuple.
+         * int i;
+        UniteDeBase unit;
+        switch(nomPeuple){
+            case (NomPeuple.GAULOIS): unit = new GuerrierGaulois(); break;
+            case (NomPeuple.NAINS): unit = new GuerrierNains(); break;
+            default: unit = new GuerrierVikings(); break;                
+        }
+        for (i = 0; i < nbr; i++)
+        {
+            this.getUnites().Add(unit);
+        }*/
 
         public abstract Boolean isNain();
 
         public abstract Boolean isGaulois();
 
         public abstract Boolean isVikings();
-       
+
         public void ajouteUnite(string Unite)
         {
         }

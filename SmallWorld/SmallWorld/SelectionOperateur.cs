@@ -13,7 +13,8 @@ namespace SmallWorld
         public etatSelection etat;
 
 
-        public SelectionOperateur() {
+        public SelectionOperateur()
+        {
             xdepart = 0;
             ydepart = 0;
             xdarrivee = 0;
@@ -21,19 +22,24 @@ namespace SmallWorld
             etat = etatSelection.RienEstSelectionne;
         }
 
-        public void selectCase(int xCase, int yCase) {
-            if (etat == etatSelection.RienEstSelectionne) {
+        public void selectCase(int xCase, int yCase)
+        {
+            if (etat == etatSelection.RienEstSelectionne)
+            {
                 xdepart = xCase;
                 ydepart = yCase;
                 etat = etatSelection.UniteDeDepartDelectionnee;
-            } else if (etat == etatSelection.UniteDeDepartDelectionnee) {
+            }
+            else if (etat == etatSelection.UniteDeDepartDelectionnee)
+            {
                 xdarrivee = xCase;
                 ydarrivee = yCase;
                 etat = etatSelection.UniteDarriveeSelectionnee;
             }
         }
 
-        unsafe public Boolean getSelectedCases(int* xdep, int* ydep, int* xarr,int* yarr) {
+        unsafe public Boolean getSelectedCases(int* xdep, int* ydep, int* xarr, int* yarr)
+        {
             if (etat != etatSelection.UniteDarriveeSelectionnee)
             {
                 return false;
@@ -48,7 +54,8 @@ namespace SmallWorld
             }
         }
 
-        public void FinDeSelection() {
+        public void FinDeSelection()
+        {
             etat = etatSelection.RienEstSelectionne;
         }
 

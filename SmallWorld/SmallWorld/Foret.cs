@@ -7,8 +7,10 @@ namespace SmallWorld
 {
     public class Foret : Case
     {
-        public Foret() : base(TypeCase.FORET){
-            
+        public Foret()
+            : base(TypeCase.FORET)
+        {
+
         }
     }
 }

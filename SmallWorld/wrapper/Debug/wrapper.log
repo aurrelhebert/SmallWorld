@@ -1,5 +1,12 @@
-﻿La génération a démarré 11/01/2014 14:39:45.
+﻿La génération a démarré 15/01/2014 11:29:25.
+     1>Projet "C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\wrapper\wrapper.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\Debug\wrapper.dll" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\Debug\wrapper.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /DLL Debug\Source.obj
+         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+     1>lib_genCarte.lib(Source.obj) : warning LNK4075: ' /EDITANDCONTINUE' ignorÚ Ó cause de la spÚcification '/OPT:LBR'
+         wrapper.vcxproj -> C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\Debug\wrapper.dll
+     1>Génération du projet "C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\wrapper\wrapper.vcxproj" terminée (Build cible(s)).
 
 La génération a réussi.
 
-Temps écoulé 00:00:00.03
+Temps écoulé 00:00:00.37

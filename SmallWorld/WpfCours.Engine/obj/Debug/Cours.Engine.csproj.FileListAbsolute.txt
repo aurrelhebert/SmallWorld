@@ -26,3 +26,10 @@ C:\Users\Noël\GitSW\SmallWorld\WpfCours.Engine\bin\Debug\Cours.Shared.pdb
 C:\Users\Noël\GitSW\SmallWorld\WpfCours.Engine\obj\Debug\Cours.Engine.csprojResolveAssemblyReference.cache
 C:\Users\Noël\GitSW\SmallWorld\WpfCours.Engine\obj\Debug\Cours.Engine.dll
 C:\Users\Noël\GitSW\SmallWorld\WpfCours.Engine\obj\Debug\Cours.Engine.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\bin\Debug\Cours.Engine.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\bin\Debug\Cours.Engine.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\bin\Debug\Cours.Shared.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\bin\Debug\Cours.Shared.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\obj\Debug\Cours.Engine.csprojResolveAssemblyReference.cache
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\obj\Debug\Cours.Engine.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\obj\Debug\Cours.Engine.pdb

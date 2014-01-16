@@ -13,3 +13,10 @@ C:\Users\Noël\GitSW\SmallWorld\SmallWorld\bin\Debug\wrapper.pdb
 C:\Users\Noël\GitSW\SmallWorld\SmallWorld\obj\Debug\SmallWorld.csprojResolveAssemblyReference.cache
 C:\Users\Noël\GitSW\SmallWorld\SmallWorld\obj\Debug\SmallWorld.dll
 C:\Users\Noël\GitSW\SmallWorld\SmallWorld\obj\Debug\SmallWorld.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\bin\Debug\SmallWorld.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\bin\Debug\SmallWorld.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\bin\Debug\wrapper.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\bin\Debug\wrapper.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\obj\Debug\SmallWorld.csprojResolveAssemblyReference.cache
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\obj\Debug\SmallWorld.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\obj\Debug\SmallWorld.pdb

@@ -25,7 +25,7 @@ namespace SmallWorld
         /// </summary>
         /// <param name="nbUnite"> Le nombre max d'unite d'un peuple </param>
         /// <param name="peuple"> Le peuple du joueur </param>
-        public Joueur(Peuple peuple, int raw0=0,int column0=0)
+        public Joueur(Peuple peuple, int raw0 = 0, int column0 = 0)
         {
             _peuple = peuple;
             x0 = raw0;
@@ -76,39 +76,51 @@ namespace SmallWorld
         }
 
         /// <summary>
-        /// Gestion des combatd
+        /// /Getter attribut x0
         /// </summary>
-        /// <param name="">  </param>
-        /// <param name="">  </param>
-        /// <returns></returns>
-        public void combat()
-        {
-        }
-
+        /// <returns> x0 </returns>
         public int getx0()
         {
             return x0;
         }
 
+        /// <summary>
+        /// /Getter attribut y0
+        /// </summary>
+        /// <returns> y0 </returns>
         public int gety0()
         {
             return y0;
         }
 
+        /// <summary>
+        /// /Setter attribut x0
+        /// </summary>
+        /// <param name ="x"> entier x </param>
         public void setx0(int x)
         {
-            x0=x;
+            x0 = x;
         }
 
+        /// <summary>
+        /// /Setter attribut y0
+        /// </summary>
+        /// <param name="y"> entier y </param>
         public void sety0(int y)
         {
             y0 = y;
         }
 
-        public void changeLeBonElement(UniteDeBase u, UniteDeBase umodifie) {
+
+        /// <summary>
+        /// Retrouve l'unité u dans la liste d'unité du peuple et la remplace par celle modifiée
+        /// </summary>
+        /// <param> UniteDeBase u * umodifie  </param>
+        public void changeLeBonElement(UniteDeBase u, UniteDeBase umodifie)
+        {
             List<UniteDeBase> l = _peuple.getUnites();
             int i;
-            for (i = 0; i<l.Count; i++)
+            for (i = 0; i < l.Count; i++)
             {
                 if (l[i] == u)
                 {
@@ -118,6 +130,6 @@ namespace SmallWorld
             }
 
         }
-        
+
     }
 }

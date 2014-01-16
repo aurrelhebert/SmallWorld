@@ -1,0 +1,7 @@
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\bin\Release\Cours.Engine.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\bin\Release\Cours.Engine.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\bin\Release\Cours.Shared.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\bin\Release\Cours.Shared.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\obj\Release\Cours.Engine.csprojResolveAssemblyReference.cache
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\obj\Release\Cours.Engine.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\WpfCours.Engine\obj\Release\Cours.Engine.pdb

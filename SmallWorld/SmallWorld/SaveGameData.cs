@@ -15,7 +15,12 @@ namespace SmallWorld
             public int rectangle;
         }
 
-        public static void WriteXML(Partie p,int r)
+        /// <summary>
+        /// Sauvegarde d'une partie en cours
+        /// </summary>
+        /// <param name="p"> La partie en cours </param>
+        /// <param name="r"> r correspond au nombre de rectangle créer dans l'interface graphique </param>
+        public static void WriteXML(Partie p, int r)
         {
             Data overview = new Data();
             overview.partie = p;
@@ -24,17 +29,22 @@ namespace SmallWorld
                 new System.Xml.Serialization.XmlSerializer(typeof(Data));
 
             System.IO.StreamWriter file = new System.IO.StreamWriter(
-                @"../../Resources/SerializationOverview.xml");
+                @"SerializationOverview.xml");
             writer.Serialize(file, overview);
             file.Close();
         }
 
+
+        /// <summary>
+        /// Chargement d'une sauvegarde
+        /// </summary>
+        /// <return> type Data contenant l'ancienne partie </return>
         public static Data ReadXML()
         {
             System.Xml.Serialization.XmlSerializer reader =
                 new System.Xml.Serialization.XmlSerializer(typeof(Data));
             System.IO.StreamReader file = new System.IO.StreamReader(
-                @"../../Resources/SerializationOverview.xml");
+                @"SerializationOverview.xml");
             Data overview = new Data();
             overview = (Data)reader.Deserialize(file);
             return overview;

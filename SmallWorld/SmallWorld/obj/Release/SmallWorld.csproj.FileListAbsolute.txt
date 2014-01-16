@@ -1,0 +1,7 @@
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\bin\Release\SmallWorld.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\bin\Release\SmallWorld.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\bin\Release\wrapper.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\bin\Release\wrapper.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\obj\Release\SmallWorld.csprojResolveAssemblyReference.cache
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\obj\Release\SmallWorld.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\SmallWorld\obj\Release\SmallWorld.pdb

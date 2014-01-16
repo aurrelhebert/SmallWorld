@@ -7,8 +7,10 @@ namespace SmallWorld
 {
     public class Plaine : Case
     {
-        public Plaine() : base(TypeCase.PLAINE){
-            
+        public Plaine()
+            : base(TypeCase.PLAINE)
+        {
+
         }
 
     }

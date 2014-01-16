@@ -1,0 +1,5 @@
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\CoursIHM.shared\bin\Release\Cours.Shared.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\CoursIHM.shared\bin\Release\Cours.Shared.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\CoursIHM.shared\obj\Release\Cours.Shared.csprojResolveAssemblyReference.cache
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\CoursIHM.shared\obj\Release\Cours.Shared.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\CoursIHM.shared\obj\Release\Cours.Shared.pdb

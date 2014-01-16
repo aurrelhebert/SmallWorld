@@ -13,3 +13,8 @@ C:\Users\Noël\GitSW\SmallWorld\TestLibGenCarte\bin\Debug\TestLibGenCarte.pdb
 C:\Users\Noël\GitSW\SmallWorld\TestLibGenCarte\obj\Debug\TestLibGenCarte.csprojResolveAssemblyReference.cache
 C:\Users\Noël\GitSW\SmallWorld\TestLibGenCarte\obj\Debug\TestLibGenCarte.dll
 C:\Users\Noël\GitSW\SmallWorld\TestLibGenCarte\obj\Debug\TestLibGenCarte.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\TestLibGenCarte\bin\Debug\TestLibGenCarte.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\TestLibGenCarte\bin\Debug\TestLibGenCarte.pdb
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\TestLibGenCarte\obj\Debug\TestLibGenCarte.csprojResolveAssemblyReference.cache
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\TestLibGenCarte\obj\Debug\TestLibGenCarte.dll
+C:\Users\aurelien\Desktop\Projets\Poo\SmallWorld\final\poo\SmallWorld\TestLibGenCarte\obj\Debug\TestLibGenCarte.pdb

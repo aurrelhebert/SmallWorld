@@ -18,7 +18,7 @@ namespace SmallWorld
             int i;
             for (i = 0; i < nbr; i++)
             {
-               this.getUnites().Add(new GuerrierNains());
+                this.getUnites().Add(new GuerrierNains());
             }
 
         }

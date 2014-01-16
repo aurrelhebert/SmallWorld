@@ -46,7 +46,7 @@ namespace ApplicationSW
         { // Gestionnaire pour lancer une partie en choisissant une carte petite.
             StrategieCarte st = new CartePetite();
             creationJoueur(st.nombreUniteParPeuple());
-            Window2 win = new Window2(st, joueur1, joueur2,false);
+            Window2 win = new Window2(st, joueur1, joueur2, false);
             win.Show();
             this.Close();
         }
@@ -60,7 +60,7 @@ namespace ApplicationSW
         { // Gestionnaire pour lancer une partie en choisissant une carte démo.
             StrategieCarte st = new CarteDemo();
             creationJoueur(st.nombreUniteParPeuple());
-            Window2 win = new Window2(st, joueur1, joueur2,false);
+            Window2 win = new Window2(st, joueur1, joueur2, false);
             win.Show();
             this.Close();
         }
@@ -74,7 +74,7 @@ namespace ApplicationSW
         { // Gestionnaire pour lancer une partie en choisissant une carte normal.
             StrategieCarte st = new CarteNormale();
             creationJoueur(st.nombreUniteParPeuple());
-            Window2 win = new Window2(st, joueur1, joueur2,false);
+            Window2 win = new Window2(st, joueur1, joueur2, false);
             win.Show();
             this.Close();
         }
@@ -171,7 +171,7 @@ namespace ApplicationSW
                     break;
 
                 case NomPeuple.VIKINGS:
-                    peuple=new Vikings();
+                    peuple = new Vikings();
                     peuple.creerUnites(nbUnite);
                     break;
 

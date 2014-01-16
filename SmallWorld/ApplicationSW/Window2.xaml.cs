@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Cours.Shared;
 using Wrapper;
 using SmallWorld;
 using System.Windows.Controls.Primitives;
@@ -31,8 +30,8 @@ namespace ApplicationSW
         /// Enum permettant d'identifier les cases
         /// </summary>
         StrategieCarte strategie;
-        int nbRectangles=0;
-
+        int nbRectangles = 0;
+        //public event SelectionChangedEventHandler unite_SelectionChanged;
         /// <summary>
         /// Construction de la fenetre de jeu
         /// </summary>
@@ -70,7 +69,7 @@ namespace ApplicationSW
                 y = u.getRow();
                 List<UniteDeBase> listcase = MaPartie.LaCarte.getCase(x, y).getUnitsOnCase();
                 int i;
-                for(i=0;i<listcase.Count();i++)
+                for (i = 0; i < listcase.Count(); i++)
                 {
                     if ((listcase[i].getTag() == u.getTag()) && (listcase[i].getIndexEllipse() == u.getIndexEllipse()))
                     {
@@ -88,55 +87,59 @@ namespace ApplicationSW
         unsafe private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-                // on initialise la Grid (mapGrid défini dans le xaml) à partir de la map du modèle (engine)
+            // on initialise la Grid (mapGrid défini dans le xaml) à partir de la map du modèle (engine)
+            for (int c = 0; c < MaPartie.getCarte().getLongueurCote(); c++)
+            {
+                mapGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(60, GridUnitType.Pixel) });
+            }
+            for (int l = 0; l < MaPartie.getCarte().getLongueurCote(); l++)
+            {
+                mapGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(40, GridUnitType.Pixel) });
                 for (int c = 0; c < MaPartie.getCarte().getLongueurCote(); c++)
                 {
-                    mapGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(60, GridUnitType.Pixel) });
+                    // dans chaque case de la grille on ajoute une tuile (logique) matérialisée par un rectangle (physique)
+                    // le rectangle possède une référence sur sa tuile
+                    Case.TypeCase num = MaPartie.getCarte().getTypeCase(c, l);
+                    var element = createRectangle(c, l, (int)num);
+                    mapGrid.Children.Add(element);
                 }
-                for (int l = 0; l < MaPartie.getCarte().getLongueurCote(); l++)
-                {
-                    mapGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(40, GridUnitType.Pixel) });
-                    for (int c = 0; c < MaPartie.getCarte().getLongueurCote(); c++)
-                    {
-                        // dans chaque case de la grille on ajoute une tuile (logique) matérialisée par un rectangle (physique)
-                        // le rectangle possède une référence sur sa tuile
-                        Case.TypeCase num = MaPartie.getCarte().getTypeCase(c, l);
-                        var element = createRectangle(c, l, (int)num);
-                        mapGrid.Children.Add(element);
-                    }
-                }
-                nbRectangles = mapGrid.Children.Count;
-                //MessageBox.Show(xJ2.ToString() + yJ2.ToString() + xJ1.ToString() + yJ1.ToString());
-                List<UniteDeBase> uniteJ1 = MaPartie.joueur1.getUnite();
-                List<UniteDeBase> uniteJ2 = MaPartie.joueur2.getUnite();
+            }
+            nbRectangles = mapGrid.Children.Count;
+            //MessageBox.Show(xJ2.ToString() + yJ2.ToString() + xJ1.ToString() + yJ1.ToString());
+            List<UniteDeBase> uniteJ1 = MaPartie.joueur1.getUnite();
+            List<UniteDeBase> uniteJ2 = MaPartie.joueur2.getUnite();
 
-                //creationGraphiqueUnite(uniteJ1, xJ1, yJ1);
-                // 1 corresponds au numéro du joueur.
-                // CreateEllipse = OK. 
-                //var _element = createEllipse(xJ2, yJ2, 1);
-                //mapGrid.Children.Add(_element);
-                if (!MaPartie.restoreSauvegarde)
-                {
-                    creationGraphiqueUnite(uniteJ1, MaPartie.joueur1.getx0(), MaPartie.joueur1.gety0(), 1);
-                    creationGraphiqueUnite(uniteJ2, MaPartie.joueur2.getx0(), MaPartie.joueur2.gety0(), 2);
-                }
-                else
-                {
-                    updateGraphiqueUnite(MaPartie.joueur1, 1);
-                    updateGraphiqueUnite(MaPartie.joueur2, 2);
-                }
+            //creationGraphiqueUnite(uniteJ1, xJ1, yJ1);
+            // 1 corresponds au numéro du joueur.
+            // CreateEllipse = OK. 
+            //var _element = createEllipse(xJ2, yJ2, 1);
+            //mapGrid.Children.Add(_element);
+            if (!MaPartie.restoreSauvegarde)
+            {
+                creationGraphiqueUnite(uniteJ1, MaPartie.joueur1.getx0(), MaPartie.joueur1.gety0(), 1);
+                creationGraphiqueUnite(uniteJ2, MaPartie.joueur2.getx0(), MaPartie.joueur2.gety0(), 2);
+            }
+            else
+            {
+                updateGraphiqueUnite(MaPartie.joueur1, 1);
+                updateGraphiqueUnite(MaPartie.joueur2, 2);
+            }
 
-                //Initialisation du panel affichant les informations sur la partie en cours.
-                infoGen1.Items.Add("Nombre de tour restant");
-                infoGen1.Items.Add("Nombre d'unité restante du Joueur 1 ");
-                infoGen1.Items.Add("Nombre d'unité restante du Joueur 2 ");
+            //Initialisation du panel affichant les informations sur la partie en cours.
+            infoGen1.Items.Add("Nombre de tour restant");
+            infoGen1.Items.Add("Nombre d'unité restante du Joueur 1 ");
+            infoGen1.Items.Add("Nombre d'unité restante du Joueur 2 ");
+            infoGen1.Items.Add("Nombre de point du Joueur 1 ");
+            infoGen1.Items.Add("Nombre de point du Joueur 2 ");
+            // Initialise la liste des données de la Partie (à utiliser lors de l'appui du bouton Fin de tour).
+            changeDataPartie();
 
-                // Initialise la liste des données de la Partie (à utiliser lors de l'appui du bouton Fin de tour).
-                changeDataPartie();
-
-                // Initialisation des informations sur les unités
-                infoGen2.Items.Add("Aucune");
+            // Initialisation des informations sur les unités
+            infoGen2.Items.Add("Aucune");
         }
+
+        //int x1 = 0, y1 = 0, x2 = 0, y2 = 0;
+
 
         /// <summary>
         /// Création graphique de l'unite
@@ -167,8 +170,6 @@ namespace ApplicationSW
             {
                 int y = u.getRow();
                 int x = u.getColumn();
-                if (x == 1 && y == 2)
-                    MessageBox.Show("Haha it'a trap");
                 // j'ai tester en rajoutant cette ligne mais echec : u.setIndexEllipse(numJoueur);
                 // ajout des attributs (column et Row) référencant la position dans la grille à unitEllipse et le tag i+j permettant d'identifier l'ellipse à une unite.
                 var element = createEllipse(x, y, numJoueur);
@@ -189,7 +190,7 @@ namespace ApplicationSW
             Grid.SetColumn(ellipse, c);
             Grid.SetRow(ellipse, l);
             ellipse.Tag = numJoueur;
-            if (numJoueur==2)
+            if (numJoueur == 2)
             {
                 ellipse.Fill = Brushes.Red;
             }
@@ -202,10 +203,11 @@ namespace ApplicationSW
             return ellipse;
         }
 
-        private void clearEllipses() {
+        private void clearEllipses()
+        {
             while (mapGrid.Children.Count > nbRectangles) mapGrid.Children.RemoveAt(nbRectangles);
         }
-        
+
         /// <summary>
         /// Récupération de la position de l'unité (logique), mise à jour de l'ellipse (physique) matérialisant l'unité
         /// </summary>
@@ -231,27 +233,27 @@ namespace ApplicationSW
             var rectangle = new Rectangle();
             switch (num)
             {
-                case (int) Case.TypeCase.MONTAGNE:
+                case (int)Case.TypeCase.MONTAGNE:
                     BitmapSource montagne = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.montagne.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
                     rectangle.Fill = new ImageBrush(montagne);
                     //rectangle.Fill = Brushes.Brown;
                     break;
-                case (int) Case.TypeCase.PLAINE:
+                case (int)Case.TypeCase.PLAINE:
                     BitmapSource plaine = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.plaine.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
                     rectangle.Fill = new ImageBrush(plaine);
                     //rectangle.Fill = Brushes.Silver;
                     break;
-                case (int) Case.TypeCase.DESERT:
+                case (int)Case.TypeCase.DESERT:
                     BitmapSource desert = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.desert.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
                     rectangle.Fill = new ImageBrush(desert);
                     //rectangle.Fill = Brushes.Yellow;
                     break;
-                case (int) Case.TypeCase.EAU:
+                case (int)Case.TypeCase.EAU:
                     BitmapSource neige = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.neige.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
                     rectangle.Fill = new ImageBrush(neige);
                     //rectangle.Fill = Brushes.SlateBlue;
                     break;
-                case (int) Case.TypeCase.FORET:
+                case (int)Case.TypeCase.FORET:
                     BitmapSource foret = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(ApplicationSW.Properties.Resources.foret.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
                     rectangle.Fill = new ImageBrush(foret);
                     //rectangle.Fill = Brushes.DarkGreen;
@@ -281,140 +283,228 @@ namespace ApplicationSW
         /// <param name="e"> l'evt </param>
         unsafe void rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            int x1=0, y1=0, x2=0, y2=0;
             var rectangle = sender as Rectangle;
-            var tile = rectangle.Tag as ITile;
 
             int column = Grid.GetColumn(rectangle);
             int row = Grid.GetRow(rectangle);
-           Case.etatCase etat = MaPartie.getCarte().getCase(column, row).getEtatOccupation();
+            Case.etatCase etat = MaPartie.getCarte().getCase(column, row).getEtatOccupation();
+            int nbUnite = -1;
 
-           if (!(etat == Case.etatCase.libre))
-           {
+            if (!(etat == Case.etatCase.libre))
+            {
+                nbUnite = MaPartie.getCarte().getCase(column, row).getUnitsOnCase().Count();
+            }
 
-               setGen();
-               List<UniteDeBase> listUnite = MaPartie.getCarte().getCase(column, row).getUnitsOnCase();
-               changeListeViewUnite(listUnite[0]);
-           }
-           else
-           {
-               initListUnite();
-           }
+            SelectionOperateur.etatSelection etatSelection = MaPartie.getSelectionOperateur().getEtatSelection();
+
+            if (nbUnite > 1 && etatSelection == SelectionOperateur.etatSelection.RienEstSelectionne)
+            {
+                ComboBox unite = new ComboBox();
+                unite.Width = 20;
+                unite.Height = 20;
+                for (int i = 0; i < nbUnite; i++)
+                {
+                    unite.Items.Add(i);
+                }
+                Grid.SetColumn(unite, column);
+                Grid.SetRow(unite, row);
+                mapGrid.Children.Add(unite);
+                unite.BringIntoView();
+                unite.MouseLeftButtonDown += new MouseButtonEventHandler(mouse_leave);
+                unite.SelectionChanged += new SelectionChangedEventHandler(unite_SelectionChanged);
+                unite.MouseLeftButtonDown += new MouseButtonEventHandler(mouse_leave);
+            }
+            else
+            {
+                traitement(column, row, 0);
+            }
+            // on arrête la propagation d'evt : sinon l'evt va jusqu'à la fenetre => affichage via "Window_MouseLeftButtonDown"
+            e.Handled = true;
+        }
+
+
+        /// <summary>
+        /// Création du rectangle matérialisant les suggestions de cases
+        /// </summary>
+        /// <param name="lesCases"> list d'entier des x et y des cases à afficher.</param>
+        /// <returns> Rectangle créé</returns>
+        private void updateRectSelection(List<int> lesCases)
+        {
+            int i;
+            for (i = 0; i < lesCases.Count(); i = i + 2)
+            {
+                var element = new Rectangle();
+                element.Width = 20;
+                element.Height = 20;
+                element.Stroke = Brushes.Gold;
+                Grid.SetColumn(element, lesCases[i]);
+                Grid.SetRow(element, lesCases[i + 1]);
+                mapGrid.Children.Add(element);
+            }
+        }
+
+
+        /// <summary>
+        /// Effectue le traitement lorsqu'un utilisateur clique sur une case
+        /// </summary>
+        /// <param name ="column">la colonne de la case</param>
+        /// <param name ="row">la ligne de la case </param> 
+        /// <param name ="unitSelected">la nième unité de la case</param>
+        unsafe private void traitement(int column, int row, int unitSelected)
+        {
+
+            int x1 = 0, y1 = 0, x2 = 0, y2 = 0;
+            Case.etatCase etat = MaPartie.getCarte().getCase(column, row).getEtatOccupation();
+
+            if (!(etat == Case.etatCase.libre))
+            {
+                List<UniteDeBase> listUnite = MaPartie.getCarte().getCase(column, row).getUnitsOnCase();
+                changeListeViewUnite(listUnite[unitSelected]);
+                setGen();
+                UniteDeBase u = listUnite[unitSelected];
+                listUnite.RemoveAt(unitSelected);
+                listUnite.Insert(0, u);
+            }
+            else
+            {
+                initListUnite();
+            }
+
             // la var etat est soit libre soit joueur1 soit joueur2
-           SelectionOperateur.etatSelection etatSelection = MaPartie.getSelectionOperateur().getEtatSelection(); 
+            SelectionOperateur.etatSelection etatSelection = MaPartie.getSelectionOperateur().getEtatSelection();
             // la var etatSelection est soit RienEstSelectionne soit UniteDeDepartDelectionnee soit UniteDarriveeSelectionnee 
             //(normalement l'utilisateur n'aura pas le temps de cliquer sur quoi que ce soit lors de la transition de l'etat UniteDarriveeSelectionnee vers RienEstSelectionne)
-           switch (etat)
+            switch (etat)
             {
-                case Case.etatCase.libre: if (etatSelection != SelectionOperateur.etatSelection.UniteDeDepartDelectionnee)
+                case Case.etatCase.libre:
+                    if (etatSelection != SelectionOperateur.etatSelection.UniteDeDepartDelectionnee)
                     {
-                        MessageBox.Show("Attention, vous avez sélectionné une case vide !"); 
-                    // se produit surtout quand on est dans l'etat RienEstSelectionne et que l'on essaie de jouer une case qui est vide...
+                        MessageBox.Show("Attention, vous avez sélectionné une case vide !");
+                        // se produit surtout quand on est dans l'etat RienEstSelectionne et que l'on essaie de jouer une case qui est vide...
                         MaPartie.getSelectionOperateur().FinDeSelection();
                     }
                     else //ici on est sur d'être dans l'etat UniteDeDepartDelectionnee
                     {
- //                       MessageBox.Show("Vous déplacez votre unité vers une case vide.");
+                        //                       MessageBox.Show("Vous déplacez votre unité vers une case vide.");
                         MaPartie.getSelectionOperateur().selectCase(column, row); // donc ici on passe dans l'etat UniteDarriveeSelectionnee
                         MaPartie.getSelectionOperateur().getSelectedCases(&x1, &y1, &x2, &y2); //donc il n'y a pas besoin de vérifier isSecondSelection1 cependant il faut conserver l'opération getSelectedCase
 
+                        Case casedep = MaPartie.getCarte().getCase(x1, y1);
+                        Case casearr = MaPartie.getCarte().getCase(x2, y2);
+                        Peuple p;
+                        Joueur j;
+                        int numJoueur;
+                        if (MaPartie.getJoueur1ALaMain())
+                        {
+                            p = MaPartie.joueur1.getPeuple();
+                            j = MaPartie.joueur1;
+                            numJoueur = 1;
+                        }
+                        else
+                        {
+                            p = MaPartie.joueur2.getPeuple();
+                            j = MaPartie.joueur2;
+                            numJoueur = 2;
+                        }
+                        MaPartie.getCarte().moveProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, j, numJoueur);
+                        clearEllipses();
+                        updateGraphiqueUnite(MaPartie.joueur1, 1);
+                        updateGraphiqueUnite(MaPartie.joueur2, 2);
+                    }
+                    break;
+                case Case.etatCase.joueur1: if (!MaPartie.getJoueur1ALaMain())
+                    { //le joueur2 a cliqué sur une case du joueur1
+                        if (etatSelection != SelectionOperateur.etatSelection.UniteDeDepartDelectionnee)
+                        {
+                            MessageBox.Show("Attention vous avez sélectionné une case appartenant au joueur adverse !");
+                            MaPartie.getSelectionOperateur().FinDeSelection();
+                        }
+                        else
+                        {
+                            MaPartie.getSelectionOperateur().selectCase(column, row);
+                            MaPartie.getSelectionOperateur().getSelectedCases(&x1, &y1, &x2, &y2);
                             Case casedep = MaPartie.getCarte().getCase(x1, y1);
                             Case casearr = MaPartie.getCarte().getCase(x2, y2);
-                            Peuple p;
-                            Joueur j;
-                            int numJoueur;
-                            if (MaPartie.getJoueur1ALaMain())
+                            Peuple p = MaPartie.joueur2.getPeuple();
+                            Boolean doitSeDeplacer = MaPartie.getCarte().fightProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, MaPartie.joueur2, MaPartie.joueur1);
+                            if (doitSeDeplacer) MessageBox.Show("Vous avez déclenché un combat !");
+                            if (MaPartie.joueur2.getUnite().Count == 0 || MaPartie.joueur1.getUnite().Count == 0)
                             {
-                                p = MaPartie.joueur1.getPeuple();
-                                j = MaPartie.joueur1;
-                                numJoueur = 1;
+                                MessageBox.Show("La Partie est finie !");
+                                MessageBox.Show(MaPartie.evaluerFinDePartie());
                             }
-                            else
+                            if (doitSeDeplacer)
                             {
-                                p = MaPartie.joueur2.getPeuple();
-                                j = MaPartie.joueur2;
-                                numJoueur = 2;
+
+                                MaPartie.getCarte().moveProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, MaPartie.joueur2, 2);
                             }
-                            MaPartie.getCarte().moveProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, j, numJoueur);
                             clearEllipses();
                             updateGraphiqueUnite(MaPartie.joueur1, 1);
                             updateGraphiqueUnite(MaPartie.joueur2, 2);
+                        }
+                    }
+                    else
+                    {//le joueur1 a cliqué sur une case du joueur1
+                        List<int> laList = MaPartie.getCarte().listeDesCasesPossibles(column, row, MaPartie.getCarte().getCase(column, row), MaPartie.joueur1.getPeuple().nomPeuple);
+                        updateRectSelection(laList);
+
+                        switch (etatSelection)
+                        {
+                            case SelectionOperateur.etatSelection.RienEstSelectionne:
+                                MaPartie.getSelectionOperateur().selectCase(column, row);
+                                /*Case caseSelectionnee = MaPartie.getCarte().getCase(column, row);
+                                if (caseSelectionnee.getUnitsOnCase().Count == 0)
+                                {
+                                    MaPartie.getSelectionOperateur().FinDeSelection();
+                                }*/
+
+                                // listeDesCasesPossibles(int xdep, int ydep,int numJoueur, Peuple.NomPeuple nompeuple)
+                                break;
+                            case SelectionOperateur.etatSelection.UniteDeDepartDelectionnee: // dans ce cas il s'agit d'un déplacement d'une des unités du joueur vers une case où il a déjà des unités mais c'est autorisé
+                                MaPartie.getSelectionOperateur().selectCase(column, row);
+                                MaPartie.getSelectionOperateur().getSelectedCases(&x1, &y1, &x2, &y2);
+                                Case casedep = MaPartie.getCarte().getCase(x1, y1);
+                                Case casearr = MaPartie.getCarte().getCase(x2, y2);
+                                Peuple p = MaPartie.joueur1.getPeuple();
+                                MaPartie.getCarte().moveProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, MaPartie.joueur1, 1);
+                                clearEllipses();
+                                updateGraphiqueUnite(MaPartie.joueur1, 1);
+                                updateGraphiqueUnite(MaPartie.joueur2, 2);
+                                break;
+                            case SelectionOperateur.etatSelection.UniteDarriveeSelectionnee:
+                                MessageBox.Show("Vous avez déjà sélectionné 2 cases !");
+                                MaPartie.getSelectionOperateur().FinDeSelection();
+                                break;
+                        }
+
+                        /* if (etatSelection != SelectionOperateur.etatSelection.UniteDarriveeSelectionnee) {
+                             MaPartie.getSelectionOperateur().selectCase(column, row);
+                         }else{
+                             MessageBox.Show("Vous avez déjà sélectionné 2 cases !"); //Ne devrait pas trop arriver
+                             MaPartie.getSelectionOperateur().FinDeSelection();
+                         }*/
                     }
                     break;
-                case Case.etatCase.joueur1: if (!MaPartie.getJoueur1ALaMain()) { //le joueur2 a cliqué sur une case du joueur1
-                                                if (etatSelection != SelectionOperateur.etatSelection.UniteDeDepartDelectionnee) { 
-                                                    MessageBox.Show("Attention vous avez sélectionné une case appartenant au joueur adverse !");
-                                                    MaPartie.getSelectionOperateur().FinDeSelection();
-                                                } else {
-                                                    MessageBox.Show("Vous avez déclenché un combat !"); // à compléter
-                                                    MaPartie.getSelectionOperateur().selectCase(column, row);
-                                                    MaPartie.getSelectionOperateur().getSelectedCases(&x1, &y1, &x2, &y2);
-                                                    Case casedep = MaPartie.getCarte().getCase(x1, y1);
-                                                    Case casearr = MaPartie.getCarte().getCase(x2, y2);
-                                                    Peuple p = MaPartie.joueur2.getPeuple();
-                                                    Boolean doitSeDeplacer = MaPartie.getCarte().fightProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, MaPartie.joueur2, MaPartie.joueur1);
-                                                    if (MaPartie.joueur2.getUnite().Count == 0 || MaPartie.joueur1.getUnite().Count == 0) {
-                                                        MessageBox.Show("La Partie est finie !");
-                                                        MessageBox.Show(MaPartie.evaluerFinDePartie());
-                                                    }
-                                                    if (doitSeDeplacer) {
-            
-                                                        MaPartie.getCarte().moveProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, MaPartie.joueur2, 2);
-                                                    }
-                                                    clearEllipses();
-                                                    updateGraphiqueUnite(MaPartie.joueur1, 1);
-                                                    updateGraphiqueUnite(MaPartie.joueur2, 2);
-                                                }
-                                            } else {//le joueur1 a cliqué sur une case du joueur1
-                                                switch (etatSelection) {
-                                                    case SelectionOperateur.etatSelection.RienEstSelectionne:
-                                                        MaPartie.getSelectionOperateur().selectCase(column, row);
-                                                        /*Case caseSelectionnee = MaPartie.getCarte().getCase(column, row);
-                                                        if (caseSelectionnee.getUnitsOnCase().Count == 0)
-                                                        {
-                                                            MaPartie.getSelectionOperateur().FinDeSelection();
-                                                        }*/
-                                                        break;
-                                                    case SelectionOperateur.etatSelection.UniteDeDepartDelectionnee: // dans ce cas il s'agit d'un déplacement d'une des unités du joueur vers une case où il a déjà des unités mais c'est autorisé
-                                                        MaPartie.getSelectionOperateur().selectCase(column, row);
-                                                        MaPartie.getSelectionOperateur().getSelectedCases(&x1, &y1, &x2, &y2);
-                                                        Case casedep = MaPartie.getCarte().getCase(x1, y1);
-                                                        Case casearr = MaPartie.getCarte().getCase(x2, y2);
-                                                        Peuple p = MaPartie.joueur1.getPeuple();
-                                                        MaPartie.getCarte().moveProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, MaPartie.joueur1,1);
-                                                        clearEllipses();
-                                                        updateGraphiqueUnite(MaPartie.joueur1, 1);
-                                                        updateGraphiqueUnite(MaPartie.joueur2, 2);
-                                                        break;
-                                                    case SelectionOperateur.etatSelection.UniteDarriveeSelectionnee:
-                                                        MessageBox.Show("Vous avez déjà sélectionné 2 cases !");
-                                                        MaPartie.getSelectionOperateur().FinDeSelection();
-                                                        break;
-                                                }
 
-                                               /* if (etatSelection != SelectionOperateur.etatSelection.UniteDarriveeSelectionnee) {
-                                                    MaPartie.getSelectionOperateur().selectCase(column, row);
-                                                }else{
-                                                    MessageBox.Show("Vous avez déjà sélectionné 2 cases !"); //Ne devrait pas trop arriver
-                                                    MaPartie.getSelectionOperateur().FinDeSelection();
-                                                }*/
-                                        }
-                    break;
-
-                case Case.etatCase.joueur2: if (MaPartie.getJoueur1ALaMain())
+                case Case.etatCase.joueur2:
+                    if (MaPartie.getJoueur1ALaMain())
                     { //le joueur1 a cliqué sur une case du joueur2
-                        if (etatSelection != SelectionOperateur.etatSelection.UniteDeDepartDelectionnee) { 
+                        if (etatSelection != SelectionOperateur.etatSelection.UniteDeDepartDelectionnee)
+                        {
                             MessageBox.Show("Attention vous avez sélectionné une case appartenant au joueur adverse !");
                             MaPartie.getSelectionOperateur().FinDeSelection();
-                        } else {
-                            MessageBox.Show("Vous avez déclenché un combat !");//à compléter
+                        }
+                        else
+                        {
                             MaPartie.getSelectionOperateur().selectCase(column, row);
                             MaPartie.getSelectionOperateur().getSelectedCases(&x1, &y1, &x2, &y2);
                             Case casedep = MaPartie.getCarte().getCase(x1, y1);
                             Case casearr = MaPartie.getCarte().getCase(x2, y2);
                             Peuple p = MaPartie.joueur1.getPeuple();
                             Boolean doitSeDeplacer = MaPartie.getCarte().fightProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, MaPartie.joueur1, MaPartie.joueur2);
-                            if (MaPartie.joueur2.getUnite().Count == 0 || MaPartie.joueur1.getUnite().Count == 0) {
+                            if (doitSeDeplacer) MessageBox.Show("Vous avez déclenché un combat !");
+                            if (MaPartie.joueur2.getUnite().Count == 0 || MaPartie.joueur1.getUnite().Count == 0)
+                            {
                                 MessageBox.Show("La Partie est finie !");
                                 MessageBox.Show(MaPartie.evaluerFinDePartie());
                             }
@@ -426,7 +516,14 @@ namespace ApplicationSW
                             updateGraphiqueUnite(MaPartie.joueur1, 1);
                             updateGraphiqueUnite(MaPartie.joueur2, 2);
                         }
-                    } else {//le joueur2 a cliqué sur une case du joueur2
+                    }
+                    else
+                    {//le joueur2 a cliqué sur une case du joueur2
+                        clearEllipses();
+                        updateGraphiqueUnite(MaPartie.joueur1, 1);
+                        updateGraphiqueUnite(MaPartie.joueur2, 2);
+                        List<int> laList2 = MaPartie.getCarte().listeDesCasesPossibles(column, row, MaPartie.getCarte().getCase(column, row), MaPartie.joueur2.getPeuple().nomPeuple);
+                        updateRectSelection(laList2);
                         switch (etatSelection)
                         {
                             case SelectionOperateur.etatSelection.RienEstSelectionne:
@@ -443,7 +540,7 @@ namespace ApplicationSW
                                 Case casedep = MaPartie.getCarte().getCase(x1, y1);
                                 Case casearr = MaPartie.getCarte().getCase(x2, y2);
                                 Peuple p = MaPartie.joueur2.getPeuple();
-                                MaPartie.getCarte().moveProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, MaPartie.joueur2,2);
+                                MaPartie.getCarte().moveProcessing(x1, y1, x2, y2, casedep, casearr, p.nomPeuple, MaPartie.joueur2, 2);
                                 clearEllipses();
                                 updateGraphiqueUnite(MaPartie.joueur1, 1);
                                 updateGraphiqueUnite(MaPartie.joueur2, 2);
@@ -469,9 +566,10 @@ namespace ApplicationSW
             // Mise à jour du rectangle selectionné => le label sera mis à jour automatiquement par Binding
             Grid.SetColumn(selectionRectangle, column);
             Grid.SetRow(selectionRectangle, row);
-            selectionRectangle.Tag = tile;
+
             selectionRectangle.Visibility = System.Windows.Visibility.Visible;
-             // V1 : gestion avec evts classiques
+
+            // V1 : gestion avec evts classiques
             //if (selectedVisual != null)
             //    selectedVisual.StrokeThickness = 1;
             //selectedVisual = rectangle;
@@ -485,9 +583,6 @@ namespace ApplicationSW
                 MaPartie.getSelectionOperateur().FinDeSelection();
 
             }
-
-            // on arrête la propagation d'evt : sinon l'evt va jusqu'à la fenetre => affichage via "Window_MouseLeftButtonDown"
-            e.Handled = true;
         }
 
         /// <summary>
@@ -532,6 +627,8 @@ namespace ApplicationSW
             infoData.Items.Add(MaPartie.getNbToursRestants());
             infoData.Items.Add(MaPartie.joueur1.getNbUnite());
             infoData.Items.Add(MaPartie.joueur2.getNbUnite());
+            infoData.Items.Add(MaPartie.getPointJoueur(0));
+            infoData.Items.Add(MaPartie.getPointJoueur(1));
             infoData.Items.Refresh();
         }
 
@@ -544,60 +641,10 @@ namespace ApplicationSW
             infoGen2.Items.Refresh();
         }
         /// <summary>
-        /// Délégué : réaction général à un clic sur la fenetre 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /*private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)  //à Aurelien: cette fonction a pas l'âir d'âtre utilisée...
-        {
-            // V1 : gestion avec evts classiques
-            //infoLabel.Content = "Pas d'info";
-            //if (selectedVisual != null)
-            //    selectedVisual.StrokeThickness = 0;
-            //selectedVisual = null;
-
-            // V2 : gestion avec Binding
-            // on cache(enlève) le rectangle de selection 
-            // la réf sur la tuile est mise à null
-            selectionRectangle.Tag = null;
-            selectionRectangle.Visibility = System.Windows.Visibility.Collapsed;
-        }*/
-
-        /// <summary>
         /// Délégué : réaction à l'evt : clic sur le bouton "prochain tour"
         /// </summary>
         /// <param name="sender"> le bouton "tour suivant" </param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e) //à Noel : Celle la non plus  :P
-        {
-            // création d'un thread pour lancer le calcul du tour suivant sans que cela soit bloquant pour l'IHM
-            Task.Factory.StartNew(() =>
-            {
-
-
-                // engine.NextTurn(); // calcul du prochain tour
-                // appel de méthodes dand un autre thread : le thread principal (de l'IHM) : 
-                this.Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    updateUnitUI();
-
-                    // V1 : gestion avec evts classiques
-                    //int column = Grid.GetColumn(selectedVisual);
-                    //int row = Grid.GetRow(selectedVisual);
-                    //var tile = selectedVisual.Tag as ITile;
-                    //int iron = tile.Iron;
-                    //infoLabel.Content = String.Format("[{0:00} - {1:00}] {2} Fer : {3}", column, row, tile, iron);            
-
-                    // V2 : gestion avec Binding
-                    // On "touche" au rectangle de selection pour provoquer un rafraichissemnt via le Binding
-                    var selected = selectionRectangle.Tag;
-                    selectionRectangle.Tag = null;
-                    selectionRectangle.Tag = selected;
-                }));
-            });
-
-        }
-
         private void Button_Fin_de_Tour(object sender, RoutedEventArgs e)
         {
             Boolean finDeLaPartie = MaPartie.nextRound();
@@ -606,6 +653,9 @@ namespace ApplicationSW
             {
                 MessageBox.Show("La Partie est finie !");
                 MessageBox.Show(MaPartie.evaluerFinDePartie());
+                MainWindow win1 = new MainWindow();
+                win1.Show();
+                this.Close();
             }
             else
             {
@@ -620,20 +670,62 @@ namespace ApplicationSW
             }
         }
 
+
+        /// <summary>
+        /// Délégué : réaction à l'evt : clic sur le bouton "Sauvegarde"
+        /// </summary>
+        /// <param name="sender"> le bouton "tour suivant" </param>
+        /// <param name="e"></param>
         private void Button_sauvegarde(object sender, RoutedEventArgs e)
         {
-            SaveGameData.WriteXML(MaPartie,nbRectangles);
+            SaveGameData.WriteXML(MaPartie, nbRectangles);
             //SaveGameData.WriteXML(nbRectangles);
-             /* A noel : chargement d'une partie : 
-            Partie a = XMLWrite.ReadXML();
-            MessageBox.Show(a.pvMaxUnite.ToString());*/
+            /* A noel : chargement d'une partie : 
+           Partie a = XMLWrite.ReadXML();
+           MessageBox.Show(a.pvMaxUnite.ToString());*/
         }
 
+        /// <summary>
+        /// Délégué : réaction à l'evt : clic sur le bouton "Faire une nouvelle partie"
+        /// </summary>
+        /// <param name="sender"> le bouton "tour suivant" </param>
+        /// <param name="e"></param>
         private void Button_New_Game(object sender, RoutedEventArgs e)
         {
             Window1 win1 = new Window1();
             win1.Show();
             this.Close();
+        }
+
+
+        /// <summary>
+        /// Délégué : réaction à l'evt : Sélection changer dans la combobox permettant de choisir une unité
+        /// </summary>
+        /// <param name="sender"> le bouton "tour suivant" </param>
+        /// <param name="e"></param>
+        private void unite_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            // ... Set SelectedItem as Window Title.
+            int column = Grid.GetColumn(comboBox);
+            int row = Grid.GetRow(comboBox);
+            traitement(column, row, comboBox.SelectedIndex);
+        }
+
+
+        /// <summary>
+        /// Délégué : réaction à l'evt : fermeture de la combobox
+        /// </summary>
+        /// <param name="sender"> le bouton "tour suivant" </param>
+        /// <param name="e"></param>
+        private void mouse_leave(object sender, MouseButtonEventArgs e)
+        {
+
+            var comboBox = sender as ComboBox;
+            // ... Set SelectedItem as Window Title.
+            int column = Grid.GetColumn(comboBox);
+            int row = Grid.GetRow(comboBox);
+            traitement(column, row, comboBox.SelectedIndex);
         }
 
     }

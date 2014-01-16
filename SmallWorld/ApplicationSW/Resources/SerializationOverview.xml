@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <partie>
+    <pvMaxUnite>2</pvMaxUnite>
+    <strat xsi:type="CarteDemo" />
+    <LaCarte>
+      <ListeDesCases>
+        <Case xsi:type="Desert">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>DESERT</type>
+        </Case>
+        <Case xsi:type="Eau">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>EAU</type>
+        </Case>
+        <Case xsi:type="Foret">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>FORET</type>
+        </Case>
+        <Case xsi:type="Foret">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>FORET</type>
+        </Case>
+        <Case xsi:type="Plaine">
+          <UnitsOnCase>
+            <UniteDeBase xsi:type="GuerrierGaulois">
+              <att>2</att>
+              <def>1</def>
+              <pv>5</pv>
+              <row>0</row>
+              <column>4</column>
+              <indexEllipse>1</indexEllipse>
+              <pourcentagePV>100</pourcentagePV>
+              <tag>0</tag>
+              <ptDeDepl>1</ptDeDepl>
+              <estMort>false</estMort>
+            </UniteDeBase>
+            <UniteDeBase xsi:type="GuerrierGaulois">
+              <att>2</att>
+              <def>1</def>
+              <pv>5</pv>
+              <row>0</row>
+              <column>4</column>
+              <indexEllipse>1</indexEllipse>
+              <pourcentagePV>100</pourcentagePV>
+              <tag>1</tag>
+              <ptDeDepl>1</ptDeDepl>
+              <estMort>false</estMort>
+            </UniteDeBase>
+            <UniteDeBase xsi:type="GuerrierGaulois">
+              <att>2</att>
+              <def>1</def>
+              <pv>5</pv>
+              <row>0</row>
+              <column>4</column>
+              <indexEllipse>1</indexEllipse>
+              <pourcentagePV>100</pourcentagePV>
+              <tag>2</tag>
+              <ptDeDepl>1</ptDeDepl>
+              <estMort>false</estMort>
+            </UniteDeBase>
+            <UniteDeBase xsi:type="GuerrierGaulois">
+              <att>2</att>
+              <def>1</def>
+              <pv>5</pv>
+              <row>0</row>
+              <column>4</column>
+              <indexEllipse>1</indexEllipse>
+              <pourcentagePV>100</pourcentagePV>
+              <tag>3</tag>
+              <ptDeDepl>1</ptDeDepl>
+              <estMort>false</estMort>
+            </UniteDeBase>
+          </UnitsOnCase>
+          <etatOccupation>joueur1</etatOccupation>
+          <type>PLAINE</type>
+        </Case>
+        <Case xsi:type="Foret">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>FORET</type>
+        </Case>
+        <Case xsi:type="Desert">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>DESERT</type>
+        </Case>
+        <Case xsi:type="Desert">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>DESERT</type>
+        </Case>
+        <Case xsi:type="Montagne">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>MONTAGNE</type>
+        </Case>
+        <Case xsi:type="Eau">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>EAU</type>
+        </Case>
+        <Case xsi:type="Montagne">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>MONTAGNE</type>
+        </Case>
+        <Case xsi:type="Montagne">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>MONTAGNE</type>
+        </Case>
+        <Case xsi:type="Eau">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>EAU</type>
+        </Case>
+        <Case xsi:type="Plaine">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>PLAINE</type>
+        </Case>
+        <Case xsi:type="Eau">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>EAU</type>
+        </Case>
+        <Case xsi:type="Plaine">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>PLAINE</type>
+        </Case>
+        <Case xsi:type="Eau">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>EAU</type>
+        </Case>
+        <Case xsi:type="Desert">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>DESERT</type>
+        </Case>
+        <Case xsi:type="Desert">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>DESERT</type>
+        </Case>
+        <Case xsi:type="Eau">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>EAU</type>
+        </Case>
+        <Case xsi:type="Montagne">
+          <UnitsOnCase>
+            <UniteDeBase xsi:type="GuerrierNains">
+              <att>2</att>
+              <def>1</def>
+              <pv>5</pv>
+              <row>4</row>
+              <column>0</column>
+              <indexEllipse>2</indexEllipse>
+              <pourcentagePV>100</pourcentagePV>
+              <tag>4</tag>
+              <ptDeDepl>1</ptDeDepl>
+              <estMort>false</estMort>
+            </UniteDeBase>
+            <UniteDeBase xsi:type="GuerrierNains">
+              <att>2</att>
+              <def>1</def>
+              <pv>5</pv>
+              <row>4</row>
+              <column>0</column>
+              <indexEllipse>2</indexEllipse>
+              <pourcentagePV>100</pourcentagePV>
+              <tag>5</tag>
+              <ptDeDepl>1</ptDeDepl>
+              <estMort>false</estMort>
+            </UniteDeBase>
+            <UniteDeBase xsi:type="GuerrierNains">
+              <att>2</att>
+              <def>1</def>
+              <pv>5</pv>
+              <row>4</row>
+              <column>0</column>
+              <indexEllipse>2</indexEllipse>
+              <pourcentagePV>100</pourcentagePV>
+              <tag>6</tag>
+              <ptDeDepl>1</ptDeDepl>
+              <estMort>false</estMort>
+            </UniteDeBase>
+            <UniteDeBase xsi:type="GuerrierNains">
+              <att>2</att>
+              <def>1</def>
+              <pv>5</pv>
+              <row>4</row>
+              <column>0</column>
+              <indexEllipse>2</indexEllipse>
+              <pourcentagePV>100</pourcentagePV>
+              <tag>7</tag>
+              <ptDeDepl>1</ptDeDepl>
+              <estMort>false</estMort>
+            </UniteDeBase>
+          </UnitsOnCase>
+          <etatOccupation>joueur2</etatOccupation>
+          <type>MONTAGNE</type>
+        </Case>
+        <Case xsi:type="Eau">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>EAU</type>
+        </Case>
+        <Case xsi:type="Montagne">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>MONTAGNE</type>
+        </Case>
+        <Case xsi:type="Eau">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>EAU</type>
+        </Case>
+        <Case xsi:type="Montagne">
+          <UnitsOnCase />
+          <etatOccupation>libre</etatOccupation>
+          <type>MONTAGNE</type>
+        </Case>
+      </ListeDesCases>
+      <longueurCote>5</longueurCote>
+    </LaCarte>
+    <joueur1>
+      <_peuple xsi:type="Gaulois">
+        <_unites>
+          <UniteDeBase xsi:type="GuerrierGaulois">
+            <att>2</att>
+            <def>1</def>
+            <pv>5</pv>
+            <row>0</row>
+            <column>4</column>
+            <indexEllipse>1</indexEllipse>
+            <pourcentagePV>100</pourcentagePV>
+            <tag>0</tag>
+            <ptDeDepl>1</ptDeDepl>
+            <estMort>false</estMort>
+          </UniteDeBase>
+          <UniteDeBase xsi:type="GuerrierGaulois">
+            <att>2</att>
+            <def>1</def>
+            <pv>5</pv>
+            <row>0</row>
+            <column>4</column>
+            <indexEllipse>1</indexEllipse>
+            <pourcentagePV>100</pourcentagePV>
+            <tag>1</tag>
+            <ptDeDepl>1</ptDeDepl>
+            <estMort>false</estMort>
+          </UniteDeBase>
+          <UniteDeBase xsi:type="GuerrierGaulois">
+            <att>2</att>
+            <def>1</def>
+            <pv>5</pv>
+            <row>0</row>
+            <column>4</column>
+            <indexEllipse>1</indexEllipse>
+            <pourcentagePV>100</pourcentagePV>
+            <tag>2</tag>
+            <ptDeDepl>1</ptDeDepl>
+            <estMort>false</estMort>
+          </UniteDeBase>
+          <UniteDeBase xsi:type="GuerrierGaulois">
+            <att>2</att>
+            <def>1</def>
+            <pv>5</pv>
+            <row>0</row>
+            <column>4</column>
+            <indexEllipse>1</indexEllipse>
+            <pourcentagePV>100</pourcentagePV>
+            <tag>3</tag>
+            <ptDeDepl>1</ptDeDepl>
+            <estMort>false</estMort>
+          </UniteDeBase>
+        </_unites>
+        <nomPeuple>GAULOIS</nomPeuple>
+      </_peuple>
+      <x0>4</x0>
+      <y0>0</y0>
+    </joueur1>
+    <joueur2>
+      <_peuple xsi:type="Nains">
+        <_unites>
+          <UniteDeBase xsi:type="GuerrierNains">
+            <att>2</att>
+            <def>1</def>
+            <pv>5</pv>
+            <row>4</row>
+            <column>0</column>
+            <indexEllipse>2</indexEllipse>
+            <pourcentagePV>100</pourcentagePV>
+            <tag>4</tag>
+            <ptDeDepl>1</ptDeDepl>
+            <estMort>false</estMort>
+          </UniteDeBase>
+          <UniteDeBase xsi:type="GuerrierNains">
+            <att>2</att>
+            <def>1</def>
+            <pv>5</pv>
+            <row>4</row>
+            <column>0</column>
+            <indexEllipse>2</indexEllipse>
+            <pourcentagePV>100</pourcentagePV>
+            <tag>5</tag>
+            <ptDeDepl>1</ptDeDepl>
+            <estMort>false</estMort>
+          </UniteDeBase>
+          <UniteDeBase xsi:type="GuerrierNains">
+            <att>2</att>
+            <def>1</def>
+            <pv>5</pv>
+            <row>4</row>
+            <column>0</column>
+            <indexEllipse>2</indexEllipse>
+            <pourcentagePV>100</pourcentagePV>
+            <tag>6</tag>
+            <ptDeDepl>1</ptDeDepl>
+            <estMort>false</estMort>
+          </UniteDeBase>
+          <UniteDeBase xsi:type="GuerrierNains">
+            <att>2</att>
+            <def>1</def>
+            <pv>5</pv>
+            <row>4</row>
+            <column>0</column>
+            <indexEllipse>2</indexEllipse>
+            <pourcentagePV>100</pourcentagePV>
+            <tag>7</tag>
+            <ptDeDepl>1</ptDeDepl>
+            <estMort>false</estMort>
+          </UniteDeBase>
+        </_unites>
+        <nomPeuple>NAINS</nomPeuple>
+      </_peuple>
+      <x0>0</x0>
+      <y0>4</y0>
+    </joueur2>
+    <Joueur1ALaMain>true</Joueur1ALaMain>
+    <selectOp>
+      <xdepart>0</xdepart>
+      <ydepart>0</ydepart>
+      <xdarrivee>0</xdarrivee>
+      <ydarrivee>0</ydarrivee>
+      <etat>RienEstSelectionne</etat>
+    </selectOp>
+    <nbToursRestants>5</nbToursRestants>
+    <restoreSauvegarde>false</restoreSauvegarde>
+  </partie>
+  <rectangle>26</rectangle>
+</Data>

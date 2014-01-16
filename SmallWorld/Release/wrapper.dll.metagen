@@ -1,0 +1,19 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly wrapper, Version=0.0.*, Culture=Langue indifférente (Pays indifférent): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class Wrapper.WrapperAlgo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    remplirCarte(): PrivateScope, Public, HideBySig
+    positionJoueur(Int32*, Int32*, Int32*, Int32*): PrivateScope, Public, HideBySig
+    positionJoueurParTaille(Int32, Int32*, Int32*, Int32*, Int32*): PrivateScope, Public, Static, HideBySig
+    getTypeCase(Int32, Int32): PrivateScope, Public, HideBySig
+    getCarte(): PrivateScope, Public, HideBySig
+    isAdjacentCase(Int32, Int32, Int32, Int32): PrivateScope, Public, Static, HideBySig
+    nbCombat(Int32, Int32): PrivateScope, Public, Static, HideBySig
+    LattaquantPerdUnPV(Int32, Int32, Int32, Int32): PrivateScope, Public, Static, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

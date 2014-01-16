@@ -22,7 +22,7 @@ namespace SmallWorld
             att = 2;
             def = 1;
             ptDeDepl = 1;
-            pv = 2;
+            pv = 5;
             row = 0;
             column = 0;
             pourcentagePV = 100;
@@ -129,8 +129,14 @@ namespace SmallWorld
             return estMort;
         }
 
-        public void setPtDeDepl(int i){
+        public void setPtDeDepl(int i)
+        {
             ptDeDepl = i;
+        }
+
+        public float getptDeDepl()
+        {
+            return ptDeDepl;
         }
 
     }
